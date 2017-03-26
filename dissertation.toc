@@ -1,23 +1,22 @@
 \contentsline {chapter}{\numberline {1}Introduction}{4}{chapter.1}
-\contentsline {section}{\numberline {1.1}Motivation}{4}{section.1.1}
-\contentsline {section}{\numberline {1.2}Actual Problem Overview}{4}{section.1.2}
 \contentsline {chapter}{\numberline {2}Preparation}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Starting Point}{5}{section.2.1}
-\contentsline {section}{\numberline {2.2}Preliminary Work}{5}{section.2.2}
 \contentsline {chapter}{\numberline {3}Implementation}{6}{chapter.3}
-\contentsline {section}{\numberline {3.1}Verbatim text}{6}{section.3.1}
-\contentsline {section}{\numberline {3.2}Tables}{6}{section.3.2}
-\contentsline {section}{\numberline {3.3}Simple diagrams}{7}{section.3.3}
-\contentsline {section}{\numberline {3.4}Adding more complicated graphics}{7}{section.3.4}
-\contentsline {chapter}{\numberline {4}Evaluation}{10}{chapter.4}
-\contentsline {section}{\numberline {4.1}Printing and binding}{10}{section.4.1}
-\contentsline {section}{\numberline {4.2}Further information}{10}{section.4.2}
-\contentsline {chapter}{\numberline {5}Conclusion}{11}{chapter.5}
-\contentsline {chapter}{Bibliography}{11}{chapter.5}
-\contentsline {chapter}{\numberline {A}Latex source}{12}{appendix.A}
-\contentsline {section}{\numberline {A.1}diss.tex}{12}{section.A.1}
-\contentsline {section}{\numberline {A.2}proposal.tex}{12}{section.A.2}
-\contentsline {chapter}{\numberline {B}Makefile}{15}{appendix.B}
-\contentsline {section}{\numberline {B.1}makefile}{15}{section.B.1}
-\contentsline {section}{\numberline {B.2}refs.bib}{15}{section.B.2}
-\contentsline {chapter}{\numberline {C}Project Proposal}{16}{appendix.C}
+\contentsline {section}{\numberline {3.1}Data Preprocessing}{6}{section.3.1}
+\contentsline {section}{\numberline {3.2}Route Detection Algorithm}{7}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Why an Algorithm is Needed}{7}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}$FollowsPath$ Predicate Definition}{8}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}$FollowsPath$ Predicate Implementation}{9}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Arrival Time Prediction}{10}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Basic Idea}{10}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Optimisation Nr. 1}{10}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Optimisation Nr. 2}{10}{subsection.3.3.3}
+\contentsline {section}{\numberline {3.4}Real-time System}{11}{section.3.4}
+\contentsline {chapter}{\numberline {4}Evaluation}{12}{chapter.4}
+\contentsline {section}{\numberline {4.1}Overview}{12}{section.4.1}
+\contentsline {section}{\numberline {4.2}Route Detection Evaluation}{13}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Sensitivity Score}{13}{subsection.4.2.1}
+\contentsline {chapter}{\numberline {5}Conclusion}{15}{chapter.5}
+\contentsline {chapter}{Bibliography}{15}{chapter.5}
+\contentsline {chapter}{\numberline {A}Links}{16}{appendix.A}
+\contentsline {chapter}{\numberline {B}Detailed Evaluation Results}{17}{appendix.B}
+\contentsline {chapter}{\numberline {C}Project Proposal}{18}{appendix.C}

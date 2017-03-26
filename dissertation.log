@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.3)  20 MAR 2017 11:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.3)  25 MAR 2017 17:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**dissertation.tex clear
+**dissertation.tex
 (./dissertation.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 3 language(s) loaded.
@@ -24,6 +24,163 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen104
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks15
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2015/03/04 v2.20.2
+\thm@style=\toks19
+\thm@bodyfont=\toks20
+\thm@headfont=\toks21
+\thm@notefont=\toks22
+\thm@headpunct=\toks23
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks24
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen112
+\extrarowheight=\dimen113
+\NC@list=\toks25
+\extratabsurround=\skip49
+\backup@length=\skip50
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/01/03 v1.1b Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 143.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count100
+))
+(./docmute.sty
+Package: docmute 2012/03/22 v1.4 Input stand-alone documents
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks26
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count101
+\Gm@cntv=\count102
+\c@Gm@tempcnt=\count103
+\Gm@bindingoffset=\dimen114
+\Gm@wd@mp=\dimen115
+\Gm@odd@mp=\dimen116
+\Gm@even@mp=\dimen117
+\Gm@layoutwidth=\dimen118
+\Gm@layoutheight=\dimen119
+\Gm@layouthoffset=\dimen120
+\Gm@layoutvoffset=\dimen121
+\Gm@dimlist=\toks27
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 95.
+)
+\Gin@req@height=\dimen122
+\Gin@req@width=\dimen123
+)
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
@@ -34,15 +191,13 @@ Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
 Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
 Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
 Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
@@ -68,31 +223,29 @@ Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
 Package: xcolor-patch 2011/01/30 xcolor patch
 Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
+Package atveryend Info: \docmute@enddocument detected (standard20110627).
 Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks14
-)
-(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+
+
+Package auxhook Warning: Cannot patch \document,
+(auxhook)                using \AtBeginDocument instead.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen103
-\Hy@linkcounter=\count88
-\Hy@pagecounter=\count89
+\@linkdim=\dimen124
+\Hy@linkcounter=\count104
+\Hy@pagecounter=\count105
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count90
+\Hy@SavedSpaceFactor=\count106
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -104,17 +257,17 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count91
+\c@Hy@tempcnt=\count107
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip10
+\Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen104
-\Fld@menulength=\count92
-\Field@Width=\dimen105
-\Fld@charsize=\dimen106
+\XeTeXLinkMargin=\dimen125
+\Fld@menulength=\count108
+\Field@Width=\dimen126
+\Fld@charsize=\dimen127
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -124,76 +277,24 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count93
-\c@Item=\count94
-\c@Hfootnote=\count95
+\Hy@abspage=\count109
+\c@Item=\count110
+\c@Hfootnote=\count111
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\Fld@listcount=\count96
-\c@bookmark@seq@number=\count97
+\Fld@listcount=\count112
+\c@bookmark@seq@number=\count113
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip43
-)
-(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count98
-\Gm@cntv=\count99
-\c@Gm@tempcnt=\count100
-\Gm@bindingoffset=\dimen107
-\Gm@wd@mp=\dimen108
-\Gm@odd@mp=\dimen109
-\Gm@even@mp=\dimen110
-\Gm@layoutwidth=\dimen111
-\Gm@layoutheight=\dimen112
-\Gm@layouthoffset=\dimen113
-\Gm@layoutvoffset=\dimen114
-\Gm@dimlist=\toks15
-)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2016/01/03 v1.1b Standard LaTeX Color (DPC)
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package color Info: Driver file: pdftex.def on input line 143.
-
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-\Gread@gobject=\count101
-))
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
-)
-Package graphics Info: Driver file: pdftex.def on input line 95.
-)
-\Gin@req@height=\dimen115
-\Gin@req@width=\dimen116
-)
-(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks16
-\verbatim@line=\toks17
-\verbatim@in@stream=\read1
-) (./docmute.sty
-Package: docmute 2012/03/22 v1.4 Input stand-alone documents
+\Hy@SectionHShift=\skip51
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2015/09/18 v0.5d Insert pages of external PDF documents (AM)
@@ -203,30 +304,36 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count102
-\calc@Bcount=\count103
-\calc@Adimen=\dimen117
-\calc@Bdimen=\dimen118
-\calc@Askip=\skip44
-\calc@Bskip=\skip45
+\calc@Acount=\count114
+\calc@Bcount=\count115
+\calc@Adimen=\dimen128
+\calc@Bdimen=\dimen129
+\calc@Askip=\skip52
+\calc@Bskip=\skip53
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count104
-\calc@Cskip=\skip46
+\calc@Ccount=\count116
+\calc@Cskip=\skip54
 )
 (/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
 )
-\AM@pagewidth=\dimen119
-\AM@pageheight=\dimen120
+\AM@pagewidth=\dimen130
+\AM@pageheight=\dimen131
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2015/09/18 v0.5d Pdfpages driver for pdfTeX (AM)
 )
-\AM@pagebox=\box26
-\AM@toc@title=\toks18
-\c@AM@survey=\count105
-\AM@templatesizebox=\box27
+\AM@pagebox=\box28
+\AM@toc@title=\toks28
+\c@AM@survey=\count117
+\AM@templatesizebox=\box29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks29
+\verbatim@line=\toks30
+\verbatim@in@stream=\read1
 )
 (./dissertation.aux)
 \openout1 = `dissertation.aux'.
@@ -245,26 +352,21 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
-\AtBeginShipoutBox=\box28
-Package hyperref Info: Link coloring OFF on input line 25.
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count118
+\scratchdimen=\dimen132
+\scratchbox=\box30
+\nofMPsegments=\count119
+\nofMParguments=\count120
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count121
+\MPscratchDim=\dimen133
+\MPnumerator=\count122
+\makeMPintoPDFobject=\count123
+\everyMPtoPDFconversion=\toks32
 )
-\c@section@level=\count106
-)
-LaTeX Info: Redefining \ref on input line 25.
-LaTeX Info: Redefining \pageref on input line 25.
-LaTeX Info: Redefining \nameref on input line 25.
-
-(./dissertation.out) (./dissertation.out)
-\@outlinefile=\write3
-\openout3 = `dissertation.out'.
-
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -299,20 +401,7 @@ LaTeX Info: Redefining \nameref on input line 25.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
-\scratchdimen=\dimen121
-\scratchbox=\box29
-\nofMPsegments=\count108
-\nofMParguments=\count109
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count110
-\MPscratchDim=\dimen122
-\MPnumerator=\count111
-\makeMPintoPDFobject=\count112
-\everyMPtoPDFconversion=\toks20
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -327,6 +416,26 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+\AtBeginShipoutBox=\box31
+Package hyperref Info: Link coloring OFF on input line 25.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count124
+)
+LaTeX Info: Redefining \ref on input line 25.
+LaTeX Info: Redefining \pageref on input line 25.
+LaTeX Info: Redefining \nameref on input line 25.
+
+(./dissertation.out) (./dissertation.out)
+\@outlinefile=\write3
+\openout3 = `dissertation.out'.
+
+
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
 
@@ -335,22 +444,21 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 )
-\docmute@nestinglevel=\count113
+\docmute@nestinglevel=\count125
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 57.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 57.
- [2] (./dissertation.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 2.
+LaTeX Font Info:    Try loading font information for U+msa on input line 53.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
+LaTeX Font Info:    Try loading font information for U+msb on input line 53.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [2]
+(./dissertation.toc)
 \tf@toc=\write4
 \openout4 = `dissertation.toc'.
 
@@ -358,19 +466,19 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
 Chapter 1.
-<figs/problem_overview.png, id=140, 1249.66875pt x 660.4675pt>
+<figs/problem_overview.png, id=136, 1249.66875pt x 660.4675pt>
 File: figs/problem_overview.png Graphic file (type png)
 
 <use figs/problem_overview.png>
-Package pdftex.def Info: figs/problem_overview.png used on input line 115.
+Package pdftex.def Info: figs/problem_overview.png used on input line 118.
 (pdftex.def)             Requested size: 512.14963pt x 270.68257pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--119
+Underfull \hbox (badness 10000) in paragraph at lines 120--124
 
  []
 
@@ -378,241 +486,521 @@ Underfull \hbox (badness 10000) in paragraph at lines 118--119
 
  <./figs/problem_overview.png>]
 Chapter 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--142
+
+ []
+
 [5
 
 ]
 Chapter 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 179.
-[6] <figs/cuarms.pdf, id=170, 60.225pt x 72.27pt>
-File: figs/cuarms.pdf Graphic file (type pdf)
- <use figs/cuarms.pdf>
-Package pdftex.def Info: figs/cuarms.pdf used on input line 276.
-(pdftex.def)             Requested size: 60.22484pt x 72.2698pt.
+<figs/starting_data.png, id=151, 841.1425pt x 138.5175pt>
+File: figs/starting_data.png Graphic file (type png)
 
-<figs/diagram.pdf, id=171, 458.71375pt x 336.25626pt>
-File: figs/diagram.pdf Graphic file (type pdf)
- <use figs/diagram.pdf>
-Package pdftex.def Info: figs/diagram.pdf used on input line 289.
-(pdftex.def)             Requested size: 458.71263pt x 336.25543pt.
+<use figs/starting_data.png>
+Package pdftex.def Info: figs/starting_data.png used on input line 158.
+(pdftex.def)             Requested size: 512.14963pt x 84.33913pt.
 
-[7] [8 <./figs/cuarms.pdf>] [9 <./figs/diagram.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 157--159
+
+ []
+
+<figs/entry.png, id=152, 906.38625pt x 19.07124pt>
+File: figs/entry.png Graphic file (type png)
+ <use figs/entry.png>
+Package pdftex.def Info: figs/entry.png used on input line 163.
+(pdftex.def)             Requested size: 512.14963pt x 10.77612pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--171
+
+ []
+
+<figs/converted_format.jpg, id=154, 718.685pt x 238.8925pt>
+File: figs/converted_format.jpg Graphic file (type jpg)
+
+<use figs/converted_format.jpg>
+Package pdftex.def Info: figs/converted_format.jpg used on input line 172.
+(pdftex.def)             Requested size: 512.14963pt x 170.25276pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--177
+
+ []
+
+<figs/route_detector.png, id=156, 490.83376pt x 412.54124pt>
+File: figs/route_detector.png Graphic file (type png)
+
+<use figs/route_detector.png>
+Package pdftex.def Info: figs/route_detector.png used on input line 182.
+(pdftex.def)             Requested size: 392.66753pt x 330.03345pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
+
+ []
+
+[6
+
+ <./figs/starting_data.png> <./figs/entry.png> <./figs/converted_format.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 184--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--194
+
+ []
+
+<figs/labelled_entry.png, id=170, 730.73pt x 21.07875pt>
+File: figs/labelled_entry.png Graphic file (type png)
+
+<use figs/labelled_entry.png>
+Package pdftex.def Info: figs/labelled_entry.png used on input line 195.
+(pdftex.def)             Requested size: 876.87161pt x 25.29434pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--201
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 205.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 205.
+ [7 <./figs/route_detector.png> <./figs/labelled_entry.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 228.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 228.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--232
+
+ []
+
+<figs/follows_path.jpg, id=180, 851.18pt x 505.89pt>
+File: figs/follows_path.jpg Graphic file (type jpg)
+
+<use figs/follows_path.jpg>
+Package pdftex.def Info: figs/follows_path.jpg used on input line 233.
+(pdftex.def)             Requested size: 1021.41087pt x 607.06494pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
+
+ []
+
+[8 <./figs/follows_path.jpg>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 242.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 242.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 244--247
+
+ []
+
+<figs/follows_exactly.jpg, id=187, 956.57375pt x 99.37125pt>
+File: figs/follows_exactly.jpg Graphic file (type jpg)
+
+<use figs/follows_exactly.jpg>
+Package pdftex.def Info: figs/follows_exactly.jpg used on input line 248.
+(pdftex.def)             Requested size: 512.14963pt x 53.20326pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--255
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--278
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 279--282
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 283--286
+
+ []
+
+<figs/follows_roughly.png, id=190, 510.90875pt x 118.4425pt>
+File: figs/follows_roughly.png Graphic file (type png)
+
+<use figs/follows_roughly.png>
+Package pdftex.def Info: figs/follows_roughly.png used on input line 287.
+(pdftex.def)             Requested size: 512.14963pt x 118.73679pt.
+
+Overfull \hbox (5.62294pt too wide) detected at line 311
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--320
+
+ []
+
+[9 <./figs/follows_exactly.jpg> <./figs/follows_roughly.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 330--333
+
+ []
+
+<figs/future_stop.png, id=208, 1464.47125pt x 551.05875pt>
+File: figs/future_stop.png Graphic file (type png)
+
+<use figs/future_stop.png>
+Package pdftex.def Info: figs/future_stop.png used on input line 336.
+(pdftex.def)             Requested size: 512.14963pt x 192.71368pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--337
+
+ []
+
+<figs/recent_trip.png, id=209, 474.77374pt x 214.8025pt>
+File: figs/recent_trip.png Graphic file (type png)
+
+<use figs/recent_trip.png>
+Package pdftex.def Info: figs/recent_trip.png used on input line 356.
+(pdftex.def)             Requested size: 332.33936pt x 150.36072pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--357
+
+ []
+
+<figs/inaccurate_historical.png, id=210, 528.97626pt x 219.82124pt>
+File: figs/inaccurate_historical.png Graphic file (type png)
+
+<use figs/inaccurate_historical.png>
+Package pdftex.def Info: figs/inaccurate_historical.png used on input line 361.
+
+(pdftex.def)             Requested size: 370.28085pt x 153.87381pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
+
+ []
+
+[10 <./figs/future_stop.png> <./figs/recent_trip.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 363--370
+
+ []
+
+[11 <./figs/inaccurate_historical.png>]
 Chapter 4.
-[10
+[12
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 393--396
+
+ []
+
+<figs/full_route.png, id=231, 589.20125pt x 356.33125pt>
+File: figs/full_route.png Graphic file (type png)
+
+<use figs/full_route.png>
+Package pdftex.def Info: figs/full_route.png used on input line 400.
+(pdftex.def)             Requested size: 412.43805pt x 249.43016pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 397--401
+
+ []
+
+<figs/stop1.png, id=232, 584.1825pt x 291.0875pt>
+File: figs/stop1.png Graphic file (type png)
+ <use figs/stop1.png>
+Package pdftex.def Info: figs/stop1.png used on input line 404.
+(pdftex.def)             Requested size: 408.92496pt x 203.75984pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 402--405
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 406--409
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 410--413
+
+ []
+
+[13 <./figs/full_route.png> <./figs/stop1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 416--419
+
+ []
+
+<figs/stop0.png, id=241, 520.94624pt x 336.25626pt>
+File: figs/stop0.png Graphic file (type png)
+ <use figs/stop0.png>
+Package pdftex.def Info: figs/stop0.png used on input line 420.
+(pdftex.def)             Requested size: 364.65988pt x 235.37776pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--424
+
+ []
+
+[14 <./figs/stop0.png>]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--315
+Underfull \hbox (badness 10000) in paragraph at lines 431--434
 
  []
 
 No file dissertation.bbl.
-[11
-
-]
-Appendix A.
-No file diss.tex.
-File: proposal.tex  (verbatim)
-[12
-
-] [13] [14]
-Appendix B.
-No file makefile.txt.
-File: refs.bib  (verbatim)
 [15
 
 ]
+Appendix A.
+[16
+
+]
+Appendix B.
+[17
+
+]
 Appendix C.
-<proposal.pdf, id=227, 614.295pt x 794.97pt>
+<proposal.pdf, id=268, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf>
-Package pdftex.def Info: proposal.pdf used on input line 345.
+Package pdftex.def Info: proposal.pdf used on input line 488.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf>
-Package pdftex.def Info: proposal.pdf used on input line 345.
+Package pdftex.def Info: proposal.pdf used on input line 488.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- <proposal.pdf, id=230, page=1, 614.295pt x 794.97pt>
+ <proposal.pdf, id=271, page=1, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 345.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 488.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 345.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [16
+ [18
 
 ]
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 345.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 345.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 345.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [17 <./proposal.pdf
-
-pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
-source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=257, page=2, 614.295pt x 794.97pt>
-File: proposal.pdf Graphic file (type pdf)
-
-<use proposal.pdf, page 2>
-Package pdftex.def Info: proposal.pdf, page2 used on input line 345.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: proposal.pdf Graphic file (type pdf)
- <use proposal.pdf, page 2>
-Package pdftex.def Info: proposal.pdf, page2 used on input line 345.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: proposal.pdf Graphic file (type pdf)
-
-<use proposal.pdf, page 2>
-Package pdftex.def Info: proposal.pdf, page2 used on input line 345.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [18 <./proposal.pdf
-
-pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
-source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=294, page=3, 614.295pt x 794.97pt>
-File: proposal.pdf Graphic file (type pdf)
-
-<use proposal.pdf, page 3>
-Package pdftex.def Info: proposal.pdf, page3 used on input line 345.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: proposal.pdf Graphic file (type pdf)
- <use proposal.pdf, page 3>
-Package pdftex.def Info: proposal.pdf, page3 used on input line 345.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: proposal.pdf Graphic file (type pdf)
-
-<use proposal.pdf, page 3>
-Package pdftex.def Info: proposal.pdf, page3 used on input line 345.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [19 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=310, page=4, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=299, page=2, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
-<use proposal.pdf, page 4>
-Package pdftex.def Info: proposal.pdf, page4 used on input line 345.
+<use proposal.pdf, page 2>
+Package pdftex.def Info: proposal.pdf, page2 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
- <use proposal.pdf, page 4>
-Package pdftex.def Info: proposal.pdf, page4 used on input line 345.
+ <use proposal.pdf, page 2>
+Package pdftex.def Info: proposal.pdf, page2 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
-<use proposal.pdf, page 4>
-Package pdftex.def Info: proposal.pdf, page4 used on input line 345.
+<use proposal.pdf, page 2>
+Package pdftex.def Info: proposal.pdf, page2 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [20 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=315, page=5, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=336, page=3, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
-<use proposal.pdf, page 5>
-Package pdftex.def Info: proposal.pdf, page5 used on input line 345.
+<use proposal.pdf, page 3>
+Package pdftex.def Info: proposal.pdf, page3 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
- <use proposal.pdf, page 5>
-Package pdftex.def Info: proposal.pdf, page5 used on input line 345.
+ <use proposal.pdf, page 3>
+Package pdftex.def Info: proposal.pdf, page3 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
-<use proposal.pdf, page 5>
-Package pdftex.def Info: proposal.pdf, page5 used on input line 345.
+<use proposal.pdf, page 3>
+Package pdftex.def Info: proposal.pdf, page3 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [21 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=320, page=6, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=351, page=4, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
-<use proposal.pdf, page 6>
-Package pdftex.def Info: proposal.pdf, page6 used on input line 345.
+<use proposal.pdf, page 4>
+Package pdftex.def Info: proposal.pdf, page4 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
- <use proposal.pdf, page 6>
-Package pdftex.def Info: proposal.pdf, page6 used on input line 345.
+ <use proposal.pdf, page 4>
+Package pdftex.def Info: proposal.pdf, page4 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
-<use proposal.pdf, page 6>
-Package pdftex.def Info: proposal.pdf, page6 used on input line 345.
+<use proposal.pdf, page 4>
+Package pdftex.def Info: proposal.pdf, page4 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [22 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=325, page=7, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=356, page=5, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
-<use proposal.pdf, page 7>
-Package pdftex.def Info: proposal.pdf, page7 used on input line 345.
+<use proposal.pdf, page 5>
+Package pdftex.def Info: proposal.pdf, page5 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
- <use proposal.pdf, page 7>
-Package pdftex.def Info: proposal.pdf, page7 used on input line 345.
+ <use proposal.pdf, page 5>
+Package pdftex.def Info: proposal.pdf, page5 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
-<use proposal.pdf, page 7>
-Package pdftex.def Info: proposal.pdf, page7 used on input line 345.
+<use proposal.pdf, page 5>
+Package pdftex.def Info: proposal.pdf, page5 used on input line 488.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [23 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
+>] <proposal.pdf, id=361, page=6, 614.295pt x 794.97pt>
+File: proposal.pdf Graphic file (type pdf)
+
+<use proposal.pdf, page 6>
+Package pdftex.def Info: proposal.pdf, page6 used on input line 488.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: proposal.pdf Graphic file (type pdf)
+ <use proposal.pdf, page 6>
+Package pdftex.def Info: proposal.pdf, page6 used on input line 488.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: proposal.pdf Graphic file (type pdf)
+
+<use proposal.pdf, page 6>
+Package pdftex.def Info: proposal.pdf, page6 used on input line 488.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [24 <./proposal.pdf
+
+pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
+source which is no dict (key 'ProcSets', type <array>); ignored.
+>] <proposal.pdf, id=366, page=7, 614.295pt x 794.97pt>
+File: proposal.pdf Graphic file (type pdf)
+
+<use proposal.pdf, page 7>
+Package pdftex.def Info: proposal.pdf, page7 used on input line 488.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: proposal.pdf Graphic file (type pdf)
+ <use proposal.pdf, page 7>
+Package pdftex.def Info: proposal.pdf, page7 used on input line 488.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: proposal.pdf Graphic file (type pdf)
+
+<use proposal.pdf, page 7>
+Package pdftex.def Info: proposal.pdf, page7 used on input line 488.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [25 <./proposal.pdf
+
+pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
+source which is no dict (key 'ProcSets', type <array>); ignored.
 >]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 347.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 347.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 490.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 490.
  (./dissertation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 347.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 347.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 490.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 490.
 Package rerunfilecheck Info: File `dissertation.out' has not changed.
-(rerunfilecheck)             Checksum: A508F77BDEEC29CC689B9B59BCCB0EC4;1289.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 347.
+(rerunfilecheck)             Checksum: E21EC05DD26B336F53A13C878D246D48;1368.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 490.
  ) 
 Here is how much of TeX's memory you used:
- 6470 strings out of 494953
- 96402 string characters out of 6180977
- 190108 words of memory out of 5000000
- 9633 multiletter control sequences out of 15000+600000
- 10878 words of font info for 39 fonts, out of 8000000 for 9000
+ 7531 strings out of 494953
+ 109764 string characters out of 6180977
+ 204891 words of memory out of 5000000
+ 10618 multiletter control sequences out of 15000+600000
+ 14130 words of font info for 55 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 40i,18n,46p,281b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,18n,46p,274b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfon
-t/lcircle1.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxf
-ont/line10.pfb>
-Output written on dissertation.pdf (23 pages, 2265155 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on dissertation.pdf (25 pages, 6664826 bytes).
 PDF statistics:
- 385 PDF objects out of 1000 (max. 8388607)
- 308 compressed objects within 4 object streams
- 58 named destinations out of 1000 (max. 500000)
- 250 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 447 PDF objects out of 1000 (max. 8388607)
+ 339 compressed objects within 4 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 302 words of extra memory for PDF output out of 10000 (max. 10000000)
 
