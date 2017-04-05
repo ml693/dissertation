@@ -12,11 +12,16 @@
 \contentsline {subsection}{\numberline {3.3.3}Optimisation Nr. 2}{10}{subsection.3.3.3}
 \contentsline {section}{\numberline {3.4}Real-time System}{11}{section.3.4}
 \contentsline {chapter}{\numberline {4}Evaluation}{12}{chapter.4}
-\contentsline {section}{\numberline {4.1}Overview}{12}{section.4.1}
-\contentsline {section}{\numberline {4.2}Route Detection Evaluation}{13}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Sensitivity Score}{13}{subsection.4.2.1}
-\contentsline {chapter}{\numberline {5}Conclusion}{15}{chapter.5}
-\contentsline {chapter}{Bibliography}{15}{chapter.5}
-\contentsline {chapter}{\numberline {A}Links}{16}{appendix.A}
-\contentsline {chapter}{\numberline {B}Detailed Evaluation Results}{17}{appendix.B}
-\contentsline {chapter}{\numberline {C}Project Proposal}{18}{appendix.C}
+\contentsline {section}{\numberline {4.1}Route Detection Evaluation}{12}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Sensitivity Score}{12}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Arrival Time Prediction Evaluation}{14}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Evaluation Metrics Used}{14}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}All Routes Evaluation}{18}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Comparison with the Timetable}{19}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Evaluating Optimisations}{21}{subsection.4.2.4}
+\contentsline {chapter}{\numberline {5}Conclusion}{22}{chapter.5}
+\contentsline {chapter}{Bibliography}{22}{chapter.5}
+\contentsline {chapter}{\numberline {A}Links}{23}{appendix.A}
+\contentsline {chapter}{\numberline {B}Detailed Evaluation Results}{24}{appendix.B}
+\contentsline {section}{\numberline {B.1}Predictions for Madingley Park}{24}{section.B.1}
+\contentsline {chapter}{\numberline {C}Project Proposal}{27}{appendix.C}

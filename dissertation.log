@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.3)  25 MAR 2017 17:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.3)  5 APR 2017 12:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -466,7 +466,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Chapter 1.
-<figs/problem_overview.png, id=136, 1249.66875pt x 660.4675pt>
+<figs/problem_overview.png, id=161, 1249.66875pt x 660.4675pt>
 File: figs/problem_overview.png Graphic file (type png)
 
 <use figs/problem_overview.png>
@@ -495,7 +495,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 137--142
 
 ]
 Chapter 3.
-<figs/starting_data.png, id=151, 841.1425pt x 138.5175pt>
+<figs/starting_data.png, id=177, 841.1425pt x 138.5175pt>
 File: figs/starting_data.png Graphic file (type png)
 
 <use figs/starting_data.png>
@@ -506,7 +506,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--159
 
  []
 
-<figs/entry.png, id=152, 906.38625pt x 19.07124pt>
+<figs/entry.png, id=178, 906.38625pt x 19.07124pt>
 File: figs/entry.png Graphic file (type png)
  <use figs/entry.png>
 Package pdftex.def Info: figs/entry.png used on input line 163.
@@ -526,7 +526,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--171
 
  []
 
-<figs/converted_format.jpg, id=154, 718.685pt x 238.8925pt>
+<figs/converted_format.jpg, id=180, 718.685pt x 238.8925pt>
 File: figs/converted_format.jpg Graphic file (type jpg)
 
 <use figs/converted_format.jpg>
@@ -542,7 +542,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 174--177
 
  []
 
-<figs/route_detector.png, id=156, 490.83376pt x 412.54124pt>
+<figs/route_detector.png, id=182, 490.83376pt x 412.54124pt>
 File: figs/route_detector.png Graphic file (type png)
 
 <use figs/route_detector.png>
@@ -570,7 +570,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 191--194
 
  []
 
-<figs/labelled_entry.png, id=170, 730.73pt x 21.07875pt>
+<figs/labelled_entry.png, id=195, 730.73pt x 21.07875pt>
 File: figs/labelled_entry.png Graphic file (type png)
 
 <use figs/labelled_entry.png>
@@ -611,7 +611,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 230--232
 
  []
 
-<figs/follows_path.jpg, id=180, 851.18pt x 505.89pt>
+<figs/follows_path.jpg, id=205, 851.18pt x 505.89pt>
 File: figs/follows_path.jpg Graphic file (type jpg)
 
 <use figs/follows_path.jpg>
@@ -636,7 +636,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 244--247
 
  []
 
-<figs/follows_exactly.jpg, id=187, 956.57375pt x 99.37125pt>
+<figs/follows_exactly.jpg, id=212, 956.57375pt x 99.37125pt>
 File: figs/follows_exactly.jpg Graphic file (type jpg)
 
 <use figs/follows_exactly.jpg>
@@ -662,7 +662,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 283--286
 
  []
 
-<figs/follows_roughly.png, id=190, 510.90875pt x 118.4425pt>
+<figs/follows_roughly.png, id=215, 510.90875pt x 118.4425pt>
 File: figs/follows_roughly.png Graphic file (type png)
 
 <use figs/follows_roughly.png>
@@ -688,7 +688,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 330--333
 
  []
 
-<figs/future_stop.png, id=208, 1464.47125pt x 551.05875pt>
+<figs/future_stop.png, id=233, 1464.47125pt x 551.05875pt>
 File: figs/future_stop.png Graphic file (type png)
 
 <use figs/future_stop.png>
@@ -699,7 +699,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 336--337
 
  []
 
-<figs/recent_trip.png, id=209, 474.77374pt x 214.8025pt>
+<figs/recent_trip.png, id=234, 474.77374pt x 214.8025pt>
 File: figs/recent_trip.png Graphic file (type png)
 
 <use figs/recent_trip.png>
@@ -710,7 +710,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 356--357
 
  []
 
-<figs/inaccurate_historical.png, id=210, 528.97626pt x 219.82124pt>
+<figs/inaccurate_historical.png, id=235, 528.97626pt x 219.82124pt>
 File: figs/inaccurate_historical.png Graphic file (type png)
 
 <use figs/inaccurate_historical.png>
@@ -729,278 +729,395 @@ Underfull \hbox (badness 10000) in paragraph at lines 363--370
 
 [11 <./figs/inaccurate_historical.png>]
 Chapter 4.
-[12
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 393--396
+Underfull \hbox (badness 10000) in paragraph at lines 392--395
 
  []
 
-<figs/full_route.png, id=231, 589.20125pt x 356.33125pt>
+<figs/full_route.png, id=252, 589.20125pt x 356.33125pt>
 File: figs/full_route.png Graphic file (type png)
 
 <use figs/full_route.png>
-Package pdftex.def Info: figs/full_route.png used on input line 400.
+Package pdftex.def Info: figs/full_route.png used on input line 399.
 (pdftex.def)             Requested size: 412.43805pt x 249.43016pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 397--401
+Underfull \hbox (badness 10000) in paragraph at lines 396--400
 
  []
 
-<figs/stop1.png, id=232, 584.1825pt x 291.0875pt>
+<figs/stop1.png, id=253, 584.1825pt x 291.0875pt>
 File: figs/stop1.png Graphic file (type png)
  <use figs/stop1.png>
-Package pdftex.def Info: figs/stop1.png used on input line 404.
+Package pdftex.def Info: figs/stop1.png used on input line 403.
 (pdftex.def)             Requested size: 408.92496pt x 203.75984pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 402--405
+Underfull \hbox (badness 10000) in paragraph at lines 401--404
+
+ []
+
+[12
+
+ <./figs/full_route.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 405--408
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--409
+Underfull \hbox (badness 10000) in paragraph at lines 409--412
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--413
+Underfull \hbox (badness 10000) in paragraph at lines 413--416
 
  []
 
-[13 <./figs/full_route.png> <./figs/stop1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 416--419
-
- []
-
-<figs/stop0.png, id=241, 520.94624pt x 336.25626pt>
+<figs/stop0.png, id=260, 520.94624pt x 336.25626pt>
 File: figs/stop0.png Graphic file (type png)
  <use figs/stop0.png>
-Package pdftex.def Info: figs/stop0.png used on input line 420.
+Package pdftex.def Info: figs/stop0.png used on input line 417.
 (pdftex.def)             Requested size: 364.65988pt x 235.37776pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 420--421
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--424
+Underfull \hbox (badness 10000) in paragraph at lines 419--421
 
  []
 
-[14 <./figs/stop0.png>]
+[13 <./figs/stop1.png> <./figs/stop0.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 431--436
+
+ []
+
+<figs/cambridge_route.png, id=269, 554.07pt x 435.6275pt>
+File: figs/cambridge_route.png Graphic file (type png)
+
+<use figs/cambridge_route.png>
+Package pdftex.def Info: figs/cambridge_route.png used on input line 437.
+(pdftex.def)             Requested size: 512.14963pt x 402.66995pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--438
+
+ []
+
+[14 <./figs/cambridge_route.png>]
+<figs/scatter_plot.png, id=277, 1229.59375pt x 560.0925pt>
+File: figs/scatter_plot.png Graphic file (type png)
+
+<use figs/scatter_plot.png>
+Package pdftex.def Info: figs/scatter_plot.png used on input line 476.
+(pdftex.def)             Requested size: 512.14963pt x 233.28868pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
+
+ []
+
+<figs/unusual_pattern.png, id=281, 663.47874pt x 608.2725pt>
+File: figs/unusual_pattern.png Graphic file (type png)
+
+<use figs/unusual_pattern.png>
+Package pdftex.def Info: figs/unusual_pattern.png used on input line 506.
+(pdftex.def)             Requested size: 398.0903pt x 364.96632pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
+
+ []
+
+[15 <./figs/scatter_plot.png>]
+<figs/table_of_times.png, id=291, 677.53125pt x 332.24126pt>
+File: figs/table_of_times.png Graphic file (type png)
+
+<use figs/table_of_times.png>
+Package pdftex.def Info: figs/table_of_times.png used on input line 547.
+(pdftex.def)             Requested size: 512.14963pt x 251.15239pt.
+
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 547--548
+[][] 
+ []
+
+[16 <./figs/unusual_pattern.png>] [17 <./figs/table_of_times.png>] [18]
+<figs/vilnius_route.png, id=308, 616.3025pt x 314.17375pt>
+File: figs/vilnius_route.png Graphic file (type png)
+
+<use figs/vilnius_route.png>
+Package pdftex.def Info: figs/vilnius_route.png used on input line 580.
+(pdftex.def)             Requested size: 512.14963pt x 261.09972pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 580--581
+
+ []
+
+<figs/table_of_vilnius.png, id=309, 737.75626pt x 574.145pt>
+File: figs/table_of_vilnius.png Graphic file (type png)
+
+<use figs/table_of_vilnius.png>
+Package pdftex.def Info: figs/table_of_vilnius.png used on input line 582.
+(pdftex.def)             Requested size: 512.14963pt x 398.56969pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 584--593
+
+ []
+
+[19 <./figs/vilnius_route.png> <./figs/table_of_vilnius.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 594--596
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 607--609
+
+ []
+
+<figs/madingley.png, id=325, 871.255pt x 456.70625pt>
+File: figs/madingley.png Graphic file (type png)
+ <use figs/madingley.png>
+Package pdftex.def Info: figs/madingley.png used on input line 610.
+(pdftex.def)             Requested size: 512.14963pt x 268.46478pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 610--611
+
+ []
+
+[21 <./figs/madingley.png>]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--434
+Underfull \hbox (badness 10000) in paragraph at lines 633--636
 
  []
 
 No file dissertation.bbl.
-[15
+[22
 
 ]
 Appendix A.
-[16
+[23
 
 ]
 Appendix B.
-[17
+
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 692--723
+
+ []
+
+[24
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 726--759
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 760--793
+
+ []
+
+[25] [26]
 Appendix C.
-<proposal.pdf, id=268, 614.295pt x 794.97pt>
+<proposal.pdf, id=363, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf>
-Package pdftex.def Info: proposal.pdf used on input line 488.
+Package pdftex.def Info: proposal.pdf used on input line 798.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf>
-Package pdftex.def Info: proposal.pdf used on input line 488.
+Package pdftex.def Info: proposal.pdf used on input line 798.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- <proposal.pdf, id=271, page=1, 614.295pt x 794.97pt>
+ <proposal.pdf, id=366, page=1, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 798.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [18
+ [27
 
 ]
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [19 <./proposal.pdf
+ [28 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=299, page=2, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=393, page=2, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 2>
-Package pdftex.def Info: proposal.pdf, page2 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page2 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 2>
-Package pdftex.def Info: proposal.pdf, page2 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page2 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 2>
-Package pdftex.def Info: proposal.pdf, page2 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page2 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [20 <./proposal.pdf
+ [29 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=336, page=3, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=429, page=3, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 3>
-Package pdftex.def Info: proposal.pdf, page3 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page3 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 3>
-Package pdftex.def Info: proposal.pdf, page3 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page3 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 3>
-Package pdftex.def Info: proposal.pdf, page3 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page3 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [21 <./proposal.pdf
+ [30 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=351, page=4, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=444, page=4, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 4>
-Package pdftex.def Info: proposal.pdf, page4 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page4 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 4>
-Package pdftex.def Info: proposal.pdf, page4 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page4 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 4>
-Package pdftex.def Info: proposal.pdf, page4 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page4 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [22 <./proposal.pdf
+ [31 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=356, page=5, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=450, page=5, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 5>
-Package pdftex.def Info: proposal.pdf, page5 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page5 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 5>
-Package pdftex.def Info: proposal.pdf, page5 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page5 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 5>
-Package pdftex.def Info: proposal.pdf, page5 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page5 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [23 <./proposal.pdf
+ [32 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=361, page=6, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=455, page=6, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 6>
-Package pdftex.def Info: proposal.pdf, page6 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page6 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 6>
-Package pdftex.def Info: proposal.pdf, page6 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page6 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 6>
-Package pdftex.def Info: proposal.pdf, page6 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page6 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [24 <./proposal.pdf
+ [33 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=366, page=7, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=460, page=7, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 7>
-Package pdftex.def Info: proposal.pdf, page7 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page7 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 7>
-Package pdftex.def Info: proposal.pdf, page7 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page7 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 7>
-Package pdftex.def Info: proposal.pdf, page7 used on input line 488.
+Package pdftex.def Info: proposal.pdf, page7 used on input line 798.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [25 <./proposal.pdf
+ [34 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
 >]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 490.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 490.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 800.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 800.
  (./dissertation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 490.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 490.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 800.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 800.
 Package rerunfilecheck Info: File `dissertation.out' has not changed.
-(rerunfilecheck)             Checksum: E21EC05DD26B336F53A13C878D246D48;1368.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 490.
+(rerunfilecheck)             Checksum: 71BF9A67F565291075C35E4161FB3954;1785.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 800.
  ) 
 Here is how much of TeX's memory you used:
- 7531 strings out of 494953
- 109764 string characters out of 6180977
+ 7594 strings out of 494953
+ 110975 string characters out of 6180977
  204891 words of memory out of 5000000
- 10618 multiletter control sequences out of 15000+600000
- 14130 words of font info for 55 fonts, out of 8000000 for 9000
+ 10652 multiletter control sequences out of 15000+600000
+ 14438 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 40i,18n,46p,274b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on dissertation.pdf (25 pages, 6664826 bytes).
+ 40i,18n,46p,274b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmtt12.pfb>
+Output written on dissertation.pdf (34 pages, 9729682 bytes).
 PDF statistics:
- 447 PDF objects out of 1000 (max. 8388607)
- 339 compressed objects within 4 object streams
- 70 named destinations out of 1000 (max. 500000)
- 302 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 555 PDF objects out of 1000 (max. 8388607)
+ 420 compressed objects within 5 object streams
+ 91 named destinations out of 1000 (max. 500000)
+ 377 words of extra memory for PDF output out of 10000 (max. 10000000)
 

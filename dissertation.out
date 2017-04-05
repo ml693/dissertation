@@ -12,11 +12,16 @@
 \BOOKMARK [2][-]{subsection.3.3.3}{Optimisation Nr. 2}{section.3.3}% 12
 \BOOKMARK [1][-]{section.3.4}{Real-time System}{chapter.3}% 13
 \BOOKMARK [0][-]{chapter.4}{Evaluation}{}% 14
-\BOOKMARK [1][-]{section.4.1}{Overview}{chapter.4}% 15
-\BOOKMARK [1][-]{section.4.2}{Route Detection Evaluation}{chapter.4}% 16
-\BOOKMARK [2][-]{subsection.4.2.1}{Sensitivity Score}{section.4.2}% 17
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 18
-\BOOKMARK [0][-]{chapter.5}{Bibliography}{}% 19
-\BOOKMARK [0][-]{appendix.A}{Links}{}% 20
-\BOOKMARK [0][-]{appendix.B}{Detailed Evaluation Results}{}% 21
-\BOOKMARK [0][-]{appendix.C}{Project Proposal}{}% 22
+\BOOKMARK [1][-]{section.4.1}{Route Detection Evaluation}{chapter.4}% 15
+\BOOKMARK [2][-]{subsection.4.1.1}{Sensitivity Score}{section.4.1}% 16
+\BOOKMARK [1][-]{section.4.2}{Arrival Time Prediction Evaluation}{chapter.4}% 17
+\BOOKMARK [2][-]{subsection.4.2.1}{Evaluation Metrics Used}{section.4.2}% 18
+\BOOKMARK [2][-]{subsection.4.2.2}{All Routes Evaluation}{section.4.2}% 19
+\BOOKMARK [2][-]{subsection.4.2.3}{Comparison with the Timetable}{section.4.2}% 20
+\BOOKMARK [2][-]{subsection.4.2.4}{Evaluating Optimisations}{section.4.2}% 21
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 22
+\BOOKMARK [0][-]{chapter.5}{Bibliography}{}% 23
+\BOOKMARK [0][-]{appendix.A}{Links}{}% 24
+\BOOKMARK [0][-]{appendix.B}{Detailed Evaluation Results}{}% 25
+\BOOKMARK [1][-]{section.B.1}{Predictions for Madingley Park}{appendix.B}% 26
+\BOOKMARK [0][-]{appendix.C}{Project Proposal}{}% 27

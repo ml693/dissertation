@@ -381,8 +381,7 @@ Optimisations are tested in the evaluation section.
 
 \chapter{Evaluation}
 
-\section{Overview}
-\newpage
+\textcolor{red}{\textbf{Add a few introductory sentences}};
 
 \section{Route Detection Evaluation}
 
@@ -411,8 +410,6 @@ If the \textcolor{blue}{$sub$-$trip$} does \textbf{not} start from the
 first stop, the $FollowsPath$ predicate has $100\%$ success rate 
 for each route. \\
 
-\newpage
-
 If the \textcolor{blue}{$sub$-$trip$} starts from the first stop,
 the success rate drops significantly (and becomes unpredictable) due to 
 the reason illustrated in the following picture: \\
@@ -425,6 +422,211 @@ might become large. In fact, accumulated errors for the first few points (when t
 The conclusion is thus to discard the first few GPS points and start using
 $FollowsPath$ predicate after the bus has moved for a while and is following 
 some route.
+\newpage
+
+\section{Arrival Time Prediction Evaluation}
+
+\subsection{Evaluation Metrics Used}
+
+This evaluation section is the most important. It shows how well the algorithm
+predicts the arrival time. A few evaluation metrics are used repetitively
+throughout the section. Hence, I want to present them. For the presentation I
+will use the example route 1046531-20150531-20150830, which begins outside of
+Cambridge and ends at the Cambridge Railway station: \\
+
+\includegraphics[width=\textwidth]{figs/cambridge_route.png} \\
+
+\begin{enumerate}
+\item[(i)]
+    \textbf{The MAE value}. Suppose I have a set
+    of trips $T$, such that each trip eventually reaches a bus stop of interest. 
+    Suppose for trip $t \in T$ the algorithm predicts the bus arrival time
+    at stop to be $t_{predicted}$, but the bus actually arrives at $t_{actual}$.
+    The absolute prediction error for trip $t$ is
+    $E_t = |t_{actual} - t_{predicted}|$. The \textbf{mean} absolute prediction
+    error for the whole set $T$ is
+
+    \begin{center}
+        $MAE = \frac{\sum\nolimits_{t \in {T}}{E_t}}{|T|}$
+    \end{center}
+
+    For example, suppose I predict when the buses will reach the Railway Station
+    starting from the Central Cambridge stop. I have $558$ trips
+    following this route to test my prediction. For each test trip, I assume
+    only its history up to the Central Cambridge stop is known. I predict
+    the arrival time to the Railway Station. After the prediction is made,
+    I then read the rest of the history and check when the trip has actually
+    arrived at the Railway Station. For this example trip, the resulting
+    $MAE$ value is \textbf{98} sec. This number shows the average error the
+    prediction algorithm makes. One can also use the MAE value to compare
+    2 algorithms. I claim that the prediction algorithm $A$ performs better
+    for some set than the algorithm $B$, if $MAE_A < MAE_B$.
+
+\item[(ii)] \textbf{The scatter plot}. The $MAE$ value gives a first
+   clue how well the algorithm performs. However, just the $MAE$ value
+   alone is misleading. 98 seconds can be either a small or a large
+   error. It depends how far in the future I am predicting. It takes about 10 
+   minutes to reach the Railway Station from the Central Cambridge stop. Thus,
+   98 seconds is an error \textbf{with respect to} the Central Cambridge stop. 
+   The scatter plot formalises this relation:
+
+
+\end{enumerate}
+
+\includegraphics[width=\textwidth]{figs/scatter_plot.png} \\
+
+\begin{itemize}
+
+\item[]
+   The x-axis labels the stop number $i$. For each $i$, I predict when the bus
+   will reach the Railway Station (the last stop) starting from the $i$-th stop.
+   The y-axis labels the absolute prediction error\footnote{Measured in seconds.}.
+   A point $(i, y)$ tells that for some trip the prediction from the $i$-th stop
+   to the last stop has an abolute error equal $y$. The more repeated errors
+   $(i, y)$ I have, the larger point I plot. For completeness,
+   in the diagram I show the MAE value\footnote{Labelled in yellow.} and the 
+   average travel time\footnote{For each trip I calculate the time it actually
+   takes to reach the last stop, then return the mean value.} from the $i$-th stop
+   to the last stop.
+
+   A few things can be observed in this plot:
+   
+\begin{itemize} 
+   
+   \item 
+   Firstly, the $MAE$ value is smaller
+   for each larger index $i$. The less time it takes for a bus to reach the last
+   stop, the more accurate the prediction becomes.
+
+   \item
+   In my case, most prediction errors are smaller than the $MAE$ value,
+   except for a few large errors that make the $MAE$ value increase. The large errors
+   occur due to unusual traffic patterns:
+
+   \includegraphics[scale=0.6]{figs/unusual_pattern.png} \\
+
+    For some bus it took $4$ minutes to pass just a few buildings. Since most
+    historical trips usually pass this segment in a much shorter
+    time\footnote{e.g. 30s}, the predicted arrival time to the bus stop is
+    much smaller than the actual arrival time. Therefore, the large error value 
+    is generated.
+
+    \item
+    The scatter plot shows the absolute prediction errors only, not whether
+    the bus arrived earlier or later than predicted. There is a simple reason for
+    this: the prediction errors are symmetric, due to how my algorithm constructed
+    is. On average, half of the errors are positive, half negative. Thus, it is
+    enough to plot only the absolute errors and not lose any information.
+
+\end{itemize}
+
+All prediction points are shown on one plot. Hence, the scatter plot can be
+used as a representative summary of what the algorithm predicts.
+
+
+\end{itemize}
+
+\begin{enumerate}
+
+\item[(iii)] \textbf{The table of errors}. Traffic is different at a different time of
+the day. I split the day into 4 disjoint time intervals:
+
+\begin{enumerate}
+\item[1.] $8$am--$10$am. The morning rush hour.
+\item[2.] $10$am--$5$pm. The working hours.
+\item[2.] $5$pm--$8$pm. The evening rush hour.
+\item[3.] $8$pm--$8$am. I call all other hours as the 'night' time.
+
+
+
+\end{enumerate}
+
+I evaluate the prediction for each of the time intervals separately. The 
+\textbf{table of errors} shows the aggregated results:
+
+\includegraphics[width=\textwidth]{figs/table_of_times.png}
+
+The table of errors shows the different prediction errors for different
+times of the day. It is useful for those who are interested in a
+particular route and want to check the extent up to which the prediction system 
+can be trusted for that route. For example, suppose I want to take a morning train
+to London. I can look at the morning column of this table and see that on average
+it takes $745$s. to reach the train station from the Central Cambridge. I can
+also see that an algorithm on average predicts the arrival time to the train station
+with an error of $99$s.
+
+Note that the average travel time, as well as the mean absolute
+prediction error values, are larger for the first and third intervals of time.
+Hence, for this route the traffic is more congested and less predictable
+during the rush hours.
+
+\end{enumerate}
+
+\newpage
+
+\subsection{All Routes Evaluation}
+
+\newpage
+
+\subsection{Comparison with the Timetable}
+
+The prediction system is useful if for a particular route\footnote{For variety, I have
+chosen a route from my home city Vilnius in this evaluation section. The route has 18
+stops and I predict the arrival time to the last stop 'Pasaku Parkas' from each of the
+other stops.}
+it is more accurate than the timetable:
+
+
+\includegraphics[width=\textwidth]{figs/vilnius_route.png} \\
+
+\includegraphics[width=\textwidth]{figs/table_of_vilnius.png}
+
+I compare the prediction algorithm performance with the 'performance' of the
+timetable\footnote{Assume the arrival time prediction is what the timetable
+announces. Thus, one can view the timetable as just another prediction 
+algorithm. Then the $MAE$ values for such an algorithm are computed as usual. I compare
+the $MAE$ values of the 2 algorithms.}.
+Two tables of errors are merged into one and presented here. The left number
+of each coloured cell shows the average prediction error of my algorithm. The 
+right number of each coloured cell shows the average prediction error of the
+timetable. \\
+
+Note that for each column the right numbers are all the same. This is because the
+arrival time announced by the timetable does not change while the bus is moving. \\
+
+Only $4$ $MAE$ values out of $68$ are larger for my prediction algorithm. At the
+beginning of the route, the bus is far away from the last stop, and I have a little amount
+of recent information how it travels. That is the reason why the prediction errors
+for the first stops might be worse than what the timetable announces. However, starting
+from the later stops, the prediction algorithm outperforms the timetable.
+
+
+\newpage
+\subsection{Evaluating Optimisations}
+
+I first run the non-optimised algorithm to predict when the bus will reach the
+Madingley Park starting from the Chesterton Road: \\
+
+\includegraphics[width=\textwidth]{figs/madingley.png} \\
+
+Training set having $30$ trips results in $MAE_0 = 105$s\footnote{detailed
+evaluation results are given in the appendix}. I then apply the 1st,
+and the 1st + 2nd optimisations on the same training set.
+The new $MAE$ values are 
+
+\[
+\setlength\arraycolsep{0pt}
+\begin{array}{ *{7}{cC} c }
+ MAE_1 &=& 88s &<& 
+       MAE_0 & \\
+                                
+ MAE_{1,2}  &=& 69s  &<& 
+       MAE_1 &   \\
+    
+\end{array}
+\]
+
+Hence, I conclude that for this route the optimisations are worth to be applied.
 
 \chapter{Conclusion}
 
@@ -481,6 +683,114 @@ bus stop with multiple routes
 \end{enumerate}
 
 \chapter{Detailed Evaluation Results}
+
+\section{Predictions for Madingley Park}
+
+Results without optimisations: \\
+
+{\footnotesize
+day18-bus14365-subtrip0 started at 2016-01-18 13:45:46, arrived at 2016-01-18 13:52:06, prediction error is -80 \\
+day18-bus14368-subtrip2 started at 2016-01-18 21:14:38, arrived at 2016-01-18 21:21:18, prediction error is -60 \\
+day18-bus14366-subtrip0 started at 2016-01-18 11:46:35, arrived at 2016-01-18 11:55:36, prediction error is 81 \\
+day18-bus14369-subtrip1 started at 2016-01-18 17:46:33, arrived at 2016-01-18 17:55:13, prediction error is 59 \\
+day18-bus403-subtrip0 started at 2016-01-18 11:23:07,    arrived at 2016-01-18 11:28:07, prediction error is -60 \\
+day18-bus14374-subtrip0 started at 2016-01-18 16:15:35, arrived at 2016-01-18 16:22:35, prediction error is 19 \\
+day18-bus14361-subtrip0 started at 2016-01-18 10:16:14, arrived at 2016-01-18 10:28:34, prediction error is 340 \\
+day18-bus14370-subtrip0 started at 2016-01-18 10:30:47, arrived at 2016-01-18 10:44:47, prediction error is \textcolor{red}{\textbf{380}} \\ 
+day18-bus14365-subtrip1 started at 2016-01-18 21:44:37, arrived at 2016-01-18 21:50:17, prediction error is -80 \\
+day18-bus407-subtrip1 started at 2016-01-18 10:15:37,    arrived at 2016-01-18 10:28:40, prediction error is 334 \\
+day18-bus14368-subtrip1 started at 2016-01-18 13:14:46, arrived at 2016-01-18 13:20:06, prediction error is -100 \\
+day18-bus14363-subtrip1 started at 2016-01-18 15:46:05, arrived at 2016-01-18 15:53:45, prediction error is -20 \\
+day18-bus14375-subtrip0 started at 2016-01-18 15:14:50, arrived at 2016-01-18 15:21:10, prediction error is -69 \\
+day18-bus401-subtrip2 started at 2016-01-18 11:46:37,    arrived at 2016-01-18 11:55:38, prediction error is 81 \\
+day18-bus14370-subtrip3 started at 2016-01-18 19:30:41, arrived at 2016-01-18 19:38:42, prediction error is 121 \\
+day18-bus410-subtrip0 started at 2016-01-18 16:15:38,    arrived at 2016-01-18 16:22:38, prediction error is 20 \\
+day18-bus402-subtrip0 started at 2016-01-18 10:30:38,    arrived at 2016-01-18 10:44:37, prediction error is \textcolor{red}{\textbf{379}} \\
+day18-bus14373-subtrip0 started at 2016-01-18 16:46:02, arrived at 2016-01-18 16:53:42, prediction error is -1 \\
+day18-bus14372-subtrip1 started at 2016-01-18 14:14:19, arrived at 2016-01-18 14:20:19, prediction error is -120 \\
+day18-bus14367-subtrip2 started at 2016-01-19 00:35:49, arrived at 2016-01-19 00:40:49, prediction error is -160 \\
+day18-bus14378-subtrip0 started at 2016-01-18 11:00:21, arrived at 2016-01-18 11:07:41, prediction error is 20 \\
+day18-bus402-subtrip1 started at 2016-01-18 19:30:08,    arrived at 2016-01-18 19:38:37, prediction error is 89 \\
+day18-bus400-subtrip0 started at 2016-01-18 10:59:38,    arrived at 2016-01-18 11:07:37, prediction error is 29 \\
+day18-bus14087-subtrip0 started at 2016-01-18 09:30:34, arrived at 2016-01-18 09:36:34, prediction error is -120 \\
+day18-bus409-subtrip0 started at 2016-01-18 08:25:38,    arrived at 2016-01-18 08:32:09, prediction error is -29 \\
+day18-bus14371-subtrip1 started at 2016-01-18 08:54:47, arrived at 2016-01-18 09:01:07, prediction error is -70 \\
+day18-bus14072-subtrip3 started at 2016-01-18 20:51:07, arrived at 2016-01-18 20:57:47, prediction error is -79 \\
+day18-bus14072-subtrip1 started at 2016-01-18 12:45:18, arrived at 2016-01-18 12:53:18, prediction error is 20 \\
+day18-bus14362-subtrip1 started at 2016-01-18 14:45:16, arrived at 2016-01-18 14:50:36, prediction error is -81 \\
+day18-bus405-subtrip2 started at 2016-01-18 13:46:07,    arrived at 2016-01-18 13:52:08, prediction error is -59 \\
+}
+
+\newpage
+
+Results with the optimisation nr. $1$: \\
+{\footnotesize
+day18-bus14365-subtrip0 started at 2016-01-18 13:45:46, arrived at 2016-01-18 13:52:06, prediction error is -80 \\
+day18-bus14368-subtrip2 started at 2016-01-18 21:14:38, arrived at 2016-01-18 21:21:18, prediction error is 0 \\
+day18-bus14366-subtrip0 started at 2016-01-18 11:46:35, arrived at 2016-01-18 11:55:36, prediction error is 81 \\
+day18-bus14369-subtrip1 started at 2016-01-18 17:46:33, arrived at 2016-01-18 17:55:13, prediction error is 59 \\
+day18-bus403-subtrip0 started at 2016-01-18 11:23:07,    arrived at 2016-01-18 11:28:07, prediction error is -60 \\
+day18-bus14374-subtrip0 started at 2016-01-18 16:15:35,arrived at 2016-01-18 16:22:35, prediction error is 19 \\
+day18-bus14361-subtrip0 started at 2016-01-18 10:16:14, arrived at 2016-01-18 10:28:34, prediction error is 340 \\
+day18-bus14370-subtrip0 started at 2016-01-18 10:30:47, arrived at 2016-01-18 10:44:47, prediction error is \textcolor{green}{\textbf{40}} \\
+day18-bus14365-subtrip1 started at 2016-01-18 21:44:37, arrived at 2016-01-18 21:50:17, prediction error is -60 \\
+day18-bus407-subtrip1 started at 2016-01-18 10:15:37,    arrived at 2016-01-18 10:28:40, prediction error is 334 \\
+day18-bus14368-subtrip1 started at 2016-01-18 13:14:46, arrived at 2016-01-18 13:20:06, prediction error is -100 \\
+day18-bus14363-subtrip1 started at 2016-01-18 15:46:05, arrived at 2016-01-18 15:53:45, prediction error is -20 \\
+day18-bus14375-subtrip0 started at 2016-01-18 15:14:50, arrived at 2016-01-18 15:21:10, prediction error is -69 \\
+day18-bus401-subtrip2 started at 2016-01-18 11:46:37,    arrived at 2016-01-18 11:55:38, prediction error is 81 \\
+day18-bus14370-subtrip3 started at 2016-01-18 19:30:41, arrived at 2016-01-18 19:38:42, prediction error is 121 \\
+day18-bus410-subtrip0 started at 2016-01-18 16:15:38,    arrived at 2016-01-18 16:22:38, prediction error is 20 \\
+day18-bus402-subtrip0 started at 2016-01-18 10:30:38,    arrived at 2016-01-18 10:44:37, prediction error is \textcolor{green}{\textbf{39}} \\
+day18-bus14373-subtrip0 started at 2016-01-18 16:46:02, arrived at 2016-01-18 16:53:42, prediction error is -1 \\
+day18-bus14372-subtrip1 started at 2016-01-18 14:14:19, arrived at 2016-01-18 14:20:19, prediction error is -31 \\
+day18-bus14367-subtrip2 started at 2016-01-19 00:35:49, arrived at 2016-01-19 00:40:49, prediction error is -160 \\
+day18-bus14378-subtrip0 started at 2016-01-18 11:00:21, arrived at 2016-01-18 11:07:41, prediction error is -200 \\
+day18-bus402-subtrip1 started at 2016-01-18 19:30:08,    arrived at 2016-01-18 19:38:37, prediction error is 89 \\
+day18-bus400-subtrip0 started at 2016-01-18 10:59:38,    arrived at 2016-01-18 11:07:37, prediction error is -241 \\
+day18-bus14087-subtrip0 started at 2016-01-18 09:30:34, arrived at 2016-01-18 09:36:34, prediction error is -120 \\
+day18-bus409-subtrip0 started at 2016-01-18 08:25:38,    arrived at 2016-01-18 08:32:09, prediction error is -29 \\
+day18-bus14371-subtrip1 started at 2016-01-18 08:54:47, arrived at 2016-01-18 09:01:07, prediction error is -42 \\
+day18-bus14072-subtrip3 started at 2016-01-18 20:51:07, arrived at 2016-01-18 20:57:47, prediction error is -79 \\
+day18-bus14072-subtrip1 started at 2016-01-18 12:45:18, arrived at 2016-01-18 12:53:18, prediction error is 20 \\
+day18-bus14362-subtrip1 started at 2016-01-18 14:45:16, arrived at 2016-01-18 14:50:36, prediction error is -81 \\
+day18-bus405-subtrip2 started at 2016-01-18 13:46:07,    arrived at 2016-01-18 13:52:08, prediction error is 41 \\
+}
+
+Results with the optimisations nr. $1$ and nr. $2$: \\
+{\footnotesize
+day18-bus14365-subtrip0 started at 2016-01-18 13:45:46, arrived at 2016-01-18 13:52:06, prediction error is -100 \\
+day18-bus14368-subtrip2 started at 2016-01-18 21:14:38, arrived at 2016-01-18 21:21:18, prediction error is -20 \\
+day18-bus14366-subtrip0 started at 2016-01-18 11:46:35, arrived at 2016-01-18 11:55:36, prediction error is 41 \\
+day18-bus14369-subtrip1 started at 2016-01-18 17:46:33, arrived at 2016-01-18 17:55:13, prediction error is 40 \\
+day18-bus403-subtrip0 started at 2016-01-18 11:23:07,    arrived at 2016-01-18 11:28:07, prediction error is -59 \\
+day18-bus14374-subtrip0 started at 2016-01-18 16:15:35, arrived at 2016-01-18 16:22:35, prediction error is 0 \\
+day18-bus14361-subtrip0 started at 2016-01-18 10:16:14,arrived at 2016-01-18 10:28:34, prediction error is 280 \\
+day18-bus14370-subtrip0 started at 2016-01-18 10:30:47, arrived at 2016-01-18 10:44:47, prediction error is 40 \\
+day18-bus14365-subtrip1 started at 2016-01-18 21:44:37, arrived at 2016-01-18 21:50:17, prediction error is -51 \\
+day18-bus407-subtrip1 started at 2016-01-18 10:15:37,    arrived at 2016-01-18 10:28:40, prediction error is 302 \\
+day18-bus14368-subtrip1 started at 2016-01-18 13:14:46, arrived at 2016-01-18 13:20:06, prediction error is -100 \\
+day18-bus14363-subtrip1 started at 2016-01-18 15:46:05, arrived at 2016-01-18 15:53:45, prediction error is -20 \\
+day18-bus14375-subtrip0 started at 2016-01-18 15:14:50, arrived at 2016-01-18 15:21:10, prediction error is -42 \\
+day18-bus401-subtrip2 started at 2016-01-18 11:46:37,    arrived at 2016-01-18 11:55:38, prediction error is 60 \\
+day18-bus14370-subtrip3 started at 2016-01-18 19:30:41, arrived at 2016-01-18 19:38:42, prediction error is 122 \\
+day18-bus410-subtrip0 started at 2016-01-18 16:15:38,    arrived at 2016-01-18 16:22:38, prediction error is 20 \\
+day18-bus402-subtrip0 started at 2016-01-18 10:30:38,    arrived at 2016-01-18 10:44:37, prediction error is 39 \\
+day18-bus14373-subtrip0 started at 2016-01-18 16:46:02, arrived at 2016-01-18 16:53:42, prediction error is -20 \\
+day18-bus14372-subtrip1 started at 2016-01-18 14:14:19, arrived at 2016-01-18 14:20:19, prediction error is -31 \\
+day18-bus14367-subtrip2 started at 2016-01-19 00:35:49, arrived at 2016-01-19 00:40:49, prediction error is -180 \\
+day18-bus14378-subtrip0 started at 2016-01-18 11:00:21, arrived at 2016-01-18 11:07:41, prediction error is 20 \\
+day18-bus402-subtrip1 started at 2016-01-18 19:30:08,    arrived at 2016-01-18 19:38:37, prediction error is 108 \\
+day18-bus400-subtrip0 started at 2016-01-18 10:59:38,    arrived at 2016-01-18 11:07:37, prediction error is 29 \\
+day18-bus14087-subtrip0 started at 2016-01-18 09:30:34, arrived at 2016-01-18 09:36:34, prediction error is -60 \\
+day18-bus409-subtrip0 started at 2016-01-18 08:25:38,    arrived at 2016-01-18 08:32:09, prediction error is -9 \\
+day18-bus14371-subtrip1 started at 2016-01-18 08:54:47, arrived at 2016-01-18 09:01:07, prediction error is -42 \\
+day18-bus14072-subtrip3 started at 2016-01-18 20:51:07, arrived at 2016-01-18 20:57:47, prediction error is -81 \\
+day18-bus14072-subtrip1 started at 2016-01-18 12:45:18, arrived at 2016-01-18 12:53:18, prediction error is -1 \\
+day18-bus14362-subtrip1 started at 2016-01-18 14:45:16, arrived at 2016-01-18 14:50:36, prediction error is -80 \\
+day18-bus405-subtrip2 started at 2016-01-18 13:46:07,    arrived at 2016-01-18 13:52:08, prediction error is -99 \\
+}
+
 
 \chapter{Project Proposal}
 (see next page)
