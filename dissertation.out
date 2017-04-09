@@ -14,14 +14,18 @@
 \BOOKMARK [0][-]{chapter.4}{Evaluation}{}% 14
 \BOOKMARK [1][-]{section.4.1}{Route Detection Evaluation}{chapter.4}% 15
 \BOOKMARK [2][-]{subsection.4.1.1}{Sensitivity Score}{section.4.1}% 16
-\BOOKMARK [1][-]{section.4.2}{Arrival Time Prediction Evaluation}{chapter.4}% 17
-\BOOKMARK [2][-]{subsection.4.2.1}{Evaluation Metrics Used}{section.4.2}% 18
-\BOOKMARK [2][-]{subsection.4.2.2}{All Routes Evaluation}{section.4.2}% 19
-\BOOKMARK [2][-]{subsection.4.2.3}{Comparison with the Timetable}{section.4.2}% 20
-\BOOKMARK [2][-]{subsection.4.2.4}{Evaluating Optimisations}{section.4.2}% 21
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 22
-\BOOKMARK [0][-]{chapter.5}{Bibliography}{}% 23
-\BOOKMARK [0][-]{appendix.A}{Links}{}% 24
-\BOOKMARK [0][-]{appendix.B}{Detailed Evaluation Results}{}% 25
-\BOOKMARK [1][-]{section.B.1}{Predictions for Madingley Park}{appendix.B}% 26
-\BOOKMARK [0][-]{appendix.C}{Project Proposal}{}% 27
+\BOOKMARK [2][-]{subsection.4.1.2}{Specificity Score}{section.4.1}% 17
+\BOOKMARK [1][-]{section.4.2}{Arrival Time Prediction Evaluation}{chapter.4}% 18
+\BOOKMARK [2][-]{subsection.4.2.1}{Evaluation Metrics Used}{section.4.2}% 19
+\BOOKMARK [2][-]{subsection.4.2.2}{Evaluation on more Routes}{section.4.2}% 20
+\BOOKMARK [2][-]{subsection.4.2.3}{The Best Route}{section.4.2}% 21
+\BOOKMARK [2][-]{subsection.4.2.4}{The Worst Route}{section.4.2}% 22
+\BOOKMARK [2][-]{subsection.4.2.5}{Comparison with the Timetable}{section.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.2.6}{Evaluating Optimisations}{section.4.2}% 24
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 25
+\BOOKMARK [0][-]{chapter.5}{Bibliography}{}% 26
+\BOOKMARK [0][-]{appendix.A}{Links}{}% 27
+\BOOKMARK [0][-]{appendix.B}{Detailed Evaluation Results}{}% 28
+\BOOKMARK [1][-]{section.B.1}{Multiple Routes Evaluation}{appendix.B}% 29
+\BOOKMARK [1][-]{section.B.2}{Predictions for Madingley Park}{appendix.B}% 30
+\BOOKMARK [0][-]{appendix.C}{Project Proposal}{}% 31

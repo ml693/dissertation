@@ -10,7 +10,7 @@
 \usepackage[pdfborder={0 0 0}]{hyperref}    % turns references into hyperlinks
 \usepackage{pdfpages}
 \usepackage{verbatim}
-
+\usepackage[bottom]{footmisc}
 
 \newcolumntype{C}{>{{}}c<{{}}}
 
@@ -381,47 +381,51 @@ Optimisations are tested in the evaluation section.
 
 \chapter{Evaluation}
 
-\textcolor{red}{\textbf{Add a few introductory sentences}};
-
 \section{Route Detection Evaluation}
-
-I break the evaluation of route detection algorithm into multiple steps.
 
 \subsection{Sensitivity Score}
 
 The first step is to check whether the 
-$FollowsPath(sub$-$trip, path)$ predicate returns $true$ when the $sub$-$trip$
-indeed follows the $path$. \\
+$FollowsPath$(\textcolor{blue}{$sub$-$trip$}, \textcolor{red}{$path$})
+predicate returns $true$ when the \textcolor{blue}{$sub$-$trip$} indeed
+follows the \textcolor{red}{$path$}. I take the
+\textcolor{red}{$path$} $992088$-$20150526$-$20150830$ to evaluate this step.
+I have a set $T$ of 107 trips that went through it. For each trip
+$t \in T$ I take a \textcolor{blue}{$sub$-$trip$} and check that the
+$FollowsPath($\textcolor{blue}{$sub$-$trip$}, \textcolor{red}{$path$}$)$ 
+predicate returns true: \\
 
-I have 10 routes, each route has an associated path,
-\textcolor{red}{one} of which is shown 
-below\footnote{Arundel Road on the top left is the first bus stop here}: \\
-\includegraphics[scale = 0.7]{figs/full_route.png} \\
-
-I have a set of trips $T_p$ that actually follow the path $p$.
-For each trip $t \in T_p$ I take a \textcolor{blue}{$sub$-$trip$} \\
 \includegraphics[scale = 0.7]{figs/stop1.png} \\
 
-and check whether the
-$FollowsPath($\textcolor{blue}{$sub$-$trip$}, \textcolor{red}{$path$}$)$ 
-predicate returns true or false. \\
+For this route the $FollowsPath$ predicate has $100\%$ success rate.
 
-If the \textcolor{blue}{$sub$-$trip$} does \textbf{not} start from the 
-first stop, the $FollowsPath$ predicate has $100\%$ success rate 
-for each route. \\
+\subsection{Specificity Score}
 
-If the \textcolor{blue}{$sub$-$trip$} starts from the first stop,
-the success rate drops significantly (and becomes unpredictable) due to 
-the reason illustrated in the following picture: \\
+The second step is to check that for trips not on a path
+the predicate returns false. \\
 
-\includegraphics[scale = 0.7]{figs/stop0.png} \\
+If a trip is very far away from the path (e.g. $10$ miles away), the
+$FollowsPath(trip, path)$ will definitely return false. Thus, to perform
+a meaningful evaluation, I select a \textcolor{blue}{path}
+$1051719$-$20150531$-$20151224$ and a set of \textcolor{red}{trips}
+$T$ following a very similar but nevertheless distinct path: \\
 
-One can see that $err(P_0, S_{P_0}) = \frac{|{P_0}A| + |{P_0}B|}{|AB|} - 1$
-might become large. In fact, accumulated errors for the first few points (when the bus is not on any route yet) are so large the total sum exceeds $n\epsilon$ even if errors for the next points are small. \\
+\includegraphics[scale = 0.6]{figs/similar_paths.png}
 
-The conclusion is thus to discard the first few GPS points and start using
-$FollowsPath$ predicate after the bus has moved for a while and is following 
-some route.
+Both paths are the same at the beginning and separate later. For each
+trip $\in T$ I pick a \textcolor{red}{$subtrip$} of the first 12
+points\footnote{Each trip deviates from a path approximatelly after 12 GPS
+points.} and check whether the
+$FollowsPath(\textcolor{red}{subtrip}, \textcolor{blue}{path})$ 
+returns false. Out of $107$ trips only once the predicate incorrectly returns
+true. The misclassified \textcolor{red}{$subtrip$} has not deviated from a
+\textcolor{blue}{path} yet for a predicate to detect that: \\
+
+\includegraphics[scale = 0.6]{figs/misclassified_trip.png}
+
+The sensitivity and specificity scores show that the $FollowsPath$
+predicate works \textbf{if} used in the right place at the right time.
+
 \newpage
 
 \section{Arrival Time Prediction Evaluation}
@@ -542,7 +546,9 @@ the day. I split the day into 4 disjoint time intervals:
 \end{enumerate}
 
 I evaluate the prediction for each of the time intervals separately. The 
-\textbf{table of errors} shows the aggregated results:
+\textbf{table of errors} shows the aggregated results\footnote{as before,
+I predict the arrival time to the \textbf{last} stop starting from each of the
+other stops}:
 
 \includegraphics[width=\textwidth]{figs/table_of_times.png}
 
@@ -562,34 +568,128 @@ during the rush hours.
 
 \end{enumerate}
 
+
+\subsection{Evaluation on more Routes}
+
+The fact that an algorithm works on a single route does not neccessary imply that
+it works on other routes. Hence, I evaluate the algorithm on $10$ other routes. The
+detailed results are given in the appendix \ref{B1}. \\
+
+The $10$ routes I have chosen are the popular ones. For each route found
+more than $100$ historical trips passing through all the route's stops. The tables of
+errors given in the appendix \ref{B1} can serve as a reference point. Anyone writing a
+new prediction algorithm can check whether it gives lower errors than those mentioned
+in the appendix.
+
+\subsection{The Best Route}
+
+\includegraphics[width=\textwidth]{figs/table_of_1056213.png}
+
+Out of the $10$ routes, the algorithm performs best on the route
+$1056213$-$20150614$-$20152323$:
+
+\includegraphics[scale=0.65]{figs/best_route.png}
+
+For many time intervals, the algorithm predicts the arrival time with an average error
+less than $10\%$. \\
+
+I believe, a long highway path is the reason, why an algorithm successful for this route is.
+Firstly, highways have a feature that they they are less connected with other
+roads\footnote{Compare a highway with a street in a city. The latter usually has many
+intersections with other streets. The former has only a few connected roads to go in and out
+of the highway.}. Other roads have a relatively little affect on the highway traffic.
+Hence, only historical trips of the buses travelling along this route are enough to generate
+reasonable predictions\footnote{And the implementation of my algorithm uses only historical trips
+following this route.}. Secondly, the bus speed on the highway does not vary
+much. For example, if a bus is travelling $60$mph. for the last 5 minutes, it is likely
+it will keep travelling at roughly the same speed\footnote{Contrast this with the case when a bus
+is on the street in a city. The bus speed will fluctuate a lot due to traffic lights, other
+cars causing a congestion, pedestratians crossing the street.}. This second feature of a highway allows making a good use of the
+Optimisation nr. 2. The optimisation predicts the arrival time using only those historical
+trips that have travelled a certain distance using the same amount of time\footnote{$\implies$
+the same travel speed.} as the current trip. Since the travel speed on a highway does not vary
+much, these historical trips will give an accurate information how quickly a bus might reach
+the bus stop. \\
+
+Finally, I include the scatter plot. As before, many prediction errors are below the $MAE$ value:
+
+\includegraphics[scale=0.5]{figs/best_scatter_plot.png}
+
+\subsection{The Worst Route}
+
+The algorithm performs poorly on the route $999024$-$20150526$-$20150830$: \\
+
+\includegraphics[width=\textwidth]{figs/table_of_999024.png} \\
+
+The poor performance is due to the following reasons. Firstly, there are many bus stops a bus
+frequently\footnote{every $2$min. or so} stops at. The amount of time a bus is standing at one
+stop affects its arrival time to the future stop, but the algorithm does not explicitly deal with
+the bus standing time. \\
+
+\includegraphics[scale=0.8]{figs/worst_route.png} \\
+
 \newpage
 
-\subsection{All Routes Evaluation}
+Secondly, the route includes the crowded city places, such as the shopping centre: \\
+
+\includegraphics[scale=0.6]{figs/shopping_centre.png} \\
+
+The scatter plot shows the difficulty predicting the arrival time in the crowded areas:
+
+\includegraphics[width=\textwidth]{figs/worst_scatter_plot.png}
+
+One can see a big difference between the prediction results from the first stop (where the
+crowded place located is) and from the other stops. The prediction errors predicting from
+the first stop are not concentrated below the $MAE$ value. Instead, the errors are spread out
+accross the whole range of $y$ values. After the bus leaves the crowded area, the prediction
+errors become concentrated below the $MAE$ value, which is the usual characteristic of my
+prediction algorithm. \\
+
+I make the following conclusions:
+
+\begin{itemize}
+
+    \item My algorithm predicts the arrival time well for buses that are travelling from one city
+    to another and are using highways for a long time.
+
+    \item My algorithm may give a worse performance when predicting the arrival time in cities.
+
+
+\end{itemize}
+
+
 
 \newpage
 
 \subsection{Comparison with the Timetable}
 
-The prediction system is useful if for a particular route\footnote{For variety, I have
-chosen a route from my home city Vilnius in this evaluation section. The route has 18
-stops and I predict the arrival time to the last stop 'Pasaku Parkas' from each of the
-other stops.}
-it is more accurate than the timetable:
+The prediction system is useful if for a particular route it is more accurate than
+the timetable. A company named Traffi, which targets the same arrival time prediction
+problem as me, agreed to share their traffic
+data\footnote{I was given the November 2016 GPS data}. \\
 
+The Traffi data shows when the
+bus has arrived at the stop \textbf{and also} when the bus was expected to arrive
+according to the timetable. Hence, this data easily allows to compare my prediction
+algorithm performance with the 'performance' of the timetable.\footnote{Assume the
+arrival time prediction is what the timetable announces. Thus, one can view the
+timetable as just an another prediction algorithm. Then the $MAE$ values for such an
+algorithm are computed as usual. I compare the $MAE$ values of the 2 algorithms.} Thus,
+I have chosen one of the routes from their dataset and evaluated my algorithm
+on that route: \\
 
 \includegraphics[width=\textwidth]{figs/vilnius_route.png} \\
 
-\includegraphics[width=\textwidth]{figs/table_of_vilnius.png}
+The route is from my home city Vilnius. It has 18 bus stops and
+I predict the arrival time to the last stop 'Pasaku Parkas' from each
+of the other stops. \\
 
-I compare the prediction algorithm performance with the 'performance' of the
-timetable\footnote{Assume the arrival time prediction is what the timetable
-announces. Thus, one can view the timetable as just another prediction 
-algorithm. Then the $MAE$ values for such an algorithm are computed as usual. I compare
-the $MAE$ values of the 2 algorithms.}.
-Two tables of errors are merged into one and presented here. The left number
-of each coloured cell shows the average prediction error of my algorithm. The 
-right number of each coloured cell shows the average prediction error of the
-timetable. \\
+The evaluation results are shown on the next page. Two tables of errors are merged
+into one and presented there. The left number of each coloured cell shows the
+average prediction error of my algorithm. The right number of each coloured cell
+shows the average prediction error of the timetable. \\
+
+\includegraphics[width=\textwidth]{figs/table_of_vilnius.png} \\
 
 Note that for each column the right numbers are all the same. This is because the
 arrival time announced by the timetable does not change while the bus is moving. \\
@@ -609,8 +709,8 @@ Madingley Park starting from the Chesterton Road: \\
 
 \includegraphics[width=\textwidth]{figs/madingley.png} \\
 
-Training set having $30$ trips results in $MAE_0 = 105$s\footnote{detailed
-evaluation results are given in the appendix}. I then apply the 1st,
+Training set having $30$ trips results in $MAE_0 = 105$s.\footnote{detailed
+evaluation results are given in the appendix} I then apply the 1st,
 and the 1st + 2nd optimisations on the same training set.
 The new $MAE$ values are 
 
@@ -683,6 +783,23 @@ bus stop with multiple routes
 \end{enumerate}
 
 \chapter{Detailed Evaluation Results}
+
+\section{Multiple Routes Evaluation}
+
+\label{B1}
+
+\includegraphics[width=\textwidth]{figs/table_of_1046521.png}
+\includegraphics[width=\textwidth]{figs/table_of_999024.png}
+\includegraphics[width=\textwidth]{figs/table_of_1028069.png}
+\includegraphics[width=\textwidth]{figs/table_of_1053969.png}
+\includegraphics[width=\textwidth]{figs/table_of_1030740.png}
+\includegraphics[width=\textwidth]{figs/table_of_830638.png}
+\includegraphics[width=\textwidth]{figs/table_of_1039292.png}
+\includegraphics[width=\textwidth]{figs/table_of_1001579.png}
+\includegraphics[width=\textwidth]{figs/table_of_1056213.png}
+\includegraphics[width=\textwidth]{figs/table_of_1002879.png}
+
+\newpage
 
 \section{Predictions for Madingley Park}
 
@@ -793,7 +910,7 @@ day18-bus405-subtrip2 started at 2016-01-18 13:46:07,    arrived at 2016-01-18 1
 
 
 \chapter{Project Proposal}
-(see next page)
+(see the next page)
 
 \includepdf[pages=-]{proposal.pdf}
 
