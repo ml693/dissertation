@@ -65,13 +65,24 @@ Christ's College \\[5mm]
 
 \section*{Original Aims of the Project}
 
-Implement an algorithm which given the most recent GPS data predicts
-when the bus will arrive at the future stops. Evaluate the algorithm
-and show that on average it predicts with error less than 80s.
+\begin{itemize}
+\item Implement the prediction algorithm. The GPS points showing how the bus has moved
+so far are given as an input. The output of the prediction algorithm is the predicted
+time when this bus will arrive at the future stop.
+
+\item Evaluate the prediction algorithm and present the results.
+
+\end{itemize}
 
 \section*{Work Completed}
 
-All that has been completed appears in this dissertation.
+The following milestones have been achieved:
+
+\begin{itemize}
+\item The prediction algorithm is implemented.
+\item The algorithm is evaluated and the results are presented in the evaluation section.
+\item (Optional) the real-time prediction system is running.
+\end{itemize}
 
 \section*{Special Difficulties}
 
@@ -98,57 +109,91 @@ and that the dissertation does not contain material that has already been used t
 \pagestyle{plain}
 
 
-
-
-
-
-
-
 \chapter{Introduction}
 
-\section*{Motivation}
+\section{Motivation}
 
-In European countries public buses is a popular form of transportation. However,
+In the European countries, public buses are a popular form of transportation. However,
 buses often arrive later than the timetable announces. Therefore, the project aims
-to build an algorithm which accuratelly predicts the bus arrival times based on the
+to build an algorithm which accurately predicts the bus arrival times based on the
 most recent GPS data.
 
-\section*{Actual Problem Overview}
+\section{Overview of the Actual Problem}
 
 \includegraphics[width=\textwidth]{figs/problem_overview.png} \\
 
-The most recent GPS data (represented by green in the diagram above) shows 
-where the bus has travelled up to now. The future data (represented by red)
+The most recent GPS points (indicated in green in the diagram above) show
+where the bus has travelled up to now. The future data (indicated in red)
 is not known during the prediction phase. My goal is to predict the future
 data given the present data. \\
 
-In this specific example I want to predict when the bus will reach Madingley Park 
-starting from Chesterton Road. One can see it takes about 8 min. (10:59--11:07)
+In this specific example I want to predict when the bus will reach the Madingley Park 
+starting from the Chesterton Road. One can see it takes about 8 min. (10:59--11:07)
 to travel such distance.
-
-
-
-
 
 \chapter{Preparation}
 
-\section*{Starting Point}
+\section{Starting Point}
 
-A company named Vix is sending real-time GPS data to Cambridge servers. The GPS
-data covers East-England bus companies \textcolor{red}{TODO(ml693): which???}. Cambridge
-converts the binary GPS data into a human readable JSON format. To start with,
-I was given 2 months JSON data (June and July 2016). That was the starting
-point data. \\
+\section*{Initial Starting Data}
+A company named Vix is sending the real-time GPS data to the Cambridge servers. The GPS
+data shows how certain\footnote{\textcolor{red}{TODO(ml693): buses from which
+companies?}} East-England buses are moving in the real-time. The Cambridge servers
+convert the binary GPS data into a human readable JSON format. I was given the JSON data
+spanning 3 months (June, July and August 2016). That was the starting point data. \\
 
-I started coding completely from scratch.
+I started coding this part completely from scratch.
 
-\section*{Preliminary Work}
-\textcolor{red}{TODO(ml693): put something here}
+\section*{Starting Data for the Real-time System}
+In the second term, I started building the real-time system as an optional extension.
+The optional part requires the real-time GPS data. To start with, Dr. Lewis gave me
+the access to the machine receiving the new GPS data from the Vix company every 30sec. \\
 
+The code receiving the real-time GPS data was already written. I started this
+part by writing the new code processing the received GPS data.
 
+\section{Preliminary Work}
 
+The arrival time prediction problem can be approached in multiple ways. A clever approach
+allows making progress quickly and with ease. On the other hand, a wrong
+choice\footnote{For example, I believe that building a complicated algorithm without
+trying a simple solution first is a wrong choice.} forces a programmer spend many hours
+trying to debug the code and understand why it does not handle the data as expected. I
+did a thourough preparation to choose a correct approach. \\
 
+\newpage
 
+Firstly, I read two papers describing how other scientists are solving this problem:
+
+\begin{enumerate}
+
+\item Pengfei Zhou, Yuanqing Zheng, Mo Li: How Long to Wait? Predicting Bus Arrival Time with Mobile Phone based Participatory Sensing
+
+\textcolor{blue}{\url{http://www.ntu.edu.sg/home/limo/papers/sys012fp.pdf}}
+
+\item Bin Yu, William H.K. Lam, Mei Lam Tam: Bus arrival time prediction at
+bus stop with multiple routes 
+
+\textcolor{blue}{\url{http://www.sciencedirect.com/science/article/pii/S0968090X11000155}}
+
+\end{enumerate}
+
+I learned the common evaluation metrics used by reading these papers. I also looked at
+the results claimed in those papers to get a first clue how well the current prediction
+systems are working. \\
+
+Secondly, I talked to multiple people in Cambridge. Several lecturers gave me good tips.
+For example, my overseers pointed out that knowing the exact streets a bus follows is
+not neccesary for making a prediction. Only the GPS points where the bus has moved so far
+and the geographic location of the future bus stop can be enough to predict the arrival
+time to that stop. This advice saved a lot of my time as I did not have to search
+for a good map data. \\
+
+Finally, after talking with Prof Kelly I became convinced that building a simple algorithm
+described in this dissertation is the right way to start solving the arrival time
+prediction problem.\footnote{Other lecturers were advising me to use the more
+sophisticated techniques, such as Machine Learning or Multivariate Analysis.
+I decided to discard these techniques in favour of a simpler solution.}
 
 \chapter{Implementation}
 
@@ -162,18 +207,33 @@ with one entry per bus. An entry such as:
 
 \includegraphics[width=\textwidth]{figs/entry.png} \\
 
-means that a vehicle nr. $56$ was at geographical position
-$(51.88010, -0.42051104)$ on the $1$st August $2016$, GMT time
-$22$:$51$:$05$\footnote{calculated from timestamp field}. \\
+means that a vehicle nr. $132$ was at the geographical position
+$(51.891663, -0.45255125)$ on the $2$nd August $2016$, GMT time
+$01$:$51$:$05$\footnote{The time is calculated from the timestamp field.}. \\
 
 A new snapshot file arrives once in $30$s. The data preprocessing part
-takes all input files and converts them into another format: \\
+takes multiple input files\footnote{For example, to build historical trips, I take all
+files received in \textbf{one} day.} and converts them into another format: \\
 
 \includegraphics[width=\textwidth]{figs/converted_format.jpg} \\
 
 At the end I have a file for each trip made by one bus in one
-day\footnote{note that a bus on a particurlar day could have made
-multiple trips}. \\
+day\footnote{Note that a bus on a particurlar day could have made
+multiple trips.}. \\
+
+Visually the data preprocessing part converts the following set of GPS points
+
+\includegraphics[width=\textwidth]{figs/unprocessed.png} \\
+
+into a separated list of trips, 2 of which are shown below:
+
+\includegraphics[width=\textwidth]{figs/processed.png} \\
+
+An optional use\footnote{The main use is that the preprocessing part is one of the
+components of the whole arrival time prediction system.} of the preprocessing part
+is the help it provides to visually inspect the data. I am able to look at each trip
+separately (or to merge multiple trips of my choice) and understand why the buses are
+moving in such a way.
 
 \section{Route Detection Algorithm}
 
@@ -190,7 +250,7 @@ requires knowing \textbf{where} a bus will travel next. How? \\
 
 A standard way to find out where the bus will travel next is to know its 
 route in advance. Some GPS entries contain additional fields,
-such as a \textbf{label}: \\
+such as the \textbf{label} field: \\
 
 \includegraphics[width=\textwidth, scale=1.2]{figs/labelled_entry.png} \\
 
@@ -208,22 +268,25 @@ coordinates, not the route a bus follows.
 
 \item Good static data to infer routes based on additional fields is not 
 straightforward to find. Field values might not match
-(e.g. a route named \textbf{SW-4} in the real-time data is actually \textbf{SWX-4}). Buses are often changing routes\footnote{a
-vehicle is unlikely to follow the same route every day} and data does not always
-indicate that.
+(For example, a route named \textbf{SW-4} in the real-time data is actually
+\textbf{SWX-4}).
+Buses are often changing routes\footnote{A bus is unlikely to follow the same route
+every day} and data does not always indicate that.
 
 \item The static data only shows the sequence of bus stops, not a detailed
 sequence of streets a bus will follow. It is much better to know an actual
-path for accurate arrival time prediction.
+path for the accurate arrival time prediction.
 \end{itemize}
 
 \textbf{New Approach Overview} \\
 
 To overcome the static data limitations, I propose a new way to infer the
-route a vehicle is following. I will align a sub-trip how the bus has moved
+route a bus follows. I will align a sub-trip how the bus has moved
 so far with a historical path for which the route is known. The path aligning
 best to the current sub-trip will be used to predict where a bus travels next.
-To perform the alignment, I constructed an algorithm\footnote{from now on referred to as a boolean predicate} that can tell whether one sequence of GPS points follows another.
+To perform the alignment, I constructed an algorithm\footnote{From now on referred
+to as a boolean predicate.} that can tell whether one sequence of GPS points 
+follows another.
 
 \subsection{$FollowsPath$ Predicate Definition}
 
@@ -273,7 +336,7 @@ iff
 \:
 \:
 
-for a suitably chosen threshold value $\epsilon$\footnote{$\epsilon = 0.3$
+for a suitably chosen threshold value $\epsilon$\footnote{$\epsilon = 0.1$
 is one choice}. \\
 
 Note that $S = 0$ when a \textcolor{red}{sub-trip} follows a
@@ -306,7 +369,7 @@ The computation of $S$ proceeds as follows:
    &=& (1.0294 - 1)  &+& (1.0300 - 1) &+& (1.0021 - 1)  &+& (1.0730 - 1)  &+& 
        (1.0208 - 1)   &+  \\ 
    & & (1.0714 - 1)  &+& (1.0286 - 1)  &+& (1.0158 - 1)  &+&  (1.0126 - 1)  &+& 
-       (1.0125 - 1)   &<& 10 \cdot 0.3 =& n\epsilon
+       (1.0125 - 1)   &<& 10 \cdot 0.1 =& n\epsilon
 \end{array}
 \]
 
@@ -327,7 +390,7 @@ evaluation section.
 
 \subsection{Basic Idea}
 
-The $FollowsPath$ predicate allows to detect the route a bus is following.
+The $FollowsPath$ predicate allows to detect the route a bus follows.
 The route tells the next stops a bus will visit. This section shows how to
 predict the arrival time to each future bus stop. \\
 
@@ -338,7 +401,7 @@ Historical trips (which follow the same route) are used to make a prediction:
 In the picture above 2 example historical sub-trips (\textcolor{blue}{blue}
 and \textcolor{red}{red}) are shown.
 Both of them start where the vehicle currently located is (indicated
-by the most recent green point). Both of them represent the history how past
+using the most recent green point). Both of them represent the history how past
 vehicles travelled until the bus stop. I compute the duration how long it
 took for each historical trip to reach the bus stop. Knowing multiple duration
 values I return the median as the predicted arrival time.
@@ -361,21 +424,58 @@ trips
 \includegraphics[scale = 0.7]{figs/inaccurate_historical.png} \\
 
 have travelled the same distance in a very different amount of 
-time\footnote{this could have happened due different traffic congestion level
-in a different time of the day} (e.g. $4$ min.). Predicting arrival time using
+time\footnote{This could have happened due different traffic congestion level
+in a different time of the day.} (e.g. $4$ min.). Predicting arrival time using
 these historical trips can be misleading. Hence I filter out such trips.
 I.E. I take only those historical trips into account that have travelled the same
-distance in roughly the same amount of time\footnote{up to 30sec. difference
-is allowed}. \\
+distance in roughly the same amount of time\footnote{Up to 30sec. difference
+is allowed.}. \\
 
 Optimisations are tested in the evaluation section.
 
 
+\newpage
 
-\section{Real-time System}
+\section{Real-time System (Optional)}
+
+I am processing the GPS data at real time. The goal of this chapter is to present
+the current system's state so that whoever comes after
+me\footnote{Such as another student next year.} can understand the system and
+improve it. \\
+
+One machine every 30s. accepts a new JSON file containing the GPS data. For each new
+file the machine does the following:
+
+\begin{enumerate}
+
+\item[(a)] Reads the new GPS data from the file and updates the arrival time
+prediction values.
+
+Below is a flow chart handling
+\textbf{one} bus:
+
+\includegraphics[scale = 0.6]{figs/flowchart.png} \\
+
+This is how for \textbf{each} bus I \textbf{independently} process its new GPS data
+and predict the arrival time to the next bus stops. Currently one machine is
+waiting for $t$ sec., then using the new GPS data to handle $50$ buses in 
+$30 - t$ sec.\footnote{Of course, I am trying to minimise $t$.}
+
+\item[(b)] Saves the JSON file to a disc. Once in 24h reads the files saved on a disc
+and generates the new historical data to improve the future predictions.
+
+The current state of a system is such that for each new day I save the JSON files
+to a separate directory. When a day $d+1$ comes, I read all JSON files from day $d$
+and perform the data preprocessing part (3.1) on those files. This generates
+about $20000$ trips for each day. For each of the trip generated I then detect
+which route it followed and save this trip into the historical trips directory
+corresponding to that route. Hence, after each day I generate new historical trips
+following a route. New historical trips improve the arrival time prediction
+performance (part 3.3).
 
 
-\textcolor{red}{TODO(ml693): finish implementing it}
+\end{enumerate}
+
 
 
 
@@ -390,7 +490,7 @@ $FollowsPath$(\textcolor{blue}{$sub$-$trip$}, \textcolor{red}{$path$})
 predicate returns $true$ when the \textcolor{blue}{$sub$-$trip$} indeed
 follows the \textcolor{red}{$path$}. I take the
 \textcolor{red}{$path$} $992088$-$20150526$-$20150830$ to evaluate this step.
-I have a set $T$ of 107 trips that went through it. For each trip
+I have a set $T$ of 117 trips that went through it. For each trip
 $t \in T$ I take a \textcolor{blue}{$sub$-$trip$} and check that the
 $FollowsPath($\textcolor{blue}{$sub$-$trip$}, \textcolor{red}{$path$}$)$ 
 predicate returns true: \\
@@ -464,7 +564,8 @@ Cambridge and ends at the Cambridge Railway station: \\
     $MAE$ value is \textbf{98} sec. This number shows the average error the
     prediction algorithm makes. One can also use the MAE value to compare
     2 algorithms. I claim that the prediction algorithm $A$ performs better
-    for some set than the algorithm $B$, if $MAE_A < MAE_B$.
+    for some set than the algorithm $B$, if $MAE_A < MAE_B$.\footnote{Such claim will
+    be seen later.}
 
 \item[(ii)] \textbf{The scatter plot}. The $MAE$ value gives a first
    clue how well the algorithm performs. However, just the $MAE$ value
@@ -503,7 +604,7 @@ Cambridge and ends at the Cambridge Railway station: \\
    stop, the more accurate the prediction becomes.
 
    \item
-   In my case, most prediction errors are smaller than the $MAE$ value,
+   In my case, many prediction errors are smaller than the $MAE$ value,
    except for a few large errors that make the $MAE$ value increase. The large errors
    occur due to unusual traffic patterns:
 
@@ -546,7 +647,7 @@ the day. I split the day into 4 disjoint time intervals:
 \end{enumerate}
 
 I evaluate the prediction for each of the time intervals separately. The 
-\textbf{table of errors} shows the aggregated results\footnote{as before,
+\textbf{table of errors} shows the aggregated results\footnote{As before,
 I predict the arrival time to the \textbf{last} stop starting from each of the
 other stops}:
 
@@ -575,13 +676,13 @@ The fact that an algorithm works on a single route does not neccessary imply tha
 it works on other routes. Hence, I evaluate the algorithm on $10$ other routes. The
 detailed results are given in the appendix \ref{B1}. \\
 
-The $10$ routes I have chosen are the popular ones. For each route found
+The $10$ routes I have chosen are the popular ones. For each route I found
 more than $100$ historical trips passing through all the route's stops. The tables of
 errors given in the appendix \ref{B1} can serve as a reference point. Anyone writing a
 new prediction algorithm can check whether it gives lower errors than those mentioned
 in the appendix.
 
-\subsection{The Best Route}
+\subsection*{The Best Route}
 
 \includegraphics[width=\textwidth]{figs/table_of_1056213.png}
 
@@ -601,28 +702,29 @@ of the highway.}. Other roads have a relatively little affect on the highway tra
 Hence, only historical trips of the buses travelling along this route are enough to generate
 reasonable predictions\footnote{And the implementation of my algorithm uses only historical trips
 following this route.}. Secondly, the bus speed on the highway does not vary
-much. For example, if a bus is travelling $60$mph. for the last 5 minutes, it is likely
-it will keep travelling at roughly the same speed\footnote{Contrast this with the case when a bus
-is on the street in a city. The bus speed will fluctuate a lot due to traffic lights, other
-cars causing a congestion, pedestratians crossing the street.}. This second feature of a highway allows making a good use of the
-Optimisation nr. 2. The optimisation predicts the arrival time using only those historical
-trips that have travelled a certain distance using the same amount of time\footnote{$\implies$
-the same travel speed.} as the current trip. Since the travel speed on a highway does not vary
-much, these historical trips will give an accurate information how quickly a bus might reach
-the bus stop. \\
+much. For example, if for the last 5 minutes the bus speed was $60$mph., it is 
+likely it will keep travelling at roughly the same speed\footnote{Contrast this with the
+case when a bus is on the street in a city. The bus speed will fluctuate a lot due to
+traffic lights, other cars causing a congestion, pedestratians crossing the street.}.
+This second feature of a highway allows making a good use of the
+Optimisation nr. 2. The optimisation predicts the arrival time using only those
+historical trips that have travelled a certain distance using the same amount of
+time\footnote{$\implies$ the same travel speed.} as the current trip. Since the travel
+speed on a highway does not vary much, these historical trips will give an accurate
+information how quickly a bus might reach the bus stop. \\
 
 Finally, I include the scatter plot. As before, many prediction errors are below the $MAE$ value:
 
 \includegraphics[scale=0.5]{figs/best_scatter_plot.png}
 
-\subsection{The Worst Route}
+\subsection*{The Worst Route}
 
 The algorithm performs poorly on the route $999024$-$20150526$-$20150830$: \\
 
 \includegraphics[width=\textwidth]{figs/table_of_999024.png} \\
 
 The poor performance is due to the following reasons. Firstly, there are many bus stops a bus
-frequently\footnote{every $2$min. or so} stops at. The amount of time a bus is standing at one
+frequently\footnote{Every $2$min. or so.} stops at. The amount of time a bus is standing at one
 stop affects its arrival time to the future stop, but the algorithm does not explicitly deal with
 the bus standing time. \\
 
@@ -661,48 +763,9 @@ I make the following conclusions:
 
 \newpage
 
-\subsection{Comparison with the Timetable}
+\subsection{Different Systems Comparison}
 
-The prediction system is useful if for a particular route it is more accurate than
-the timetable. A company named Traffi, which targets the same arrival time prediction
-problem as me, agreed to share their traffic
-data\footnote{I was given the November 2016 GPS data}. \\
-
-The Traffi data shows when the
-bus has arrived at the stop \textbf{and also} when the bus was expected to arrive
-according to the timetable. Hence, this data easily allows to compare my prediction
-algorithm performance with the 'performance' of the timetable.\footnote{Assume the
-arrival time prediction is what the timetable announces. Thus, one can view the
-timetable as just an another prediction algorithm. Then the $MAE$ values for such an
-algorithm are computed as usual. I compare the $MAE$ values of the 2 algorithms.} Thus,
-I have chosen one of the routes from their dataset and evaluated my algorithm
-on that route: \\
-
-\includegraphics[width=\textwidth]{figs/vilnius_route.png} \\
-
-The route is from my home city Vilnius. It has 18 bus stops and
-I predict the arrival time to the last stop 'Pasaku Parkas' from each
-of the other stops. \\
-
-The evaluation results are shown on the next page. Two tables of errors are merged
-into one and presented there. The left number of each coloured cell shows the
-average prediction error of my algorithm. The right number of each coloured cell
-shows the average prediction error of the timetable. \\
-
-\includegraphics[width=\textwidth]{figs/table_of_vilnius.png} \\
-
-Note that for each column the right numbers are all the same. This is because the
-arrival time announced by the timetable does not change while the bus is moving. \\
-
-Only $4$ $MAE$ values out of $68$ are larger for my prediction algorithm. At the
-beginning of the route, the bus is far away from the last stop, and I have a little amount
-of recent information how it travels. That is the reason why the prediction errors
-for the first stops might be worse than what the timetable announces. However, starting
-from the later stops, the prediction algorithm outperforms the timetable.
-
-
-\newpage
-\subsection{Evaluating Optimisations}
+\subsection*{Comparing Optimisations}
 
 I first run the non-optimised algorithm to predict when the bus will reach the
 Madingley Park starting from the Chesterton Road: \\
@@ -710,37 +773,98 @@ Madingley Park starting from the Chesterton Road: \\
 \includegraphics[width=\textwidth]{figs/madingley.png} \\
 
 Training set having $30$ trips results in $MAE_0 = 105$s.\footnote{detailed
-evaluation results are given in the appendix} I then apply the 1st,
-and the 1st + 2nd optimisations on the same training set.
-The new $MAE$ values are 
+evaluation results are given in the appendix} \\
 
-\[
-\setlength\arraycolsep{0pt}
-\begin{array}{ *{7}{cC} c }
- MAE_1 &=& 88s &<& 
-       MAE_0 & \\
-                                
- MAE_{1,2}  &=& 69s  &<& 
-       MAE_1 &   \\
-    
-\end{array}
-\]
+I now apply the optimisation nr. 1 on the same test set.\footnote{Recall that
+the first optimisation predicts the arrival time from the recent trips only.
+If there are no recent trips, the basic approach is used.} Looking at the
+detailed results in the appendix, one can see that the
+optimisation nr. 1 gives a big improvement for certain trips (e.g. the
+prediction error drops from $380$s. to $40$s.) and leaves everything else
+unchanged. Overall, this optimisation reduces the average prediction error to
+$MAE_1 = 88$s. \\
+
+Finally, I add the second optimisation to predict the arrival time.\footnote{The
+second optimisation takes into account only equally congested historical trips.}
+Both the 1st and 2nd optimisations together further reduce the average
+prediction error to $MAE_{1,2} = 69$s. \\
 
 Hence, I conclude that for this route the optimisations are worth to be applied.
+
+\newpage
+
+\subsection*{Comparison with the Timetable}
+
+The prediction system is useful if for a particular route it is more accurate than
+the timetable. A company named Traffi, which targets the same arrival time prediction
+problem as me, agreed to share their traffic
+data\footnote{I was given the November 2016 GPS data.}. \\
+
+The Traffi data shows when the
+bus has arrived at the stop \textbf{and also} when the bus was expected to arrive
+according to the timetable. Hence, this data easily allows to compare my prediction
+algorithm performance with the 'performance' of the timetable.\footnote{Assume the
+arrival time prediction is what the timetable announces. Thus, one can view the
+timetable as just an another prediction algorithm. Then the $MAE$ values for such an
+algorithm are computed as usual. I compare the $MAE$ values of the 2 algorithms.}
+Thus, I have chosen one of the routes from their dataset and evaluated my algorithm
+on that route. \\
+
+\includegraphics[width=\textwidth]{figs/vilnius_route.png} \\
+
+The route is from my home city Vilnius. It has 18 bus stops and
+I predict the arrival time to the last stop 'Pasaku Parkas' from each
+of the other stops: \\
+
+
+The evaluation results are shown on the next page. Two tables of errors are merged
+into one and presented there. The left number of each coloured cell shows the
+average prediction error of my algorithm. The right number of each coloured cell
+shows the average prediction error of the timetable. \\
+
+
+Note that for each column the right numbers are all the same. This is because the
+arrival time announced by the timetable does not change while the bus is moving. \\
+
+Only $4$ $MAE$ values out of $68$ are larger for my prediction algorithm. At the
+beginning of the route, the bus is far away from the last stop, and I have a little amount
+of recent information how it travels. That is the reason why the prediction errors
+for the first stops might be worse than what the timetable announces. However,
+starting from the later stops, the prediction algorithm outperforms the timetable.
+
+\includegraphics[width=\textwidth]{figs/table_of_vilnius.png} \\
+
+
+
+
+\newpage
+\section{Real-time System Evaluation (Optional)}
+
+Suppose for a particular bus the real time system detects the route $r$ it follows.
+When the bus arrives at the $b$-th bus stop, the system predicts its arrival time 
+$t_{predicted}$ to the last stop of that route. The current time $t_{current}$
+and the predicted time are recorded. When the bus arrives at the last stop,
+the system records its actual arrival time $t_{actual}$. Thus, the system saves
+as many tuples
+
+\begin{center}
+$(r, b, t_{current}, t_{predicted}, t_{actual})$
+\end{center}
+
+as possible. When I have enough tuples for a particular route $r$, I can evaluate
+how well my system performs for that route. \\
+
+I present here the evaluation of the route 1051308-20150531-22000909. The route has 10
+stops. I collected $38$ buses passing through this route in 3 days. I made the arrival
+time prediction to the last stop. The results are as follows: \\
+
+\includegraphics[scale=1.0]{figs/table_of_1051308.png}
 
 \chapter{Conclusion}
 
 I implemented an algorithm which gives sensible prediction results. The
 algorithm itself is simple, thus anyone coming after me to improve the
-system should not have trouble read and understand what has been done so far. \\
-
-If started again, I would have worked in exactly the same way.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% the bibliography
-\addcontentsline{toc}{chapter}{Bibliography}
-\bibliography{refs}
+system should not have a trouble to read and understand what has been done so far. \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % the appendices
@@ -758,22 +882,6 @@ $d(x, y)$.
 For more info look at
 
 \textcolor{blue}{\url{https://en.wikipedia.org/wiki/Dynamic_time_warping}}
-
-\item Arrival time prediction problem has been studied before. Two papers that
-I read and compared my project with are:
-
-\begin{itemize}
-
-\item Bin Yu, William H.K. Lam, Mei Lam Tam: Bus arrival time prediction at
-bus stop with multiple routes 
-
-\textcolor{blue}{\url{http://www.sciencedirect.com/science/article/pii/S0968090X11000155}}
-
-\item Pengfei Zhou, Yuanqing Zheng, Mo Li: How Long to Wait? Predicting Bus Arrival Time with Mobile Phone based Participatory Sensing
-
-\textcolor{blue}{\url{http://www.ntu.edu.sg/home/limo/papers/sys012fp.pdf}}
-
-\end{itemize}
 
 \item Project code can be found at: 
 
