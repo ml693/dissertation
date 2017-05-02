@@ -114,13 +114,13 @@ and that the dissertation does not contain material that has already been used t
 \section{Motivation}
 
 In the European countries, public buses are a popular form of transportation. People
-want to arrive in time to a particular place and they use the public transport for that.
-For example, a bus is used to travel to the airport, arrive at the first lesson in
-school. Citizens rely on a vehicle to travel a certain distance in a certain
+want to arrive in time to a particular place. They use the public transport for that.
+For example, a bus is used travel to the airport, arrive at the first lesson in
+school. Citizens rely on a vehicle travelling a certain distance in a certain
 amount of time. The problem arises when the bus fails to arrive in time due to the
 traffic congestion. This failure makes passengers miss various things. For instance, it
-is very dissapointing to miss a departing train due to a bus being late. Therefore,
-people are looking for a \underline{source of information} that can reliably tell when a
+is very disappointing to miss a departing train due to the late bus. Therefore,
+people are looking for a \underline{source of information} reliably telling when a
 vehicle will reach a certain place. \\
 
 \section{Timetable}
@@ -129,22 +129,21 @@ The \textcolor{green}{timetable} is one potential source of information: \\
 
 \includegraphics[width=\textwidth]{figs/timetable_uk.png}
 
-Often the timetable appears as a stand near the bus stop $S_i$. It can show multiple
-things, such as the bus arrival time to the same stop $S_i$, or a bus arrival time
-to the next stops $S_{i+1}, S_{i+2}, ...$
-The way to present a timetable also varies. For example, it is very likely that
-the information present on a stand is also displayed in some website. \\
+Often the timetable appears as a stand at the bus stop $S_i$. It shows multiple
+things, such as the bus arrival time at the same stop $S_i$, or a bus arrival time
+at the next stops $S_{i+1}, S_{i+2}, ...$ The way to present a timetable varies.
+For example, the information present on a stand is likely displayed on some website. \\
 
-Unfortunatelly, every timetable is fundamentally limited. The arrival times it presents
-are \textbf{static}. If the timetable claims that the bus will arrive at the stop at
+Unfortunately, every timetable is fundamentally limited. The arrival times it presents
+are \textbf{static}. If the timetable claims the bus arrives at the stop at
 time $T$, the value $T$ will not change. Such static arrival time prediction fails to
-reflect the dynamic aspect of the transport. \\
+reflect the dynamic transport aspect. \\
 
 \section{GPS}
 
 The current technology allows making use of the GPS data. Modern buses are equipped
 with the devices sensing their GPS position. The device sends the position at regular
-intervals to a determined server that can store and instantly analyze the data. In
+intervals to a determined server that can store and instantly analyse the data. In
 particular, the prediction analysis can be done to guess when the bus will arrive at
 the next stop. The goal of my project is to perform such prediction analysis.
 I aim to build an algorithm which predicts the bus arrival times based
@@ -159,98 +158,139 @@ where the bus has travelled up to now. The future data (indicated in red)
 is not known during the prediction phase. My goal is to predict the future
 data given the present data. \\
 
-In this specific example I want to predict when the bus will reach the Madingley Park 
-starting from the Chesterton Road. One can see it takes about 8 min. (10:59--11:07)
-to travel such distance.
+Here I want to predict when the bus will reach the Madingley Park starting from the
+Chesterton Road. One can see it takes about 8 min. (10:59--11:07) to travel such distance.
 
 \chapter{Preparation}
 
 \section{Existing Prediction Systems}
 
-Traffic varies a lot based on the vehicle type, the city size, the road
+The traffic varies a lot based on the vehicle type, the city size, the road
 infrastructure present in the city and other factors. There is no one universally
-accepted algorithm that predicts well for each of the different cases. For example,
-the train arrival time can be predicted dividing the remaining travel distance by its
-current speed. This works well for trains. No other vehicle is blocking the train
-driving on the rail and its speed is constant for most of the trip. However, such
-approach is hopeless for buses in the busy city. The current speed will quickly change
-due to the upcomming turns and traffic lights. Hence, just the momentary speed alone
-is of little use. \\
+accepted algorithm predicting well for each of the different cases. For example, predicting
+the train arrival time is easy. Other vehicles do not block the train on the rail. The train
+speed is constant for most of the trip. Hence, the arrival time can be predicted dividing the
+remaining travel distance by its current speed. This approach works well for trains. However,
+I handle the buses travelling both in a single city and between multiple cities. The above
+approach is hopeless for such traffic because the current bus speed will quickly
+change due to the upcoming turns, traffic lights or other cars in front. Hence, just the
+momentary speed alone is of little use. \\
 
-Thus, it is important to code not any algorithm, but the one which suits the GPS data
-and the type of traffic I am dealing with. I did a thourough preparation to choose the
-correct approach. \\
+Thus, it is important not to code any algorithm. I need to choose the one which suits
+the GPS data I have and the type of traffic I am dealing with. I did a thorough preparation
+to choose the correct approach. \\
 
-Firstly, I read two papers describing how other scientists are solving this problem. One
-of them is:
+Firstly, I read two papers describing how other scientists are solving this problem.
+One of them is:
 
 \begin{itemize}
 
 \item Bin Yu, William H.K. Lam, Mei Lam Tam: Bus arrival time prediction at
 bus stop with multiple routes 
 
+\includegraphics[width=\textwidth]{figs/paper.png}
+
 \textcolor{blue}{\url{http://www.sciencedirect.com/science/article/pii/S0968090X11000155}}
 
 \end{itemize}
 
-On a high level, the paper uses the most recent buses that arrived to the bus stop $B$
-from some location $A$. It feeds the times $t^{i}_{A->B}$ (how long it took for the i-th
-preceding bus to reach $B$ from $A$) into the machine learning model (neural network,
-support vector machine and others are tried) and hopes that the model will predict the
+On a high level, the paper uses the most recent buses arrival times at the bus stop $B$
+from some location $A$. It feeds the times $t^{n}_{A->B}$ (how long the n-th
+preceding bus travelled from $A$ to $B$) into the machine learning model (neural network,
+support vector machine and others are tried) and hopes that the model will predict a
 sensible arrival time for the current bus to reach $B$ from $A$. \\
 
-My implementation incorporates several ideas from that paper: \\
+My implementation incorporates one idea from that paper:
+\textit{"[...] the running time(s) of the preceding bus(es) that has(ve) \textbf{just}
+reached the stop can be used to reflect the traffic conditions."} \\
 
-"[...] the running time(s) of the preceding bus(es) that has(ve) \textbf{just} reached
-the stop can be used to reflect the traffic conditions. Furthermore, [...] the weighted
-average running times of several preceding buses could reduce the effect of accidents on
-the preceding buses." \\
+However, I was advised not to use Machine Learning but search for an alternative.
+The problem many Machine Learning models have is that they act like a black-box. For example,
+the weights on the edges of a neural network eventually converge to certain values. It is often
+difficult to understand the intuitive meaning of a particular value:
 
-However, after discussing with Prof Kelly, I decided not to bother doing Machine Learning
-and continued searching for an alternative. The problem many Machine Learning models have
-is that they act like a black box. For example, the weights on the edges of a neural
-network eventually converge to certain values. It is often difficult to understand the
-intuitive meaning of a particular value (e.g. why this weight equals $1.2$ but not $1.4$?).
-It is thus hard to explicitly re-program the model in case it does not work on the data.
+\includegraphics[width=\textwidth]{figs/ann.png} \\
 
+It is thus hard to explicitly re-program the model in case it does not work with the data.
+Since the traffic data generated by humans driving vehicles on the street can be very
+unpredictable (e.g. the Phantom Traffic
+Jam\footnote{\textcolor{blue}{\url{https://www.youtube.com/watch?v=goVjVVaLe10}}}),
+I see no guarantee that a particular model will succeed on the first attempt. \\
 
+The model presented in this dissertation is much simpler to understand. I initially extract
+certain values (e.g. the time it takes for a bus to reach the stop $B$ from the location $A$)
+from the historical data set, just as the previous paper does. However, I do not feed the values
+into the ML model. I write the specific data-processing code. The result of this is that
+I have my own learning model\footnote{The model is presented in the
+implementation chapter.} and understand it very well. If I see that the model does not predict
+well, I look at the data and figure out why that happens. I improve the model after inspecting
+the data. \\
 
-\begin{enumerate}
+\section{Existing Evaluation Metrics}
 
+I read the second paper:
 
-\item Pengfei Zhou, Yuanqing Zheng, Mo Li: How Long to Wait? Predicting Bus Arrival Time with Mobile Phone based Participatory Sensing
+\begin{itemize}
 
+\item Pengfei Zhou, Yuanqing Zheng, Mo Li: How Long to Wait? Predicting Bus Arrival Time
+      with Mobile Phone based Participatory Sensing Pengfei Zhou, Yuanqing Zheng, Mo Li
 
 \textcolor{blue}{\url{http://www.ntu.edu.sg/home/limo/papers/sys012fp.pdf}}
 
+\end{itemize}
 
+I extracted the common evaluation metrics used in both papers. The Mean Absolute Error value
+($MAE$) is the only sensible common evaluation metric. \\
 
-\end{enumerate}
+However, the second paper illustrates one important aspect:
 
-I learned the common evaluation metrics used by reading these papers. I also looked at
-the results claimed in those papers to get a first clue how well the current prediction
-systems are working. \\
+\includegraphics[scale=0.8]{figs/second_paper.png}
 
-Secondly, I talked to multiple people in Cambridge. Several lecturers gave me good tips.
-For example, my overseers pointed out that knowing the exact streets a bus follows is
-not neccesary for making a prediction. Only the GPS points where the bus has moved so far
-and the geographic location of the future bus stop can be enough to predict the arrival
-time to that stop. This advice saved a lot of my time as I did not have to search
-for a good map data. \\
+The prediction errors are meaningful only if one knows how far in advance they were
+generated. Suppose the prediction error is 80 sec. If it takes approximately one hour to reach
+the last bus stop, then the 80 sec. prediction error to the last stop is a very small number.
+If I predict the arrival time the next stop less than 2 minutes away from the current location,
+then 80 sec. is a large error. \\
 
-Finally, after talking with Prof Kelly I became convinced that building a simple algorithm
-described in this dissertation is the right way to start solving the arrival time
-prediction problem.\footnote{Other lecturers were advising me to use the more
-sophisticated techniques, such as Machine Learning or Multivariate Analysis.
-I decided to discard these techniques in favour of a simpler solution.}
+My evaluation chapter takes this aspect into account.
+
+\section{Map Data}
+
+One can represent the road as an edge and the intersection of two roads as a vertex.
+Alternatively, Google Maps uses vertices to model roads and edges to model intersections
+joining two roads. They claim this unintuitive representation helps to reason that
+it takes a different amount of time to turn left, right or drive straight at the intersection: \\
+
+\includegraphics[width=\textwidth]{figs/google.png}
+
+In any case, a graph is used to represent the map. A bus trip corresponds to a walk
+along the graph edges. I initially considered predicting the arrival time by summing the
+time it takes for a bus to travel along every street on its route (i.e. along every edge on
+a path in a graph). This approach would have required
+me getting the map data. Collecting the data (street names, lengths, traffic directions, etc.)
+and building a graph representation of it is a big task. However, my overseers pointed out
+that it is \textbf{not necessary} to have this data at all: \\
+
+\textit{"My thought was more radical: ultimately what you need is to build a predictive
+ model of when the bus will arrive based on previous samples of its position and other
+ vehicles position. That model doesn't necessarily have to be based on the connectivity
+ graph of the roads; it might be enough to (for example) pick out the mean speed of
+ vehicles within any 200m square, and learn how bus arrival time (on any particular route)
+ depends on all those speeds across the whole area. That wouldn't involve *extracting* map
+ data at all."} \\
+
+Following the given advice I decided not to collect the map data. This deviation from the
+original plan saved a lot of my time.
 
 \section{Starting Point}
 
 \section*{Initial Starting Data}
 A company named Vix is sending the real-time GPS data to the Cambridge servers. The GPS
-data shows how certain\footnote{Stagecoach and Whippet buses.} East-England buses are moving in the real-time. The Cambridge servers
-convert the binary GPS data into a human readable JSON format. The JSON data is saved. At the beginning of the academic year I was given
-the JSON data spanning 3 months (June, July and August 2016). That was the starting point data. \\
+data shows how certain East-England buses (Stagecoach and Whippet) are moving 
+in the real-time. The Cambridge servers convert the binary GPS data into a human readable
+JSON format. The JSON data is saved. At the beginning of the academic year I was given the
+JSON data spanning 3 months (June, July and August 2016).
+That was the starting point data. \\
 
 To start with, I wrote the prediction algorithm entirely from scratch and tested it on the historical starting point data.
 
@@ -269,22 +309,22 @@ I started this part by writing the new code processing the real-time JSON data.
 \section{Data Preprocessing}
 
 Below is the starting point input data example: \\
-\includegraphics[width=\textwidth]{figs/starting_data.png} \\
+\includegraphics[scale=0.6]{figs/starting_data.png}
 
 One file contains a single snapshot of all buses, 
 with one entry per bus. An entry such as:
 
-\includegraphics[width=\textwidth]{figs/entry.png} \\
+\includegraphics[width=\textwidth]{figs/entry.png}
 
-means that a vehicle nr. $132$ was at the geographical position
-$(51.891663, -0.45255125)$ on the $2$nd August $2016$, GMT time
-$01$:$51$:$05$\footnote{The time is calculated from the timestamp field.}. \\
+means that a vehicle nr. $509$ was at the geographical position
+$(51.88656, -0.43085587)$ on the $10$st November $2016$, GMT time
+$11$:$01$:$22$ (the time is calculated from the timestamp field 1478775682). \\
 
 A new snapshot file arrives once in $30$s. The data preprocessing part
 takes multiple input files\footnote{For example, to build historical trips, I take $3600 \cdot 24 / 30 = 2880$ files
-received in \textbf{one} day and preprocess them.} and converts them into another format: \\
+received in \textbf{one} day and preprocess them.} and converts them into another format:
 
-\includegraphics[width=\textwidth]{figs/converted_format.jpg} \\
+\includegraphics[width=\textwidth]{figs/converted_format.jpg}
 
 At the end I have a file for each trip made by one bus in one
 day\footnote{Note that a bus on a particurlar day could have made
@@ -490,7 +530,7 @@ Historical trips (which follow the same route) are used to make a prediction:
 
 In the picture above 2 example historical sub-trips (\textcolor{blue}{blue}
 and \textcolor{red}{red}) are shown.
-Both of them start where the vehicle is currently located (indicated
+Both of them start where at the current vehicle's location (indicated
 using the most recent green point). Both of them represent the history how past
 vehicles travelled until the bus stop. I compute the duration how long it
 took for each historical trip to reach the bus stop. Knowing multiple duration values
@@ -1005,9 +1045,48 @@ time prediction to the last stop. The results are as follows: \\
 
 \chapter{Conclusion}
 
-I implemented an algorithm which gives sensible prediction results. The
-algorithm itself is simple, thus anyone coming after me to improve the
-system should not have a trouble to read and understand what has been done so far. \\
+Traffic analysis is a hot topic nowadays. In this project I had a chance to explore what it
+means to deal with a large amount of GPS data. I implemented an algorithm which gives
+sensible prediction results. The algorithm itself is simple, thus anyone coming after me
+to improve the system should not have a trouble to read and understand what has been done
+so far. \\
+
+\section{Future Work}
+
+Below is the list of things that I believe can improve the project most:
+
+\begin{itemize}
+
+\item  Get better GPS data. I worked with the data where the new point is received after
+       30s. A lot of things can change in 30s. For example, a bus can arrive at the bus
+       stop, briefly stop at it and depart in 30s. In that case the GPS data will not
+       indicate that the bus stopped at the bus stop. Thus, I can not be sure at what exact
+       time the bus actually arrived at the stop. This complicates the arrival time
+       prediction evaluation. \\
+
+       There is another problem with the current GPS data. Sometimes the GPS device gets
+       "stuck". For a few minutes it reports the same bus location. After that there is
+       a big change between the last and new (latitude, longitude) pairs. Finding a way
+       to fix this would help.
+
+\item  Get better route data. The routes I have are outdated. Some buses do not follow any
+       of the routes present in my set.
+
+\item  Make the real-time system process the data faster. Since I did not spend much time
+       for this optional part, there is plenty of room to improve it. Currently I do not
+       predict the arrival time for \textbf{each} bus in 30s. One performance bottleneck is
+       the $FollowsPath$ predicate implementation. I am using it often to make sure that
+       the bus both follows the path and has not deviated from it. I think it is possible
+       to reduce the time complexity from $O(nm)$ to $O(n + m)$, where $n$ is the number of
+       recent sub-trip points, m is the number of historical path points. This reduction
+       would allow me to process significantly more buses in 30s.
+
+       Another thing worth considering is to parallelise the system. My system is built in
+       a way that for each bus I independently predict its arrival time to future stops.
+       In the best case (if the lab has enough computation resources), one can consider
+       dedicating a separate core per bus.
+
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % the appendices

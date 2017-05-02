@@ -5,30 +5,33 @@
 \BOOKMARK [1][-]{section.1.4}{Actual Problem Overview}{chapter.1}% 5
 \BOOKMARK [0][-]{chapter.2}{Preparation}{}% 6
 \BOOKMARK [1][-]{section.2.1}{Existing Prediction Systems}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.2}{Starting Point}{chapter.2}% 8
-\BOOKMARK [0][-]{chapter.3}{Implementation}{}% 9
-\BOOKMARK [1][-]{section.3.1}{Data Preprocessing}{chapter.3}% 10
-\BOOKMARK [1][-]{section.3.2}{Route Detection Algorithm}{chapter.3}% 11
-\BOOKMARK [2][-]{subsection.3.2.1}{Why an Algorithm is Needed}{section.3.2}% 12
-\BOOKMARK [2][-]{subsection.3.2.2}{FollowsPath Predicate Definition}{section.3.2}% 13
-\BOOKMARK [2][-]{subsection.3.2.3}{FollowsPath Predicate Implementation}{section.3.2}% 14
-\BOOKMARK [1][-]{section.3.3}{Arrival Time Prediction}{chapter.3}% 15
-\BOOKMARK [2][-]{subsection.3.3.1}{Basic Idea}{section.3.3}% 16
-\BOOKMARK [2][-]{subsection.3.3.2}{Optimisation Nr. 1}{section.3.3}% 17
-\BOOKMARK [2][-]{subsection.3.3.3}{Optimisation Nr. 2}{section.3.3}% 18
-\BOOKMARK [1][-]{section.3.4}{Real-time System \(Optional\)}{chapter.3}% 19
-\BOOKMARK [0][-]{chapter.4}{Evaluation}{}% 20
-\BOOKMARK [1][-]{section.4.1}{Route Detection Evaluation}{chapter.4}% 21
-\BOOKMARK [2][-]{subsection.4.1.1}{Sensitivity Score}{section.4.1}% 22
-\BOOKMARK [2][-]{subsection.4.1.2}{Specificity Score}{section.4.1}% 23
-\BOOKMARK [1][-]{section.4.2}{Arrival Time Prediction Evaluation}{chapter.4}% 24
-\BOOKMARK [2][-]{subsection.4.2.1}{Evaluation Metrics Used}{section.4.2}% 25
-\BOOKMARK [2][-]{subsection.4.2.2}{Evaluation on more Routes}{section.4.2}% 26
-\BOOKMARK [2][-]{subsection.4.2.3}{Different Systems Comparison}{section.4.2}% 27
-\BOOKMARK [1][-]{section.4.3}{Real-time System Evaluation \(Optional\)}{chapter.4}% 28
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 29
-\BOOKMARK [0][-]{appendix.A}{Links}{}% 30
-\BOOKMARK [0][-]{appendix.B}{Detailed Evaluation Results}{}% 31
-\BOOKMARK [1][-]{section.B.1}{Multiple Routes Evaluation}{appendix.B}% 32
-\BOOKMARK [1][-]{section.B.2}{Predictions for Madingley Park}{appendix.B}% 33
-\BOOKMARK [0][-]{appendix.C}{Project Proposal}{}% 34
+\BOOKMARK [1][-]{section.2.2}{Existing Evaluation Metrics}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.3}{Map Data}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.4}{Starting Point}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Implementation}{}% 11
+\BOOKMARK [1][-]{section.3.1}{Data Preprocessing}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.2}{Route Detection Algorithm}{chapter.3}% 13
+\BOOKMARK [2][-]{subsection.3.2.1}{Why an Algorithm is Needed}{section.3.2}% 14
+\BOOKMARK [2][-]{subsection.3.2.2}{FollowsPath Predicate Definition}{section.3.2}% 15
+\BOOKMARK [2][-]{subsection.3.2.3}{FollowsPath Predicate Implementation}{section.3.2}% 16
+\BOOKMARK [1][-]{section.3.3}{Arrival Time Prediction}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.3.1}{Basic Idea}{section.3.3}% 18
+\BOOKMARK [2][-]{subsection.3.3.2}{Optimisation Nr. 1}{section.3.3}% 19
+\BOOKMARK [2][-]{subsection.3.3.3}{Optimisation Nr. 2}{section.3.3}% 20
+\BOOKMARK [1][-]{section.3.4}{Real-time System \(Optional\)}{chapter.3}% 21
+\BOOKMARK [0][-]{chapter.4}{Evaluation}{}% 22
+\BOOKMARK [1][-]{section.4.1}{Route Detection Evaluation}{chapter.4}% 23
+\BOOKMARK [2][-]{subsection.4.1.1}{Sensitivity Score}{section.4.1}% 24
+\BOOKMARK [2][-]{subsection.4.1.2}{Specificity Score}{section.4.1}% 25
+\BOOKMARK [1][-]{section.4.2}{Arrival Time Prediction Evaluation}{chapter.4}% 26
+\BOOKMARK [2][-]{subsection.4.2.1}{Evaluation Metrics Used}{section.4.2}% 27
+\BOOKMARK [2][-]{subsection.4.2.2}{Evaluation on more Routes}{section.4.2}% 28
+\BOOKMARK [2][-]{subsection.4.2.3}{Different Systems Comparison}{section.4.2}% 29
+\BOOKMARK [1][-]{section.4.3}{Real-time System Evaluation \(Optional\)}{chapter.4}% 30
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 31
+\BOOKMARK [1][-]{section.5.1}{Future Work}{chapter.5}% 32
+\BOOKMARK [0][-]{appendix.A}{Links}{}% 33
+\BOOKMARK [0][-]{appendix.B}{Detailed Evaluation Results}{}% 34
+\BOOKMARK [1][-]{section.B.1}{Multiple Routes Evaluation}{appendix.B}% 35
+\BOOKMARK [1][-]{section.B.2}{Predictions for Madingley Park}{appendix.B}% 36
+\BOOKMARK [0][-]{appendix.C}{Project Proposal}{}% 37
