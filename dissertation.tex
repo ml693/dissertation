@@ -149,7 +149,7 @@ the next stop. The goal of my project is to perform such prediction analysis.
 I aim to build an algorithm which predicts the bus arrival times based
 on the most recent GPS data.
 
-\section{Actual Problem Overview}
+\section{Problem Overview}
 
 \includegraphics[width=\textwidth]{figs/problem_overview.png} \\
 
@@ -163,7 +163,19 @@ Chesterton Road. One can see it takes about 8 min. (10:59--11:07) to travel such
 
 \chapter{Preparation}
 
-\section{Existing Prediction Systems}
+I see 3 main things that require thought before the implementation can commence:
+
+\begin{enumerate}
+\item What prediction algorithm I will code
+\item What existing data and tools I will use
+\item How will I evaluate the algorithm
+\end{enumerate}
+
+Sections 2.1, 2.2, 2.3 explain each thing one by one.
+
+\section{Algorithm Choice}
+
+\subsection{Existing Prediction Systems}
 
 The traffic varies a lot based on the vehicle type, the city size, the road
 infrastructure present in the city and other factors. There is no one universally
@@ -180,8 +192,7 @@ Thus, it is important not to code any algorithm. I need to choose the one which 
 the GPS data I have and the type of traffic I am dealing with. I did a thorough preparation
 to choose the correct approach. \\
 
-Firstly, I read two papers describing how other scientists are solving this problem.
-One of them is:
+Firstly, I read a paper describing how other scientists are solving this problem:
 
 \begin{itemize}
 
@@ -204,7 +215,10 @@ My implementation incorporates one idea from that paper:
 \textit{"[...] the running time(s) of the preceding bus(es) that has(ve) \textbf{just}
 reached the stop can be used to reflect the traffic conditions."} \\
 
-However, I was advised not to use Machine Learning but search for an alternative.
+
+\subsection{My Choice}
+
+After talking with Prof Kelly, I decided not to use Machine Learning and found an alternative.
 The problem many Machine Learning models have is that they act like a black-box. For example,
 the weights on the edges of a neural network eventually converge to certain values. It is often
 difficult to understand the intuitive meaning of a particular value:
@@ -226,35 +240,29 @@ implementation chapter.} and understand it very well. If I see that the model do
 well, I look at the data and figure out why that happens. I improve the model after inspecting
 the data. \\
 
-\section{Existing Evaluation Metrics}
+\section{Available Data and Tools}
 
-I read the second paper:
+\subsection{Starting Point}
 
-\begin{itemize}
+\subsection*{Initial GPS Data}
+A company named Vix is sending the real-time GPS data to the Cambridge servers. The GPS
+data shows how certain East-England buses (Stagecoach and Whippet) are moving 
+in the real-time. The Cambridge servers convert the binary GPS data into a human readable
+JSON format. The JSON data is saved. At the beginning of the academic year I was given the
+JSON data spanning 3 months (June, July and August 2016).
+That was the starting point data. \\
 
-\item Pengfei Zhou, Yuanqing Zheng, Mo Li: How Long to Wait? Predicting Bus Arrival Time
-      with Mobile Phone based Participatory Sensing Pengfei Zhou, Yuanqing Zheng, Mo Li
+To start with, I wrote the prediction algorithm entirely from scratch and tested it on the historical
+starting point data.
 
-\textcolor{blue}{\url{http://www.ntu.edu.sg/home/limo/papers/sys012fp.pdf}}
+\subsection*{GPS Data for the Real-time System}
+In the second term, I started building the real-time system as an optional extension.
+The optional part requires the real-time GPS data. To start with, Dr. Lewis gave me
+the access to the machine receiving the new GPS data from the Vix company every 30sec. \\
 
-\end{itemize}
+The code receiving the real-time GPS data and immediatelly converting it to the JSON format was already written. I started this part by writing the new code processing the real-time JSON data.
 
-I extracted the common evaluation metrics used in both papers. The Mean Absolute Error value
-($MAE$) is the only sensible common evaluation metric. \\
-
-However, the second paper illustrates one important aspect:
-
-\includegraphics[scale=0.8]{figs/second_paper.png}
-
-The prediction errors are meaningful only if one knows how far in advance they were
-generated. Suppose the prediction error is 80 sec. If it takes approximately one hour to reach
-the last bus stop, then the 80 sec. prediction error to the last stop is a very small number.
-If I predict the arrival time the next stop less than 2 minutes away from the current location,
-then 80 sec. is a large error. \\
-
-My evaluation chapter takes this aspect into account.
-
-\section{Map Data}
+\subsection{Map Data}
 
 One can represent the road as an edge and the intersection of two roads as a vertex.
 Alternatively, Google Maps uses vertices to model roads and edges to model intersections
@@ -282,25 +290,57 @@ that it is \textbf{not necessary} to have this data at all: \\
 Following the given advice I decided not to collect the map data. This deviation from the
 original plan saved a lot of my time.
 
-\section{Starting Point}
+\subsection{Language Choice}
 
-\section*{Initial Starting Data}
-A company named Vix is sending the real-time GPS data to the Cambridge servers. The GPS
-data shows how certain East-England buses (Stagecoach and Whippet) are moving 
-in the real-time. The Cambridge servers convert the binary GPS data into a human readable
-JSON format. The JSON data is saved. At the beginning of the academic year I was given the
-JSON data spanning 3 months (June, July and August 2016).
-That was the starting point data. \\
+A language must be convenient for the type of code I have to write. This project requires writing
+the following pieces of code:
 
-To start with, I wrote the prediction algorithm entirely from scratch and tested it on the historical starting point data.
+\begin{enumerate}
+\item Code inspecting the JSON format and converting it into another form.
+\item Core algorithms (e.g. Dynamic Time Warping) predicting the arrival time.
+\item Prediction \textbf{system design} code.
+\end{enumerate}
 
-\section*{Starting Data for the Real-time System}
-In the second term, I started building the real-time system as an optional extension.
-The optional part requires the real-time GPS data. To start with, Dr. Lewis gave me
-the access to the machine receiving the new GPS data from the Vix company every 30sec. \\
+I think Java is (up to a certain extent) a language convenient to write all of the above:
 
-The code receiving the real-time GPS data and immediatelly converting it to the JSON format was already written.
-I started this part by writing the new code processing the real-time JSON data.
+\begin{enumerate}
+\item It has built-in $String$ handling methods and IO facilities to read the data from a file.
+\item It has advanced data structures (e.g. $HashMap$) to code an algorithm.
+\item Java supports multithreading. Multiple components (new GPS data processor, arrival time
+      predictor, statistics generator) can run at the same time and interact with each other.
+\end{enumerate}
+
+\newpage 
+
+\section{Evaluation Overview}
+
+I read a second paper:
+
+\begin{itemize}
+
+\item Pengfei Zhou, Yuanqing Zheng, Mo Li: How Long to Wait? Predicting Bus Arrival Time
+      with Mobile Phone based Participatory Sensing Pengfei Zhou, Yuanqing Zheng, Mo Li
+
+\textcolor{blue}{\url{http://www.ntu.edu.sg/home/limo/papers/sys012fp.pdf}}
+
+\end{itemize}
+
+I extracted the common evaluation metrics used in both papers. The Mean Absolute Error value
+($MAE$) is the only sensible common evaluation metric. Most of my evaluation is grounded on the
+$MAE$ value. \\
+
+However, the second paper illustrates one important aspect:
+
+\includegraphics[scale=0.8]{figs/second_paper.png}
+
+The prediction errors are meaningful only if one knows how far in advance they were
+generated. Suppose the prediction error is 80 sec. If it takes approximately one hour to reach
+the last bus stop, then the 80 sec. prediction error to the last stop is a very small number.
+If I predict the arrival time the next stop less than 2 minutes away from the current location,
+then 80 sec. is a large error. \\
+
+My evaluation chapter takes this aspect into account.
+
 
 
 
@@ -539,7 +579,7 @@ I return the median as the predicted arrival time. \\
 For example, it took 13:37:18 $-$ 13:21:27 = 15m 51s for the
 \textcolor{blue}{blue trip} to reach the bus stop. I also calculate these
 duration values for the \textcolor{red}{red} and other trips present in the
-historical trips set. The computation gives me the list of numbers.
+historical trips set. The computation gives me a list of numbers.
 I sort the list:
 
 \:
@@ -557,7 +597,8 @@ reach the bus stop after 15m 36s. \\
 The reason for choosing a median value rather than some other average number
 (such as the arithmetic mean) is to get rid of the outliers. The shortest arrival time
 8m 30s is a much smaller number than others. I discard this number when computing
-the median. Different computation might have been negatively influenced by the outlier.
+the median. Different computation might have been negatively influenced by the outlier. \\
+
 The median value predicted better compared to the arithmetic mean during the testing
 phase. Thus, I decided to stick with the median value.
 
@@ -589,7 +630,7 @@ time. The 1st point out of $N$ shows where the bus was $M$ minutes ago (if $N=30
 most likely $M=15$, because the new GPS point is usually generated once in 30s).
 For each historical trip I find the point $P$ where the historical bus was $M$ minutes
 ago from the moment of time when it reached the current bus location. If $P$ is roughly
-the same location as the current bus location $M$ minuts ago, I include the historical
+the same location as the current bus location $M$ minutes ago, I include the historical
 trip into the set $C$ of consideration. I discard this historical trip otherwise.
 After the set $C$ is generated, I proceed only with it as before (3.3.1). \\
 
@@ -656,36 +697,83 @@ corresponding to that route. Hence, after each day I generate new historical tri
 following a route. New historical trips improve the arrival time prediction
 performance (part 3.3).
 
-
 \end{enumerate}
 
-
-
-
 \chapter{Evaluation}
+
+\section{Good Evaluation Data Preparation}
+
+
+I take the historical November data and generate the set $S$ consisting of 532428\footnote{
+The size of this set is large but sensible. If 1000 buses are present in each JSON file,
+the duration of 1 full trip is $\sim1h$, and November has 30 days, 
+then $30 \cdot 24 \cdot 1000 = 720000$ is comparable to $532428$.} trips. I also have $3050$ routes
+($2640$ of them are read from old files, $410$ of them are new routes present
+in the new Traveline National Dataset (TNDS)). \\
+
+I now run a long computation (it took 36 hours to complete on Dr Lewis machine): \\
+
+For each trip $t \in S$ I search for a route that the trip went through completely (i.e. visited
+all route stops in order). If I find a route, I save the trip. If no route is found, I discard the
+trip. I am very selective during this computation. I.E. I consider that the trip stopped at stop
+$s$ iff there exists a GPS point in a very close neighbourhood of $s$. At the end I save only
+the routes for which more than 100 trips were found. \\
+
+I am left with 25 routes each having more than 100 trips passing through it completely. The next
+sections evaluate my algorithm on these 25 routes. \\
+
+It is surprising that \textbf{none} of the routes are from the new TNDS set. I contacted the officer
+working with this data and got the following reply:
+
+\textit{"In practice, within the TNDS, you will find that Route data is either limited or
+non-existent."} \\
+
+The process above voluntarily discards a lot of data. I want to explain this decision.
+Improving any system is a natural ambition. I see two ways how the prediction algorithm can
+perform better:
+
+\begin{itemize} 
+\item The itself algorithm is improved.
+\item The data becomes better.
+\end{itemize}
+
+I believe, that \textbf{if both} options are possible, one should \textbf{first} try the latter.
+This case applies to my project. I want to evaluate the algorithm on a data that meets
+the quality standards. Thus, I discard the poor data and use only the qualified data for the
+evaluation. \\
+
+Put it in another way, I do not want to evaluate the algorithm on bad data, if the bad data
+can be improved in the first place.
+
 
 \section{Route Detection Evaluation}
 
 \subsection{Sensitivity Score}
 
-The first step is to check whether the 
-$FollowsPath$(\textcolor{blue}{$sub$-$trip$}, \textcolor{red}{$path$})
-predicate returns $true$ when the \textcolor{blue}{$sub$-$trip$} indeed
-follows the \textcolor{red}{$path$}. I take the
-\textcolor{red}{$path$} $992088$-$20150526$-$20150830$ to evaluate this step.
-I have a set $T$ of 117 trips that went through it. For each trip
-$t \in T$ I take a \textcolor{blue}{$sub$-$trip$} and check that the
-$FollowsPath($\textcolor{blue}{$sub$-$trip$}, \textcolor{red}{$path$}$)$ 
-predicate returns true: \\
+This section checks whether the $FollowsPath$($sub$-$trip$, $path$) predicate returns $true$
+when the $sub$-$trip$ indeed follows a $path$. For each path $p$ (corresponding to a route) I
+have a set $T_p$ of trips that went through it. For each trip $t \in T_p$ I take a
+sub-trip $s$ and check that the $FollowsPath(s, p)$ returns true. \\
 
-\includegraphics[scale = 0.7]{figs/stop1.png} \\
+For 11 routes (out of 25) the $FollowsPath$ predicate has $100\%$ success rate. \\
 
-For this route the $FollowsPath$ predicate has $100\%$ success rate.
+For other 14 routes, I present the sensitivity scores in the decreasing order:
+
+(0.99, 0.99, 0.98, 0.98, 0.89, 0.86, 0.86, 0.84, 0.58, 0.48, 0.38, 0.13, 0.12) \\
+
+The picture below ilustrates the reason for having lower than $100\%$ scores:
+
+\includegraphics[width=\textwidth]{figs/same_route_wrong_path.png}
+
+The \textcolor{green}{trip} reached the second bus stop using a different path
+than the \textcolor{red}{one} I have as a path representing the route.
+For routes that have few stops (e.g. 3) and one stop is far away from the other
+there are many different paths a bus can use to travel between the two stops. That is the
+reason why for some routes the sensitivity score is very low.
 
 \subsection{Specificity Score}
 
-The second step is to check that for trips not on a path
-the predicate returns false. \\
+This section checks that for trips not on a path the predicate returns false. \\
 
 If a trip is very far away from the path (e.g. $10$ miles away), the
 $FollowsPath(trip, path)$ will definitely return false. Thus, to perform
@@ -738,7 +826,7 @@ Cambridge and ends at the Cambridge Railway station: \\
     \end{center}
 
     For example, suppose I predict when the buses will reach the Railway Station
-    starting from the Central Cambridge stop. I have $558$ trips
+    starting from the Central Cambridge stop. I have $674$ trips
     following this route to test my prediction. For each test trip, I assume
     only its history up to the Central Cambridge stop is known. I predict
     the arrival time to the Railway Station. After the prediction is made,
@@ -853,10 +941,11 @@ during the rush hours.
 \end{enumerate}
 
 
-\subsection{Evaluation on more Routes}
+\subsection{Evaluation on other Routes}
 
-The fact that an algorithm works on a single route does not neccessary imply that
-it works on other routes. Hence, I evaluate the algorithm on $10$ other routes. The
+I used one route to present the metrics. The fact that an algorithm works on a single route
+does not neccessary imply that it works on other routes. Hence, I evaluate the algorithm on
+$25$ other routes for which I have enough data. The
 detailed results are given in the appendix \ref{B1}. \\
 
 The $10$ routes I have chosen are the popular ones. For each route I found
@@ -1118,16 +1207,31 @@ For more info look at
 
 \label{B1}
 
-\includegraphics[width=\textwidth]{figs/table_of_1046521.png}
+\includegraphics[width=\textwidth]{figs/table_of_1002879.png}
+\includegraphics[width=\textwidth]{figs/table_of_1054060.png}
+\includegraphics[width=\textwidth]{figs/table_of_991943.png}
 \includegraphics[width=\textwidth]{figs/table_of_999024.png}
+\includegraphics[width=\textwidth]{figs/table_of_1046521.png}
+\includegraphics[width=\textwidth]{figs/table_of_711130.png}
+\includegraphics[width=\textwidth]{figs/table_of_1047079.png}
+\includegraphics[width=\textwidth]{figs/table_of_1050724.png}
+\includegraphics[width=\textwidth]{figs/table_of_1050843.png}
 \includegraphics[width=\textwidth]{figs/table_of_1028069.png}
 \includegraphics[width=\textwidth]{figs/table_of_1053969.png}
-\includegraphics[width=\textwidth]{figs/table_of_1030740.png}
-\includegraphics[width=\textwidth]{figs/table_of_830638.png}
-\includegraphics[width=\textwidth]{figs/table_of_1039292.png}
 \includegraphics[width=\textwidth]{figs/table_of_1001579.png}
 \includegraphics[width=\textwidth]{figs/table_of_1056213.png}
-\includegraphics[width=\textwidth]{figs/table_of_1002879.png}
+\includegraphics[width=\textwidth]{figs/table_of_1026152.png}
+\includegraphics[width=\textwidth]{figs/table_of_1030740.png}
+\includegraphics[width=\textwidth]{figs/table_of_1047094.png}
+\includegraphics[width=\textwidth]{figs/table_of_1050847.png}
+\includegraphics[width=\textwidth]{figs/table_of_1051308.png}
+\includegraphics[width=\textwidth]{figs/table_of_992088.png}
+\includegraphics[width=\textwidth]{figs/table_of_830638.png}
+\includegraphics[width=\textwidth]{figs/table_of_1030920.png}
+\includegraphics[width=\textwidth]{figs/table_of_1054599.png}
+\includegraphics[width=\textwidth]{figs/table_of_1050762.png}
+\includegraphics[width=\textwidth]{figs/table_of_1039292.png}
+\includegraphics[width=\textwidth]{figs/table_of_1046531.png}
 
 \newpage
 
