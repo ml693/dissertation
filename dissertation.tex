@@ -184,7 +184,7 @@ the train arrival time is easy. Other vehicles do not block the train on the rai
 speed is constant for most of the trip. Hence, the arrival time can be predicted dividing the
 remaining travel distance by its current speed. This approach works well for trains. However,
 I handle the buses travelling both in a single city and between multiple cities. The above
-approach is hopeless for such traffic because the current bus speed will quickly
+approach is hopeless for the buses traffic because the current bus speed will quickly
 change due to the upcoming turns, traffic lights or other cars in front. Hence, just the
 momentary speed alone is of little use. \\
 
@@ -404,7 +404,7 @@ such as the \textbf{label} field: \\
 \includegraphics[width=\textwidth, scale=1.2]{figs/labelled_entry.png} \\
 
 An extra field \textbf{label} names the route a bus follows. Auxiliary
-data might indicate what route the label \textbf{ATS-3603} corresponds to.
+data might indicate what route the label \textbf{CBL-301} corresponds to.
 One can then look at the route and determine a sequence of stops 
 a bus will visit next. \\
 
@@ -440,16 +440,20 @@ follows another.
 \subsection{$FollowsPath$ Predicate Definition}
 
 I define a predicate $FollowsPath(sub$-$trip, path)$ to be true iff a $sub$-$trip$
-follows a $path$: \\
+follows a $path$:
 
-\includegraphics[width=\textwidth, scale=1.2]{figs/follows_path.jpg} \\
+\includegraphics[width=\textwidth]{figs/follows.png}
 
-Two pictures show when I want the predicate to return true and when false.
-For the first example, the predicate returns true because it is intuitively
-clear that a red sub-trip follows a blue path. In the second example, the
-output is false, as the two GPS sequences do not intersect at all.
+For the picture above, the $FollowsPath(\textcolor{green}{subtrip}, \textcolor{red}{path})$ 
+predicate returns true, because it is intuitively clear that the \textcolor{green}{subtrip}
+follows a \textcolor{red}{path}. \\
 
-\newpage
+In the next example, the $FollowsPath(\textcolor{green}{subtrip}, \textcolor{red}{path})$
+predicate returns false, as the two GPS sequences do not intersect at all:
+
+\includegraphics[width=\textwidth]{figs/not_follows_path.png}
+
+\:
 
 \subsection{$FollowsPath$ Predicate Implementation}
 
@@ -701,7 +705,7 @@ performance (part 3.3).
 
 \chapter{Evaluation}
 
-\section{Good Evaluation Data Preparation}
+\section{Evaluation Data Preparation}
 
 
 I take the historical November data and generate the set $S$ consisting of 532428\footnote{
@@ -711,15 +715,19 @@ then $30 \cdot 24 \cdot 1000 = 720000$ is comparable to $532428$.} trips. I also
 ($2640$ of them are read from old files, $410$ of them are new routes present
 in the new Traveline National Dataset (TNDS)). \\
 
-I now run a long computation (it took 36 hours to complete on Dr Lewis machine): \\
+I then run a long computation (it took 36 hours to complete on Dr Lewis machine): \\
 
-For each trip $t \in S$ I search for a route that the trip went through completely (i.e. visited
-all route stops in order). If I find a route, I save the trip. If no route is found, I discard the
-trip. I am very selective during this computation. I.E. I consider that the trip stopped at stop
-$s$ iff there exists a GPS point in a very close neighbourhood of $s$. At the end I save only
-the routes for which more than 100 trips were found. \\
+For each trip $t \in S$ I search for a route that the trip \textbf{completely}
+went through (i.e. visited all route stops in order). If I find a route, I save the trip. If no route is found, I discard the
+trip. At the end I save only the routes for which more than 100 trips 
+were found. \\
 
-I am left with 25 routes each having more than 100 trips passing through it completely. The next
+I am very selective during this computation. I consider that the trip stopped
+at stop $s$ iff it contains a GPS point very close to $s$. \\
+
+
+
+The computation returns 25 routes each having more than 100 trips passing through it completely. The next
 sections evaluate my algorithm on these 25 routes. \\
 
 It is surprising that \textbf{none} of the routes are from the new TNDS set. I contacted the officer
@@ -741,9 +749,6 @@ I believe, that \textbf{if both} options are possible, one should \textbf{first}
 This case applies to my project. I want to evaluate the algorithm on a data that meets
 the quality standards. Thus, I discard the poor data and use only the qualified data for the
 evaluation. \\
-
-Put it in another way, I do not want to evaluate the algorithm on bad data, if the bad data
-can be improved in the first place.
 
 
 \section{Route Detection Evaluation}
@@ -767,9 +772,10 @@ The picture below ilustrates the reason for having lower than $100\%$ scores:
 
 The \textcolor{green}{trip} reached the second bus stop using a different path
 than the \textcolor{red}{one} I have as a path representing the route.
-For routes that have few stops (e.g. 3) and one stop is far away from the other
-there are many different paths a bus can use to travel between the two stops. That is the
-reason why for some routes the sensitivity score is very low.
+Some routes have few stops (e.g. 3) and the stops are far away from each other.
+For these routes there are many different paths a bus can use to travel
+between two consecutive stops. That is the reason why for some routes the
+sensitivity score is low.
 
 \subsection{Specificity Score}
 
@@ -829,14 +835,13 @@ Cambridge and ends at the Cambridge Railway station: \\
     starting from the Central Cambridge stop. I have $674$ trips
     following this route to test my prediction. For each test trip, I assume
     only its history up to the Central Cambridge stop is known. I predict
-    the arrival time to the Railway Station. After the prediction is made,
-    I then read the rest of the history and check when the trip has actually
+    the arrival time to the Railway Station. After the prediction is done,
+    I read the rest of the history and check when the trip has actually
     arrived at the Railway Station. For this example trip, the resulting
     $MAE$ value is \textbf{98} sec. This number shows the average error the
     prediction algorithm makes. One can also use the MAE value to compare
     2 algorithms. I claim that the prediction algorithm $A$ performs better
-    for some set than the algorithm $B$, if $MAE_A < MAE_B$.\footnote{Such claim will
-    be seen later.}
+    for some set than the algorithm $B$, if $MAE_A < MAE_B$.
 
 \item[(ii)] \textbf{The scatter plot}. The $MAE$ value gives a first
    clue how well the algorithm performs. However, just the $MAE$ value
@@ -856,11 +861,11 @@ Cambridge and ends at the Cambridge Railway station: \\
 \item[]
    The x-axis labels the stop number $i$. For each $i$, I predict when the bus
    will reach the Railway Station (the last stop) starting from the $i$-th stop.
-   The y-axis labels the absolute prediction error\footnote{Measured in seconds.}.
+   The y-axis labels the absolute prediction error (measured in seconds).
    A point $(i, y)$ tells that for some trip the prediction from the $i$-th stop
    to the last stop has an abolute error equal $y$. The more repeated errors
    $(i, y)$ I have, the larger point I plot. For completeness,
-   in the diagram I show the MAE value\footnote{Labelled in yellow.} and the 
+   in the diagram I show the MAE value (labelled in yellow) and the 
    average travel time\footnote{For each trip I calculate the time it actually
    takes to reach the last stop, then return the mean value.} from the $i$-th stop
    to the last stop.
@@ -947,12 +952,6 @@ I used one route to present the metrics. The fact that an algorithm works on a s
 does not neccessary imply that it works on other routes. Hence, I evaluate the algorithm on
 $25$ other routes for which I have enough data. The
 detailed results are given in the appendix \ref{B1}. \\
-
-The $10$ routes I have chosen are the popular ones. For each route I found
-more than $100$ historical trips passing through all the route's stops. The tables of
-errors given in the appendix \ref{B1} can serve as a reference point. Anyone writing a
-new prediction algorithm can check whether it gives lower errors than those mentioned
-in the appendix.
 
 \subsection*{The Best Route}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.3)  3 MAY 2017 19:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.3)  4 MAY 2017 13:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -710,12 +710,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 400--403
 
  []
 
-<figs/labelled_entry.png, id=340, 730.73pt x 21.07875pt>
+<figs/labelled_entry.png, id=340, 951.555pt x 18.0675pt>
 File: figs/labelled_entry.png Graphic file (type png)
 
 <use figs/labelled_entry.png>
 Package pdftex.def Info: figs/labelled_entry.png used on input line 404.
-(pdftex.def)             Requested size: 876.87161pt x 25.29434pt.
+(pdftex.def)             Requested size: 1141.86029pt x 21.68086pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 404--405
 
@@ -739,54 +739,49 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 440.
 
+<figs/follows.png, id=349, 663.47874pt x 216.81pt>
+File: figs/follows.png Graphic file (type png)
+ <use figs/follows.png>
+Package pdftex.def Info: figs/follows.png used on input line 445.
+(pdftex.def)             Requested size: 512.14963pt x 167.36766pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--444
-
- []
-
-<figs/follows_path.jpg, id=349, 851.18pt x 505.89pt>
-File: figs/follows_path.jpg Graphic file (type jpg)
-
-<use figs/follows_path.jpg>
-Package pdftex.def Info: figs/follows_path.jpg used on input line 445.
-(pdftex.def)             Requested size: 1021.41087pt x 607.06494pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 445--446
+Underfull \hbox (badness 10000) in paragraph at lines 447--450
 
  []
 
-[15 <./figs/follows_path.jpg>]
+<figs/not_follows_path.png, id=350, 696.6025pt x 319.1925pt>
+File: figs/not_follows_path.png Graphic file (type png)
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 454.
+<use figs/not_follows_path.png>
+Package pdftex.def Info: figs/not_follows_path.png used on input line 454.
+(pdftex.def)             Requested size: 512.14963pt x 234.68402pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 454.
+(hyperref)                removing `math shift' on input line 458.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--459
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 458.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--463
 
  []
 
-<figs/follows_exactly.jpg, id=356, 956.57375pt x 99.37125pt>
+<figs/follows_exactly.jpg, id=351, 956.57375pt x 99.37125pt> [15 <./figs/follow
+s.png> <./figs/not_follows_path.png>]
 File: figs/follows_exactly.jpg Graphic file (type jpg)
-
-<use figs/follows_exactly.jpg>
-Package pdftex.def Info: figs/follows_exactly.jpg used on input line 460.
+ <use figs/follows_exactly.jpg>
+Package pdftex.def Info: figs/follows_exactly.jpg used on input line 464.
 (pdftex.def)             Requested size: 512.14963pt x 53.20326pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--467
+Underfull \hbox (badness 10000) in paragraph at lines 466--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 490--493
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 
  []
 
@@ -795,242 +790,252 @@ Underfull \hbox (badness 10000) in paragraph at lines 494--497
 
  []
 
-<figs/follows_roughly.png, id=358, 510.90875pt x 118.4425pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--501
+
+ []
+
+<figs/follows_roughly.png, id=361, 510.90875pt x 118.4425pt>
 File: figs/follows_roughly.png Graphic file (type png)
 
 <use figs/follows_roughly.png>
-Package pdftex.def Info: figs/follows_roughly.png used on input line 498.
+Package pdftex.def Info: figs/follows_roughly.png used on input line 502.
 (pdftex.def)             Requested size: 512.14963pt x 118.73679pt.
 
-Overfull \hbox (5.62294pt too wide) detected at line 522
+Overfull \hbox (5.62294pt too wide) detected at line 526
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 524--525
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
 
  []
 
 [16 <./figs/follows_exactly.jpg> <./figs/follows_roughly.png>]
-<figs/not_follows.png, id=367, 656.4525pt x 653.44125pt>
+<figs/not_follows.png, id=370, 656.4525pt x 653.44125pt>
 File: figs/not_follows.png Graphic file (type png)
 
 <use figs/not_follows.png>
-Package pdftex.def Info: figs/not_follows.png used on input line 531.
+Package pdftex.def Info: figs/not_follows.png used on input line 535.
 (pdftex.def)             Requested size: 393.87454pt x 392.06776pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 531--532
+Underfull \hbox (badness 10000) in paragraph at lines 535--536
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 533--536
+Underfull \hbox (badness 10000) in paragraph at lines 537--540
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--553
+Underfull \hbox (badness 10000) in paragraph at lines 552--557
 
  []
 
 [17 <./figs/not_follows.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 563--566
+Underfull \hbox (badness 10000) in paragraph at lines 567--570
 
  []
 
-<figs/future_stop.png, id=375, 1464.47125pt x 551.05875pt>
+<figs/future_stop.png, id=378, 1464.47125pt x 551.05875pt>
 File: figs/future_stop.png Graphic file (type png)
 
 <use figs/future_stop.png>
-Package pdftex.def Info: figs/future_stop.png used on input line 569.
+Package pdftex.def Info: figs/future_stop.png used on input line 573.
 (pdftex.def)             Requested size: 512.14963pt x 192.71368pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 571--578
+Underfull \hbox (badness 10000) in paragraph at lines 575--582
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 594--596
+Underfull \hbox (badness 10000) in paragraph at lines 598--600
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 597--601
+Underfull \hbox (badness 10000) in paragraph at lines 601--605
 
  []
 
 [18 <./figs/future_stop.png>]
-<figs/recent_trip.png, id=381, 474.77374pt x 214.8025pt>
+<figs/recent_trip.png, id=384, 474.77374pt x 214.8025pt>
 File: figs/recent_trip.png Graphic file (type png)
 
 <use figs/recent_trip.png>
-Package pdftex.def Info: figs/recent_trip.png used on input line 615.
+Package pdftex.def Info: figs/recent_trip.png used on input line 619.
 (pdftex.def)             Requested size: 332.33936pt x 150.36072pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--616
+Underfull \hbox (badness 10000) in paragraph at lines 619--620
 
  []
 
-<figs/inaccurate_historical.png, id=382, 528.97626pt x 219.82124pt>
+<figs/inaccurate_historical.png, id=385, 528.97626pt x 219.82124pt>
 File: figs/inaccurate_historical.png Graphic file (type png)
 
 <use figs/inaccurate_historical.png>
-Package pdftex.def Info: figs/inaccurate_historical.png used on input line 620.
+Package pdftex.def Info: figs/inaccurate_historical.png used on input line 624.
 
 (pdftex.def)             Requested size: 370.28085pt x 153.87381pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 620--621
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 622--627
+Underfull \hbox (badness 10000) in paragraph at lines 626--631
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 628--636
+Underfull \hbox (badness 10000) in paragraph at lines 632--640
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 637--645
+Underfull \hbox (badness 10000) in paragraph at lines 641--649
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 646--656
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
 
  []
 
 [19 <./figs/recent_trip.png> <./figs/inaccurate_historical.png>] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 664--668
+Underfull \hbox (badness 10000) in paragraph at lines 668--672
 
  []
 
-<figs/flowchart.png, id=397, 447.6725pt x 527.9725pt>
+<figs/flowchart.png, id=400, 447.6725pt x 527.9725pt>
 File: figs/flowchart.png Graphic file (type png)
  <use figs/flowchart.png>
-Package pdftex.def Info: figs/flowchart.png used on input line 680.
+Package pdftex.def Info: figs/flowchart.png used on input line 684.
 (pdftex.def)             Requested size: 268.60556pt x 316.78593pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--681
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
 
  []
 
 [21 <./figs/flowchart.png>]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 707--713
+Underfull \hbox (badness 10000) in paragraph at lines 711--717
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 714--715
+Underfull \hbox (badness 10000) in paragraph at lines 718--719
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 716--721
+Underfull \hbox (badness 10000) in paragraph at lines 720--724
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 722--724
+Underfull \hbox (badness 10000) in paragraph at lines 725--727
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 729--730
+Underfull \hbox (badness 10000) in paragraph at lines 730--732
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 740--744
+Underfull \hbox (badness 10000) in paragraph at lines 737--738
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 753--757
+Underfull \hbox (badness 10000) in paragraph at lines 748--752
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 758--762
 
  []
 
 [22
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 758--759
+Underfull \hbox (badness 10000) in paragraph at lines 763--764
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 762--763
+Underfull \hbox (badness 10000) in paragraph at lines 767--768
 
  []
 
-<figs/same_route_wrong_path.png, id=412, 520.94624pt x 259.97125pt>
+<figs/same_route_wrong_path.png, id=415, 520.94624pt x 259.97125pt>
 File: figs/same_route_wrong_path.png Graphic file (type png)
 
 <use figs/same_route_wrong_path.png>
-Package pdftex.def Info: figs/same_route_wrong_path.png used on input line 766.
+Package pdftex.def Info: figs/same_route_wrong_path.png used on input line 771.
 
 (pdftex.def)             Requested size: 512.14963pt x 255.58328pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 776--777
+Underfull \hbox (badness 10000) in paragraph at lines 782--783
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 778--783
+Underfull \hbox (badness 10000) in paragraph at lines 784--789
 
  []
 
-<figs/similar_paths.png, id=413, 697.60625pt x 545.03625pt>
+<figs/similar_paths.png, id=416, 697.60625pt x 545.03625pt>
 File: figs/similar_paths.png Graphic file (type png)
 
 <use figs/similar_paths.png>
-Package pdftex.def Info: figs/similar_paths.png used on input line 784.
+Package pdftex.def Info: figs/similar_paths.png used on input line 790.
 (pdftex.def)             Requested size: 418.56697pt x 327.02428pt.
  [23 <./figs/same_route_wrong_path.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 786--794
+Underfull \hbox (badness 10000) in paragraph at lines 792--800
 
  []
 
-<figs/misclassified_trip.png, id=420, 649.42625pt x 445.665pt>
+<figs/misclassified_trip.png, id=423, 649.42625pt x 445.665pt>
 File: figs/misclassified_trip.png Graphic file (type png)
 
 <use figs/misclassified_trip.png>
-Package pdftex.def Info: figs/misclassified_trip.png used on input line 795.
+Package pdftex.def Info: figs/misclassified_trip.png used on input line 801.
 (pdftex.def)             Requested size: 389.65875pt x 267.40106pt.
  [24 <./figs/similar_paths.png> <./figs/misclassified_trip.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 806--811
+Underfull \hbox (badness 10000) in paragraph at lines 812--817
 
  []
 
-<figs/cambridge_route.png, id=428, 649.42625pt x 514.92375pt>
+<figs/cambridge_route.png, id=431, 649.42625pt x 514.92375pt>
 File: figs/cambridge_route.png Graphic file (type png)
 
 <use figs/cambridge_route.png>
-Package pdftex.def Info: figs/cambridge_route.png used on input line 812.
+Package pdftex.def Info: figs/cambridge_route.png used on input line 818.
 (pdftex.def)             Requested size: 512.14963pt x 406.10173pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 812--813
+Underfull \hbox (badness 10000) in paragraph at lines 818--819
 
  []
 
 [25 <./figs/cambridge_route.png>]
-<figs/scatter_plot.png, id=438, 1229.59375pt x 560.0925pt>
+<figs/scatter_plot.png, id=440, 1229.59375pt x 560.0925pt>
 File: figs/scatter_plot.png Graphic file (type png)
 
 <use figs/scatter_plot.png>
-Package pdftex.def Info: figs/scatter_plot.png used on input line 852.
+Package pdftex.def Info: figs/scatter_plot.png used on input line 857.
 (pdftex.def)             Requested size: 512.14963pt x 233.28868pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 852--853
+Underfull \hbox (badness 10000) in paragraph at lines 857--858
 
  []
 
@@ -1038,230 +1043,230 @@ Underfull \hbox (badness 10000) in paragraph at lines 852--853
 File: figs/unusual_pattern.png Graphic file (type png)
 
 <use figs/unusual_pattern.png>
-Package pdftex.def Info: figs/unusual_pattern.png used on input line 882.
+Package pdftex.def Info: figs/unusual_pattern.png used on input line 887.
 (pdftex.def)             Requested size: 398.0903pt x 364.96632pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 882--883
+Underfull \hbox (badness 10000) in paragraph at lines 887--888
 
  []
 
 [26 <./figs/scatter_plot.png>]
-<figs/table_of_times.png, id=454, 579.16376pt x 254.9525pt> [27 <./figs/unusual
+<figs/table_of_times.png, id=451, 579.16376pt x 254.9525pt> [27 <./figs/unusual
 _pattern.png>]
 File: figs/table_of_times.png Graphic file (type png)
  <use figs/table_of_times.png>
-Package pdftex.def Info: figs/table_of_times.png used on input line 925.
+Package pdftex.def Info: figs/table_of_times.png used on input line 930.
 (pdftex.def)             Requested size: 512.14963pt x 225.4637pt.
 
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 925--926
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 930--931
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 946--950
+Underfull \hbox (badness 10000) in paragraph at lines 951--955
 
  []
 
-<figs/table_of_1056213.png, id=463, 547.04375pt x 103.38625pt>
+<figs/table_of_1056213.png, id=459, 547.04375pt x 103.38625pt>
 File: figs/table_of_1056213.png Graphic file (type png)
 
 <use figs/table_of_1056213.png>
-Package pdftex.def Info: figs/table_of_1056213.png used on input line 959.
+Package pdftex.def Info: figs/table_of_1056213.png used on input line 958.
 (pdftex.def)             Requested size: 512.14963pt x 96.79816pt.
- [28 <./figs/table_of_times.png> <./figs/table_of_1056213.png>] <figs/best_rout
-e.png, id=472, 652.4375pt x 427.5975pt>
+
+<figs/best_route.png, id=460, 652.4375pt x 427.5975pt>
 File: figs/best_route.png Graphic file (type png)
 
 <use figs/best_route.png>
-Package pdftex.def Info: figs/best_route.png used on input line 964.
+Package pdftex.def Info: figs/best_route.png used on input line 963.
 (pdftex.def)             Requested size: 424.07935pt x 277.93507pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 966--968
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 969--987
+ [28 <./figs/table_of_times.png> <./figs/table_of_1056213.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 965--967
 
  []
 
-<figs/best_scatter_plot.png, id=477, 516.93124pt x 287.0725pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 968--986
+
+ []
+
+<figs/best_scatter_plot.png, id=473, 516.93124pt x 287.0725pt>
 File: figs/best_scatter_plot.png Graphic file (type png)
 
 <use figs/best_scatter_plot.png>
-Package pdftex.def Info: figs/best_scatter_plot.png used on input line 990.
+Package pdftex.def Info: figs/best_scatter_plot.png used on input line 989.
 (pdftex.def)             Requested size: 258.46498pt x 143.53589pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 994--995
+Underfull \hbox (badness 10000) in paragraph at lines 993--994
 
  []
 
-<figs/table_of_999024.png, id=478, 574.145pt x 218.8175pt> [29 <./figs/best_rou
+<figs/table_of_999024.png, id=474, 574.145pt x 218.8175pt> [29 <./figs/best_rou
 te.png> <./figs/best_scatter_plot.png>]
 File: figs/table_of_999024.png Graphic file (type png)
  <use figs/table_of_999024.png>
-Package pdftex.def Info: figs/table_of_999024.png used on input line 996.
+Package pdftex.def Info: figs/table_of_999024.png used on input line 995.
 (pdftex.def)             Requested size: 512.14963pt x 195.19437pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 996--997
+Underfull \hbox (badness 10000) in paragraph at lines 995--996
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 998--1002
+Underfull \hbox (badness 10000) in paragraph at lines 997--1001
 
  []
 
-<figs/worst_route.png, id=490, 660.4675pt x 392.46625pt>
+<figs/worst_route.png, id=486, 660.4675pt x 392.46625pt>
 File: figs/worst_route.png Graphic file (type png)
 
 <use figs/worst_route.png>
-Package pdftex.def Info: figs/worst_route.png used on input line 1003.
+Package pdftex.def Info: figs/worst_route.png used on input line 1002.
 (pdftex.def)             Requested size: 528.37471pt x 313.9734pt.
 
-Overfull \hbox (16.22508pt too wide) in paragraph at lines 1003--1004
+Overfull \hbox (16.22508pt too wide) in paragraph at lines 1002--1003
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1003--1004
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
 
  []
 
 [30 <./figs/table_of_999024.png> <./figs/worst_route.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
+Underfull \hbox (badness 10000) in paragraph at lines 1006--1007
 
  []
 
-<figs/shopping_centre.png, id=500, 568.1225pt x 265.99374pt>
+<figs/shopping_centre.png, id=495, 568.1225pt x 265.99374pt>
 File: figs/shopping_centre.png Graphic file (type png)
 
 <use figs/shopping_centre.png>
-Package pdftex.def Info: figs/shopping_centre.png used on input line 1009.
+Package pdftex.def Info: figs/shopping_centre.png used on input line 1008.
 (pdftex.def)             Requested size: 340.87611pt x 159.59747pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1009--1010
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1009
 
  []
 
-<figs/worst_scatter_plot.png, id=501, 903.375pt x 471.7625pt>
+<figs/worst_scatter_plot.png, id=496, 903.375pt x 471.7625pt>
 File: figs/worst_scatter_plot.png Graphic file (type png)
 
 <use figs/worst_scatter_plot.png>
-Package pdftex.def Info: figs/worst_scatter_plot.png used on input line 1013.
+Package pdftex.def Info: figs/worst_scatter_plot.png used on input line 1012.
 (pdftex.def)             Requested size: 512.14963pt x 267.46771pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1015--1021
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1020
 
  []
 
 [31 <./figs/shopping_centre.png> <./figs/worst_scatter_plot.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1042--1044
+Underfull \hbox (badness 10000) in paragraph at lines 1041--1043
 
  []
 
-<figs/madingley.png, id=509, 871.255pt x 456.70625pt>
+<figs/madingley.png, id=504, 871.255pt x 456.70625pt>
 File: figs/madingley.png Graphic file (type png)
  <use figs/madingley.png>
-Package pdftex.def Info: figs/madingley.png used on input line 1045.
+Package pdftex.def Info: figs/madingley.png used on input line 1044.
 (pdftex.def)             Requested size: 512.14963pt x 268.46478pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1045--1046
+Underfull \hbox (badness 10000) in paragraph at lines 1044--1045
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1047--1049
+Underfull \hbox (badness 10000) in paragraph at lines 1046--1048
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1050--1058
+Underfull \hbox (badness 10000) in paragraph at lines 1049--1057
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1059--1063
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1062
 
  []
 
 [32 <./figs/madingley.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1074
+Underfull \hbox (badness 10000) in paragraph at lines 1069--1073
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1075--1084
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1083
 
  []
 
-<figs/vilnius_route.png, id=523, 616.3025pt x 314.17375pt>
+<figs/vilnius_route.png, id=519, 616.3025pt x 314.17375pt>
 File: figs/vilnius_route.png Graphic file (type png)
 
 <use figs/vilnius_route.png>
-Package pdftex.def Info: figs/vilnius_route.png used on input line 1085.
+Package pdftex.def Info: figs/vilnius_route.png used on input line 1084.
 (pdftex.def)             Requested size: 512.14963pt x 261.09972pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1085--1086
+Underfull \hbox (badness 10000) in paragraph at lines 1084--1085
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1087--1090
+Underfull \hbox (badness 10000) in paragraph at lines 1086--1089
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1092--1096
+Underfull \hbox (badness 10000) in paragraph at lines 1091--1095
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1098--1100
+Underfull \hbox (badness 10000) in paragraph at lines 1097--1099
 
  []
 
-<figs/table_of_vilnius.png, id=524, 718.685pt x 640.3925pt>
+<figs/table_of_vilnius.png, id=520, 718.685pt x 640.3925pt>
 File: figs/table_of_vilnius.png Graphic file (type png)
 
 <use figs/table_of_vilnius.png>
-Package pdftex.def Info: figs/table_of_vilnius.png used on input line 1107.
+Package pdftex.def Info: figs/table_of_vilnius.png used on input line 1106.
 (pdftex.def)             Requested size: 512.14963pt x 456.39188pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1107--1108
+Underfull \hbox (badness 10000) in paragraph at lines 1106--1107
 
  []
 
 [33 <./figs/vilnius_route.png>] [34 <./figs/table_of_vilnius.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1126--1128
+Underfull \hbox (badness 10000) in paragraph at lines 1125--1127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1129--1132
+Underfull \hbox (badness 10000) in paragraph at lines 1128--1131
 
  []
 
-<figs/table_of_1051308.png, id=537, 547.04375pt x 342.27875pt>
+<figs/table_of_1051308.png, id=533, 547.04375pt x 342.27875pt>
 File: figs/table_of_1051308.png Graphic file (type png)
 
 <use figs/table_of_1051308.png>
-Package pdftex.def Info: figs/table_of_1051308.png used on input line 1133.
+Package pdftex.def Info: figs/table_of_1051308.png used on input line 1132.
 (pdftex.def)             Requested size: 547.0424pt x 342.2779pt.
 
-Overfull \hbox (34.89278pt too wide) in paragraph at lines 1133--1134
+Overfull \hbox (34.89278pt too wide) in paragraph at lines 1132--1133
 [][] 
  []
 
 [35 <./figs/table_of_1051308.png>]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1137--1142
+Underfull \hbox (badness 10000) in paragraph at lines 1136--1141
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1149--1155
+Underfull \hbox (badness 10000) in paragraph at lines 1148--1154
 
  []
 
@@ -1273,170 +1278,170 @@ Appendix A.
 
 ]
 Appendix B.
-<figs/table_of_1002879.png, id=556, 573.14125pt x 253.94875pt>
+<figs/table_of_1002879.png, id=552, 573.14125pt x 253.94875pt>
 File: figs/table_of_1002879.png Graphic file (type png)
 
 <use figs/table_of_1002879.png>
-Package pdftex.def Info: figs/table_of_1002879.png used on input line 1210.
+Package pdftex.def Info: figs/table_of_1002879.png used on input line 1209.
 (pdftex.def)             Requested size: 512.14963pt x 226.92815pt.
 
-<figs/table_of_1054060.png, id=557, 593.21625pt x 217.81375pt>
+<figs/table_of_1054060.png, id=553, 593.21625pt x 217.81375pt>
 File: figs/table_of_1054060.png Graphic file (type png)
 
 <use figs/table_of_1054060.png>
-Package pdftex.def Info: figs/table_of_1054060.png used on input line 1211.
+Package pdftex.def Info: figs/table_of_1054060.png used on input line 1210.
 (pdftex.def)             Requested size: 512.14963pt x 188.05399pt.
 
-<figs/table_of_991943.png, id=558, 551.05875pt x 376.40625pt>
+<figs/table_of_991943.png, id=554, 551.05875pt x 376.40625pt>
 File: figs/table_of_991943.png Graphic file (type png)
 
 <use figs/table_of_991943.png>
-Package pdftex.def Info: figs/table_of_991943.png used on input line 1212.
+Package pdftex.def Info: figs/table_of_991943.png used on input line 1211.
 (pdftex.def)             Requested size: 512.14963pt x 349.86465pt.
 File: figs/table_of_999024.png Graphic file (type png)
  <use figs/table_of_999024.png>
-Package pdftex.def Info: figs/table_of_999024.png used on input line 1213.
+Package pdftex.def Info: figs/table_of_999024.png used on input line 1212.
 (pdftex.def)             Requested size: 512.14963pt x 195.19437pt.
 
-<figs/table_of_1046521.png, id=559, 558.085pt x 377.41pt>
+<figs/table_of_1046521.png, id=555, 558.085pt x 377.41pt>
 File: figs/table_of_1046521.png Graphic file (type png)
 
 <use figs/table_of_1046521.png>
-Package pdftex.def Info: figs/table_of_1046521.png used on input line 1214.
+Package pdftex.def Info: figs/table_of_1046521.png used on input line 1213.
 (pdftex.def)             Requested size: 512.14963pt x 346.35759pt.
 
-<figs/table_of_711130.png, id=560, 537.00626pt x 103.38625pt>
+<figs/table_of_711130.png, id=556, 537.00626pt x 103.38625pt>
 File: figs/table_of_711130.png Graphic file (type png)
 
 <use figs/table_of_711130.png>
-Package pdftex.def Info: figs/table_of_711130.png used on input line 1215.
+Package pdftex.def Info: figs/table_of_711130.png used on input line 1214.
 (pdftex.def)             Requested size: 512.14963pt x 98.60129pt.
 
-<figs/table_of_1047079.png, id=561, 549.05125pt x 103.38625pt>
+<figs/table_of_1047079.png, id=557, 549.05125pt x 103.38625pt>
 File: figs/table_of_1047079.png Graphic file (type png)
 
 <use figs/table_of_1047079.png>
-Package pdftex.def Info: figs/table_of_1047079.png used on input line 1216.
+Package pdftex.def Info: figs/table_of_1047079.png used on input line 1215.
 (pdftex.def)             Requested size: 512.14963pt x 96.44637pt.
 
-<figs/table_of_1050724.png, id=562, 571.13374pt x 109.40875pt>
+<figs/table_of_1050724.png, id=558, 571.13374pt x 109.40875pt>
 File: figs/table_of_1050724.png Graphic file (type png)
 
 <use figs/table_of_1050724.png>
-Package pdftex.def Info: figs/table_of_1050724.png used on input line 1217.
+Package pdftex.def Info: figs/table_of_1050724.png used on input line 1216.
 (pdftex.def)             Requested size: 512.14963pt x 98.10968pt.
 
-<figs/table_of_1050843.png, id=563, 580.1675pt x 108.405pt>
+<figs/table_of_1050843.png, id=559, 580.1675pt x 108.405pt>
 File: figs/table_of_1050843.png Graphic file (type png)
 
 <use figs/table_of_1050843.png>
-Package pdftex.def Info: figs/table_of_1050843.png used on input line 1218.
+Package pdftex.def Info: figs/table_of_1050843.png used on input line 1217.
 (pdftex.def)             Requested size: 512.14963pt x 95.70103pt.
 
-<figs/table_of_1028069.png, id=564, 551.05875pt x 275.0275pt>
+<figs/table_of_1028069.png, id=560, 551.05875pt x 275.0275pt>
 File: figs/table_of_1028069.png Graphic file (type png)
 
 <use figs/table_of_1028069.png>
-Package pdftex.def Info: figs/table_of_1028069.png used on input line 1219.
+Package pdftex.def Info: figs/table_of_1028069.png used on input line 1218.
 (pdftex.def)             Requested size: 512.14963pt x 255.63445pt.
 
-<figs/table_of_1053969.png, id=565, 556.0775pt x 206.7725pt>
+<figs/table_of_1053969.png, id=561, 556.0775pt x 206.7725pt>
 File: figs/table_of_1053969.png Graphic file (type png)
 
 <use figs/table_of_1053969.png>
-Package pdftex.def Info: figs/table_of_1053969.png used on input line 1220.
+Package pdftex.def Info: figs/table_of_1053969.png used on input line 1219.
 (pdftex.def)             Requested size: 512.14963pt x 190.44124pt.
 
-<figs/table_of_1001579.png, id=566, 548.0475pt x 104.39pt>
+<figs/table_of_1001579.png, id=562, 548.0475pt x 104.39pt>
 File: figs/table_of_1001579.png Graphic file (type png)
 
 <use figs/table_of_1001579.png>
-Package pdftex.def Info: figs/table_of_1001579.png used on input line 1221.
+Package pdftex.def Info: figs/table_of_1001579.png used on input line 1220.
 (pdftex.def)             Requested size: 512.14963pt x 97.55952pt.
 File: figs/table_of_1056213.png Graphic file (type png)
  <use figs/table_of_1056213.png>
-Package pdftex.def Info: figs/table_of_1056213.png used on input line 1222.
+Package pdftex.def Info: figs/table_of_1056213.png used on input line 1221.
 (pdftex.def)             Requested size: 512.14963pt x 96.79816pt.
 
-<figs/table_of_1026152.png, id=567, 560.0925pt x 68.255pt>
+<figs/table_of_1026152.png, id=563, 560.0925pt x 68.255pt>
 File: figs/table_of_1026152.png Graphic file (type png)
 
 <use figs/table_of_1026152.png>
-Package pdftex.def Info: figs/table_of_1026152.png used on input line 1223.
+Package pdftex.def Info: figs/table_of_1026152.png used on input line 1222.
 (pdftex.def)             Requested size: 512.14963pt x 62.4152pt.
 
-<figs/table_of_1030740.png, id=568, 539.01375pt x 172.645pt>
+<figs/table_of_1030740.png, id=564, 539.01375pt x 172.645pt>
 File: figs/table_of_1030740.png Graphic file (type png)
 
 <use figs/table_of_1030740.png>
-Package pdftex.def Info: figs/table_of_1030740.png used on input line 1224.
+Package pdftex.def Info: figs/table_of_1030740.png used on input line 1223.
 (pdftex.def)             Requested size: 512.14963pt x 164.04341pt.
 
-<figs/table_of_1047094.png, id=569, 554.07pt x 104.39pt>
+<figs/table_of_1047094.png, id=565, 554.07pt x 104.39pt>
 File: figs/table_of_1047094.png Graphic file (type png)
 
 <use figs/table_of_1047094.png>
-Package pdftex.def Info: figs/table_of_1047094.png used on input line 1225.
+Package pdftex.def Info: figs/table_of_1047094.png used on input line 1224.
 (pdftex.def)             Requested size: 512.14963pt x 96.49231pt.
 
-<figs/table_of_1050847.png, id=570, 554.07pt x 103.38625pt>
+<figs/table_of_1050847.png, id=566, 554.07pt x 103.38625pt>
 File: figs/table_of_1050847.png Graphic file (type png)
 
 <use figs/table_of_1050847.png>
-Package pdftex.def Info: figs/table_of_1050847.png used on input line 1226.
+Package pdftex.def Info: figs/table_of_1050847.png used on input line 1225.
 (pdftex.def)             Requested size: 512.14963pt x 95.56451pt.
 File: figs/table_of_1051308.png Graphic file (type png)
  <use figs/table_of_1051308.png>
-Package pdftex.def Info: figs/table_of_1051308.png used on input line 1227.
+Package pdftex.def Info: figs/table_of_1051308.png used on input line 1226.
 (pdftex.def)             Requested size: 512.14963pt x 320.4677pt.
 
-<figs/table_of_992088.png, id=571, 543.02875pt x 376.40625pt>
+<figs/table_of_992088.png, id=567, 543.02875pt x 376.40625pt>
 File: figs/table_of_992088.png Graphic file (type png)
 
 <use figs/table_of_992088.png>
-Package pdftex.def Info: figs/table_of_992088.png used on input line 1228.
+Package pdftex.def Info: figs/table_of_992088.png used on input line 1227.
 (pdftex.def)             Requested size: 512.14963pt x 355.01656pt.
 
-<figs/table_of_830638.png, id=572, 538.01pt x 171.64125pt>
+<figs/table_of_830638.png, id=568, 538.01pt x 171.64125pt>
 File: figs/table_of_830638.png Graphic file (type png)
 
 <use figs/table_of_830638.png>
-Package pdftex.def Info: figs/table_of_830638.png used on input line 1229.
+Package pdftex.def Info: figs/table_of_830638.png used on input line 1228.
 (pdftex.def)             Requested size: 512.14963pt x 163.39348pt.
 
-<figs/table_of_1030920.png, id=573, 550.055pt x 69.25874pt>
+<figs/table_of_1030920.png, id=569, 550.055pt x 69.25874pt>
 File: figs/table_of_1030920.png Graphic file (type png)
 
 <use figs/table_of_1030920.png>
-Package pdftex.def Info: figs/table_of_1030920.png used on input line 1230.
+Package pdftex.def Info: figs/table_of_1030920.png used on input line 1229.
 (pdftex.def)             Requested size: 512.14963pt x 64.49132pt.
 
-<figs/table_of_1054599.png, id=574, 562.1pt x 104.39pt>
+<figs/table_of_1054599.png, id=570, 562.1pt x 104.39pt>
 File: figs/table_of_1054599.png Graphic file (type png)
 
 <use figs/table_of_1054599.png>
-Package pdftex.def Info: figs/table_of_1054599.png used on input line 1231.
+Package pdftex.def Info: figs/table_of_1054599.png used on input line 1230.
 (pdftex.def)             Requested size: 512.14963pt x 95.11926pt.
 
-<figs/table_of_1050762.png, id=575, 569.12625pt x 146.5475pt>
+<figs/table_of_1050762.png, id=571, 569.12625pt x 146.5475pt>
 File: figs/table_of_1050762.png Graphic file (type png)
 
 <use figs/table_of_1050762.png>
-Package pdftex.def Info: figs/table_of_1050762.png used on input line 1232.
+Package pdftex.def Info: figs/table_of_1050762.png used on input line 1231.
 (pdftex.def)             Requested size: 512.14963pt x 131.88927pt.
 
-<figs/table_of_1039292.png, id=576, 554.07pt x 164.615pt>
+<figs/table_of_1039292.png, id=572, 554.07pt x 164.615pt>
 File: figs/table_of_1039292.png Graphic file (type png)
 
 <use figs/table_of_1039292.png>
-Package pdftex.def Info: figs/table_of_1039292.png used on input line 1233.
+Package pdftex.def Info: figs/table_of_1039292.png used on input line 1232.
 (pdftex.def)             Requested size: 512.14963pt x 152.16098pt.
 
-<figs/table_of_1046531.png, id=577, 545.03625pt x 274.02374pt>
+<figs/table_of_1046531.png, id=573, 545.03625pt x 274.02374pt>
 File: figs/table_of_1046531.png Graphic file (type png)
 
 <use figs/table_of_1046531.png>
-Package pdftex.def Info: figs/table_of_1046531.png used on input line 1234.
+Package pdftex.def Info: figs/table_of_1046531.png used on input line 1233.
 (pdftex.def)             Requested size: 512.14963pt x 257.5029pt.
  [38
 
@@ -1450,46 +1455,46 @@ _1030740.png> <./figs/table_of_1047094.png> <./figs/table_of_1050847.png>] [43
 920.png> <./figs/table_of_1054599.png>]
 [44 <./figs/table_of_1050762.png> <./figs/table_of_1039292.png> <./figs/table_o
 f_1046531.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1240--1241
+Underfull \hbox (badness 10000) in paragraph at lines 1239--1240
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1243--1274
+Underfull \hbox (badness 10000) in paragraph at lines 1242--1273
 
  []
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1277--1310
+Underfull \hbox (badness 10000) in paragraph at lines 1276--1309
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1311--1344
+Underfull \hbox (badness 10000) in paragraph at lines 1310--1343
 
  []
 
 [46] [47]
 Appendix C.
-<proposal.pdf, id=641, 614.295pt x 794.97pt>
+<proposal.pdf, id=637, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf>
-Package pdftex.def Info: proposal.pdf used on input line 1349.
+Package pdftex.def Info: proposal.pdf used on input line 1348.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf>
-Package pdftex.def Info: proposal.pdf used on input line 1349.
+Package pdftex.def Info: proposal.pdf used on input line 1348.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
- <proposal.pdf, id=644, page=1, 614.295pt x 794.97pt>
+ <proposal.pdf, id=640, page=1, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 1348.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [48
 
@@ -1497,165 +1502,156 @@ Package pdftex.def Info: proposal.pdf, page1 used on input line 1349.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 1>
-Package pdftex.def Info: proposal.pdf, page1 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page1 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [49 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=672, page=2, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=668, page=2, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 2>
-Package pdftex.def Info: proposal.pdf, page2 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page2 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 2>
-Package pdftex.def Info: proposal.pdf, page2 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page2 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 2>
-Package pdftex.def Info: proposal.pdf, page2 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page2 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [50 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=709, page=3, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=705, page=3, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 3>
-Package pdftex.def Info: proposal.pdf, page3 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page3 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 3>
-Package pdftex.def Info: proposal.pdf, page3 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page3 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 3>
-Package pdftex.def Info: proposal.pdf, page3 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page3 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [51 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=724, page=4, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=720, page=4, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 4>
-Package pdftex.def Info: proposal.pdf, page4 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page4 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 4>
-Package pdftex.def Info: proposal.pdf, page4 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page4 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 4>
-Package pdftex.def Info: proposal.pdf, page4 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page4 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [52 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=729, page=5, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=725, page=5, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 5>
-Package pdftex.def Info: proposal.pdf, page5 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page5 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 5>
-Package pdftex.def Info: proposal.pdf, page5 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page5 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 5>
-Package pdftex.def Info: proposal.pdf, page5 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page5 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [53 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=734, page=6, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=730, page=6, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 6>
-Package pdftex.def Info: proposal.pdf, page6 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page6 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 6>
-Package pdftex.def Info: proposal.pdf, page6 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page6 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 6>
-Package pdftex.def Info: proposal.pdf, page6 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page6 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [54 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
->] <proposal.pdf, id=739, page=7, 614.295pt x 794.97pt>
+>] <proposal.pdf, id=735, page=7, 614.295pt x 794.97pt>
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 7>
-Package pdftex.def Info: proposal.pdf, page7 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page7 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
  <use proposal.pdf, page 7>
-Package pdftex.def Info: proposal.pdf, page7 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page7 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: proposal.pdf Graphic file (type pdf)
 
 <use proposal.pdf, page 7>
-Package pdftex.def Info: proposal.pdf, page7 used on input line 1349.
+Package pdftex.def Info: proposal.pdf, page7 used on input line 1348.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [55 <./proposal.pdf
 
 pdfTeX warning: pdflatex (file ./proposal.pdf): PDF inclusion: invalid other re
 source which is no dict (key 'ProcSets', type <array>); ignored.
 >]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1351.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1351.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1350.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1350.
  (./dissertation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1351.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1351.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1350.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1350.
 
 Package rerunfilecheck Info: File `dissertation.out' has not changed.
-(rerunfilecheck)             Checksum: 0D0BA590D64B91E0B514A11E6BE41317;2814.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1351.
+(rerunfilecheck)             Checksum: B7EAA7783E25C740F7274814DF5DC66B;2809.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1350.
  ) 
 Here is how much of TeX's memory you used:
- 7972 strings out of 494953
- 118521 string characters out of 6180977
+ 7974 strings out of 494953
+ 118599 string characters out of 6180977
  205783 words of memory out of 5000000
- 10927 multiletter control sequences out of 15000+600000
+ 10931 multiletter control sequences out of 15000+600000
  15312 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  40i,18n,46p,274b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.29} has been referenced but does not ex
+pdfTeX warning (dest): name{Hfootnote.26} has been referenced but does not ex
 ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.28} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.27} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.26} has been referenced but does not exis
-t, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.25} has been referenced but does not exis
 t, replaced by a fixed one
@@ -1751,10 +1747,10 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmtt12.pfb>
-Output written on dissertation.pdf (55 pages, 17404252 bytes).
+Output written on dissertation.pdf (55 pages, 18225480 bytes).
 PDF statistics:
- 845 PDF objects out of 1000 (max. 8388607)
- 610 compressed objects within 7 object streams
- 150 named destinations out of 1000 (max. 500000)
- 692 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 841 PDF objects out of 1000 (max. 8388607)
+ 603 compressed objects within 7 object streams
+ 147 named destinations out of 1000 (max. 500000)
+ 697 words of extra memory for PDF output out of 10000 (max. 10000000)
 
