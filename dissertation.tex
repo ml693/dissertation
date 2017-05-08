@@ -157,8 +157,8 @@ where the bus has travelled up to now. The future data (indicated in red)
 is not known during the prediction phase. My goal is to predict the future
 data given the present data. \\
 
-Here, I want to predict when the bus will reach the Madingley Park starting from the
-Chesterton Road. One can see it takes about 8 min. (10:59--11:07) to travel this distance.
+I want to predict when the bus will reach the Madingley Park starting from the
+Chesterton Road here. One can see it takes about 8 min. (10:59--11:07) to travel this distance.
 
 \chapter{Preparation}
 
@@ -217,7 +217,7 @@ reached the stop can be used to reflect the traffic conditions."} \\
 
 \subsection{My Choice}
 
-After talking with Prof Kelly, I decided not to use Machine Learning and found an alternative.
+Prof Kelly convinced me not to use Machine Learning. I found an alternative.
 The problem many Machine Learning models have is that they act like a black-box. For example,
 the weights on the edges of a neural network eventually converge to certain values. It is often
 difficult to understand the intuitive meaning of a particular value:
@@ -255,7 +255,7 @@ To start with, I wrote the prediction algorithm entirely from scratch and tested
 starting point data.
 
 \subsection*{GPS Data for the Real-time System}
-In the second term, I started building the real-time system as an optional extension.
+I started building the real-time system as an optional extension in the second term.
 The optional part requires the real-time GPS data. To start with, Dr Lewis gave me
 the access to the machine that receives the new GPS data from the Vix company every 30sec. \\
 
@@ -331,8 +331,7 @@ To evaluate the former, I am going to state the asymptotic complexity of the sev
 system's components. \\
 
 I concentrate on evaluating the latter in this project. I view the algorithm's precision as
-a metric to justify its \textbf{correctness} (i.e. if the algorithm claims that the bus will reach the bus
-stop at 3 pm, up to what extent this claim is correct). I follow the view that an algorithm has
+a metric to justify its \textbf{correctness} (i.e. if the algorithm claims that the bus will reach the bus stop at 3 pm, up to what extent this claim is correct). I follow the view that an algorithm has
 to be correct rather than fast in the first place. That is the reason why I concentrate
 on evaluating its precision. \\
 
@@ -373,8 +372,7 @@ My evaluation chapter takes this aspect into account.
 Below is the starting point input data example: \\
 \includegraphics[scale=0.6]{figs/starting_data.png}
 
-One file contains a single snapshot of all buses, 
-with one entry per bus. An entry such as:
+One file contains a single snapshot of all buses. Each entry describes one bus. An entry such as:
 
 \includegraphics[width=\textwidth]{figs/entry.png}
 
@@ -450,7 +448,7 @@ path for the accurate arrival time prediction.
 
 \textbf{New Approach Overview} \\
 
-To overcome the static data limitations, I propose a new way to infer the
+I need to overcome the static data limitations. I propose a new way to infer the
 route a bus follows. I will align a sub-trip how the bus has moved
 so far with a historical path for which the route is known. The path aligning
 best to the current sub-trip will be used to predict where a bus travels next.
@@ -465,11 +463,11 @@ follows a $path$:
 
 \includegraphics[width=\textwidth]{figs/follows.png}
 
-The $FollowsPath(\textcolor{green}{subtrip}, \textcolor{red}{path})$ 
+The $FollowsPath$(\textcolor{green}{$sub$-$trip$}, \textcolor{red}{$path$}) 
 predicate returns true for the picture above, because it is intuitively clear that
-the \textcolor{green}{subtrip} follows a \textcolor{red}{path}. \\
+the \textcolor{green}{$sub$-$trip$} follows a \textcolor{red}{$path$}. \\
 
-The $FollowsPath(\textcolor{green}{subtrip}, \textcolor{red}{path})$
+The $FollowsPath$(\textcolor{green}{$sub$-$trip$}, \textcolor{red}{$path$})
 predicate returns false for the picture below, as the two GPS sequences do not intersect at all:
 
 \:
@@ -648,22 +646,42 @@ in a different time of the day. Predicting the arrival time using
 these historical trips can be misleading. This optimisation discards the misleading
 trips. \\
 
-I pick the last $N$ points (e.g. $N = 30$) of the trip I want to predict the arrival
-time. The 1st point out of $N$ shows where the bus was $M$ minutes ago (if $N=30$, then
-most likely $M=15$, because the new GPS point is usually generated once in 30s).
-For each historical trip I find the point $P$ where the historical bus was $M$ minutes
-ago from the moment of time it reached the current bus location. If $P$ is roughly
-the same location as the bus location of the current bus $M$ minutes ago, I include
-the historical trip into the set $C$ of consideration. I discard this historical trip otherwise.
-After the set $C$ is generated, I apply the basic approach on it and generate to predict the
-arrival time. \\
+I pick the last $N$ (e.g. $N = 20$) points $(P_1, P_2, ..., P_N)$ of the trip I want to predict
+the arrival time. The point $P_1$ shows where the bus was $M$ minutes
+ago (if $N=20$, then most likely $M=10$, because the new GPS point is usually generated once in the 
+30s). For each historical trip, I find the point $Q_{current}$ that is closest to $P_{N}$.
+I then find the point $Q_{previous}$ where the historical bus was $M$ minutes
+ago from the moment it reached $Q_{current}$. If $Q_{previous}$ is approximately at the same location
+as $P_{1}$, I include the historical trip into the set $C$ of consideration.
+I discard this historical trip otherwise. After the set $C$ is generated, I apply the basic
+approach on it to predict the arrival time. \\
+
+For example, suppose the most recent data is as follows:
+
+\includegraphics[width=\textwidth]{figs/optimisation_match1.png}
+
+20 GPS points ago the bus was at the geographical location $P_1 = (52.22688, -0.13086)$.
+
+It took 9m 59s for the bus to reach the current location $P_N$. \\
+
+I want to determine whether the following historical trip:
+
+\includegraphics[width=\textwidth]{figs/optimisation_match2.png}
+
+should be included into the set $C$ or not. I find the point $Q_{current}$ closest to
+$P_N$. The timestamp of $Q_{current}$ is 18:13:38. Then I find the latest point $Q_{previous}$
+that was reached at least 9m 59s ago. The location of $Q_{previous}$ is $(52.22786, -0.11836)$.
+I include the historical trip into the set $C$ \textbf{because} $Q_{previous}$ is close enough
+to $P_1$. If the historical trip travelled the segment $(P_1$, $P_N)$ faster or slower,
+$Q_{previous}$ would be further away from $P_1$. I would discard the historical trip in that case. \\
 
 This optimisation is the simplest way I found to take into account the traffic
-periodicity. One can expect that the traffic on Tuesday might be similar to the
-traffic on Monday (a period of one day). Thus, one can hope that yesterday's trips
-are suitable to predict what will happen today. However,
+periodicity. One can expect that the traffic on Tuesday's afternoon might be similar to the
+traffic on Monday's afternoon (a period of 24 hours). Thus, one can hope that those trips which
+happened 24 hours ago are suitable to predict what will happen next. However,
 this is not always true. The traffic on Monday (the working day) is very different
-from the traffic on Sunday (the weekend). A week period does not fix the problem either.
+from the traffic on Sunday (the weekend). Simply looking at what happened 24 hours ago gives
+misleading answers for some days. A week period does not fix the problem either.
 It can be that the Monday a week ago was a holiday day.
 Traffic during holidays is also different from the traffic during the regular days. \\
 
@@ -991,7 +1009,7 @@ following this route). \\
 
 Secondly, the bus speed on the highway does not vary
 much. Suppose that for the last 5 minutes the bus speed was $60$mph. It is 
-likely that the bus will keep travelling at roughly the same speed. Contrast this with the
+likely that the bus will keep travelling at approximately the same speed. Contrast this with the
 case when the bus is on a street in a city. The bus speed will fluctuate a lot due to
 traffic lights, other cars causing a congestion, pedestrians crossing the street.
 This second feature of a highway allows making a good use of the
@@ -1063,16 +1081,15 @@ Madingley Park starting from the Chesterton Road: \\
 \includegraphics[width=\textwidth]{figs/madingley.png} \\
 
 Training set having $30$ trips results in $MAE_0 = 105$s. Detailed
-evaluation results are given in the appendix. \\
+evaluation results are given in the appendix \ref{B2}. \\
 
 I now apply the optimisation nr. 1 on the same test set. Recall that
 the first optimisation predicts the arrival time from the recent trips only.
 If there are no recent trips, the basic approach is used. Looking at the
-detailed results in the appendix, one can see that the
-optimisation nr. 1 gives a big improvement for certain trips (e.g. the
-prediction error drops from $380$s. to $40$s.) and leaves everything else
-unchanged. Overall, this optimisation reduces the average prediction error to
-$MAE_1 = 88$s. \\
+detailed results, one can see that the optimisation nr. 1 gives a big improvement
+for certain trips (e.g. the prediction error drops from $380$s. to $40$s.) and leaves
+everything else unchanged. Overall, this optimisation reduces the average prediction
+error to $MAE_1 = 88$s. \\
 
 Finally, I add the second optimisation to predict the arrival time. The
 second optimisation takes into account only equally congested historical trips.
@@ -1169,32 +1186,34 @@ Below is the list of things that I believe can improve the project most:
 \begin{itemize}
 
 \item  Get better GPS data. I worked with the data where the new point is received after
-       30s. A lot of things can change in 30s. For example, a bus can arrive at the bus
-       stop, briefly stop at it and depart in 30s. In that case the GPS data will not
+       30 sec. A lot of things can change in 30 sec. For example, a bus can arrive at the bus
+       stop, briefly stop at it and depart in 30 sec. In that case the GPS data will not
        indicate that the bus stopped at the bus stop. Thus, I can not be sure at what exact
-       time the bus actually arrived at the stop. This complicates the arrival time
+       time the bus arrived at the stop. This complicates the arrival time
        prediction evaluation. \\
 
        There is another problem with the current GPS data. Sometimes the GPS device gets
-       "stuck". For a few minutes it reports the same bus location. After that there is
-       a big change between the last and new (latitude, longitude) pairs. Finding a way
-       to fix this would help.
+       "stuck". It reports the same bus location for a few minutes. Afterwards, the new geographical
+       location $L_{new}$ is far away from the last known geographical location $L_{last}$.
+       The result of this is that I know nothing how the bus moved between $L_{new}$ and $L_{last}$.
+       Finding a way to fix this would help.
 
 \item  Get better route data. The routes I have are outdated. Some buses do not follow any
        of the routes present in my set.
 
 \item  Make the real-time system process the data faster. Since I did not spend much time
-       for this optional part, there is plenty of room to improve it. Currently I do not
-       predict the arrival time for \textbf{each} bus in 30s. One performance bottleneck is
-       the $FollowsPath$ predicate implementation. I am using it often to make sure that
-       the bus both follows the path and has not deviated from it. I think it is possible
-       to reduce the time complexity from $O(nm)$ to $O(n + m)$, where $n$ is the number of
-       recent sub-trip points, m is the number of historical path points. This reduction
-       would allow me to process significantly more buses in 30s.
+       for this optional part, there is plenty of room to improve it. I am not able to
+       predict the arrival time for \textbf{each} bus in 30 sec. at the moment. 
+       One performance bottleneck is the $FollowsPath$ predicate implementation.
+       I am using it often to make sure that the bus both follows the path and has not deviated
+       from it. I think it is possible to reduce the time complexity from $O(nm)$ to $O(n + m)$,
+       where $n$ is the number of recent sub-trip points, m is the number of historical path points.
+       This reduction would allow me to process significantly more buses in 30 sec.
 
-       Another thing worth considering is to parallelise the system. My system is built in
+       Another thing worth considering is to parallelise the system. One machine is handling all buses
+       at the moment. However, my system is built in
        a way that for each bus I independently predict its arrival time to future stops.
-       In the best case (if the lab has enough computation resources), one can consider
+       If the lab has enough computation resources, one can consider
        dedicating a separate core per bus.
 
 \end{itemize}
@@ -1259,109 +1278,197 @@ For more info look at
 
 \section{Predictions for Madingley Park}
 
-Results without optimisations: \\
+\label{B2}
+
+\textbf{Results without optimisations:}
+
 
 {\footnotesize
-day18-bus14365-subtrip0 started at 2016-01-18 13:45:46, arrived at 2016-01-18 13:52:06, prediction error is -80 \\
-day18-bus14368-subtrip2 started at 2016-01-18 21:14:38, arrived at 2016-01-18 21:21:18, prediction error is -60 \\
-day18-bus14366-subtrip0 started at 2016-01-18 11:46:35, arrived at 2016-01-18 11:55:36, prediction error is 81 \\
-day18-bus14369-subtrip1 started at 2016-01-18 17:46:33, arrived at 2016-01-18 17:55:13, prediction error is 59 \\
-day18-bus403-subtrip0 started at 2016-01-18 11:23:07,    arrived at 2016-01-18 11:28:07, prediction error is -60 \\
-day18-bus14374-subtrip0 started at 2016-01-18 16:15:35, arrived at 2016-01-18 16:22:35, prediction error is 19 \\
-day18-bus14361-subtrip0 started at 2016-01-18 10:16:14, arrived at 2016-01-18 10:28:34, prediction error is 340 \\
-day18-bus14370-subtrip0 started at 2016-01-18 10:30:47, arrived at 2016-01-18 10:44:47, prediction error is \textcolor{red}{\textbf{380}} \\ 
-day18-bus14365-subtrip1 started at 2016-01-18 21:44:37, arrived at 2016-01-18 21:50:17, prediction error is -80 \\
-day18-bus407-subtrip1 started at 2016-01-18 10:15:37,    arrived at 2016-01-18 10:28:40, prediction error is 334 \\
-day18-bus14368-subtrip1 started at 2016-01-18 13:14:46, arrived at 2016-01-18 13:20:06, prediction error is -100 \\
-day18-bus14363-subtrip1 started at 2016-01-18 15:46:05, arrived at 2016-01-18 15:53:45, prediction error is -20 \\
-day18-bus14375-subtrip0 started at 2016-01-18 15:14:50, arrived at 2016-01-18 15:21:10, prediction error is -69 \\
-day18-bus401-subtrip2 started at 2016-01-18 11:46:37,    arrived at 2016-01-18 11:55:38, prediction error is 81 \\
-day18-bus14370-subtrip3 started at 2016-01-18 19:30:41, arrived at 2016-01-18 19:38:42, prediction error is 121 \\
-day18-bus410-subtrip0 started at 2016-01-18 16:15:38,    arrived at 2016-01-18 16:22:38, prediction error is 20 \\
-day18-bus402-subtrip0 started at 2016-01-18 10:30:38,    arrived at 2016-01-18 10:44:37, prediction error is \textcolor{red}{\textbf{379}} \\
-day18-bus14373-subtrip0 started at 2016-01-18 16:46:02, arrived at 2016-01-18 16:53:42, prediction error is -1 \\
-day18-bus14372-subtrip1 started at 2016-01-18 14:14:19, arrived at 2016-01-18 14:20:19, prediction error is -120 \\
-day18-bus14367-subtrip2 started at 2016-01-19 00:35:49, arrived at 2016-01-19 00:40:49, prediction error is -160 \\
-day18-bus14378-subtrip0 started at 2016-01-18 11:00:21, arrived at 2016-01-18 11:07:41, prediction error is 20 \\
-day18-bus402-subtrip1 started at 2016-01-18 19:30:08,    arrived at 2016-01-18 19:38:37, prediction error is 89 \\
-day18-bus400-subtrip0 started at 2016-01-18 10:59:38,    arrived at 2016-01-18 11:07:37, prediction error is 29 \\
-day18-bus14087-subtrip0 started at 2016-01-18 09:30:34, arrived at 2016-01-18 09:36:34, prediction error is -120 \\
-day18-bus409-subtrip0 started at 2016-01-18 08:25:38,    arrived at 2016-01-18 08:32:09, prediction error is -29 \\
-day18-bus14371-subtrip1 started at 2016-01-18 08:54:47, arrived at 2016-01-18 09:01:07, prediction error is -70 \\
-day18-bus14072-subtrip3 started at 2016-01-18 20:51:07, arrived at 2016-01-18 20:57:47, prediction error is -79 \\
-day18-bus14072-subtrip1 started at 2016-01-18 12:45:18, arrived at 2016-01-18 12:53:18, prediction error is 20 \\
-day18-bus14362-subtrip1 started at 2016-01-18 14:45:16, arrived at 2016-01-18 14:50:36, prediction error is -81 \\
+day18-bus14365-subtrip0 started at 2016-01-18 13:45:46, arrived at 2016-01-18 13:52:06, prediction error is -80 
+
+day18-bus14368-subtrip2 started at 2016-01-18 21:14:38, arrived at 2016-01-18 21:21:18, prediction error is -60
+
+day18-bus14366-subtrip0 started at 2016-01-18 11:46:35, arrived at 2016-01-18 11:55:36, prediction error is 81
+
+day18-bus14369-subtrip1 started at 2016-01-18 17:46:33, arrived at 2016-01-18 17:55:13, prediction error is 59
+
+day18-bus403-subtrip0 started at 2016-01-18 11:23:07,    arrived at 2016-01-18 11:28:07, prediction error is -60
+
+day18-bus14374-subtrip0 started at 2016-01-18 16:15:35, arrived at 2016-01-18 16:22:35, prediction error is 19
+
+day18-bus14361-subtrip0 started at 2016-01-18 10:16:14, arrived at 2016-01-18 10:28:34, prediction error is 340
+
+day18-bus14370-subtrip0 started at 2016-01-18 10:30:47, arrived at 2016-01-18 10:44:47, prediction error is \textcolor{red}{\textbf{380}}
+
+day18-bus14365-subtrip1 started at 2016-01-18 21:44:37, arrived at 2016-01-18 21:50:17, prediction error is -80 
+
+day18-bus407-subtrip1 started at 2016-01-18 10:15:37,    arrived at 2016-01-18 10:28:40, prediction error is 334
+
+day18-bus14368-subtrip1 started at 2016-01-18 13:14:46, arrived at 2016-01-18 13:20:06, prediction error is -100
+
+day18-bus14363-subtrip1 started at 2016-01-18 15:46:05, arrived at 2016-01-18 15:53:45, prediction error is -20
+
+day18-bus14375-subtrip0 started at 2016-01-18 15:14:50, arrived at 2016-01-18 15:21:10, prediction error is -69
+
+day18-bus401-subtrip2 started at 2016-01-18 11:46:37,    arrived at 2016-01-18 11:55:38, prediction error is 81
+
+day18-bus14370-subtrip3 started at 2016-01-18 19:30:41, arrived at 2016-01-18 19:38:42, prediction error is 121
+
+day18-bus410-subtrip0 started at 2016-01-18 16:15:38,    arrived at 2016-01-18 16:22:38, prediction error is 20
+
+day18-bus402-subtrip0 started at 2016-01-18 10:30:38,    arrived at 2016-01-18 10:44:37, prediction error is \textcolor{red}{\textbf{379}}
+
+day18-bus14373-subtrip0 started at 2016-01-18 16:46:02, arrived at 2016-01-18 16:53:42, prediction error is -1
+
+day18-bus14372-subtrip1 started at 2016-01-18 14:14:19, arrived at 2016-01-18 14:20:19, prediction error is -120
+
+day18-bus14367-subtrip2 started at 2016-01-19 00:35:49, arrived at 2016-01-19 00:40:49, prediction error is -160
+
+day18-bus14378-subtrip0 started at 2016-01-18 11:00:21, arrived at 2016-01-18 11:07:41, prediction error is 20
+
+day18-bus402-subtrip1 started at 2016-01-18 19:30:08,    arrived at 2016-01-18 19:38:37, prediction error is 89
+
+day18-bus400-subtrip0 started at 2016-01-18 10:59:38,    arrived at 2016-01-18 11:07:37, prediction error is 29
+
+day18-bus14087-subtrip0 started at 2016-01-18 09:30:34, arrived at 2016-01-18 09:36:34, prediction error is -120
+
+day18-bus409-subtrip0 started at 2016-01-18 08:25:38,    arrived at 2016-01-18 08:32:09, prediction error is -29
+
+day18-bus14371-subtrip1 started at 2016-01-18 08:54:47, arrived at 2016-01-18 09:01:07, prediction error is -70
+
+day18-bus14072-subtrip3 started at 2016-01-18 20:51:07, arrived at 2016-01-18 20:57:47, prediction error is -79
+
+day18-bus14072-subtrip1 started at 2016-01-18 12:45:18, arrived at 2016-01-18 12:53:18, prediction error is 20
+
+day18-bus14362-subtrip1 started at 2016-01-18 14:45:16, arrived at 2016-01-18 14:50:36, prediction error is -81
+
 day18-bus405-subtrip2 started at 2016-01-18 13:46:07,    arrived at 2016-01-18 13:52:08, prediction error is -59 \\
 }
 
-\newpage
-
-Results with the optimisation nr. $1$: \\
+\textbf{Results with the optimisation nr. $1$:} \\
 {\footnotesize
-day18-bus14365-subtrip0 started at 2016-01-18 13:45:46, arrived at 2016-01-18 13:52:06, prediction error is -80 \\
-day18-bus14368-subtrip2 started at 2016-01-18 21:14:38, arrived at 2016-01-18 21:21:18, prediction error is 0 \\
-day18-bus14366-subtrip0 started at 2016-01-18 11:46:35, arrived at 2016-01-18 11:55:36, prediction error is 81 \\
-day18-bus14369-subtrip1 started at 2016-01-18 17:46:33, arrived at 2016-01-18 17:55:13, prediction error is 59 \\
-day18-bus403-subtrip0 started at 2016-01-18 11:23:07,    arrived at 2016-01-18 11:28:07, prediction error is -60 \\
-day18-bus14374-subtrip0 started at 2016-01-18 16:15:35,arrived at 2016-01-18 16:22:35, prediction error is 19 \\
-day18-bus14361-subtrip0 started at 2016-01-18 10:16:14, arrived at 2016-01-18 10:28:34, prediction error is 340 \\
-day18-bus14370-subtrip0 started at 2016-01-18 10:30:47, arrived at 2016-01-18 10:44:47, prediction error is \textcolor{green}{\textbf{40}} \\
-day18-bus14365-subtrip1 started at 2016-01-18 21:44:37, arrived at 2016-01-18 21:50:17, prediction error is -60 \\
-day18-bus407-subtrip1 started at 2016-01-18 10:15:37,    arrived at 2016-01-18 10:28:40, prediction error is 334 \\
-day18-bus14368-subtrip1 started at 2016-01-18 13:14:46, arrived at 2016-01-18 13:20:06, prediction error is -100 \\
-day18-bus14363-subtrip1 started at 2016-01-18 15:46:05, arrived at 2016-01-18 15:53:45, prediction error is -20 \\
-day18-bus14375-subtrip0 started at 2016-01-18 15:14:50, arrived at 2016-01-18 15:21:10, prediction error is -69 \\
-day18-bus401-subtrip2 started at 2016-01-18 11:46:37,    arrived at 2016-01-18 11:55:38, prediction error is 81 \\
-day18-bus14370-subtrip3 started at 2016-01-18 19:30:41, arrived at 2016-01-18 19:38:42, prediction error is 121 \\
-day18-bus410-subtrip0 started at 2016-01-18 16:15:38,    arrived at 2016-01-18 16:22:38, prediction error is 20 \\
-day18-bus402-subtrip0 started at 2016-01-18 10:30:38,    arrived at 2016-01-18 10:44:37, prediction error is \textcolor{green}{\textbf{39}} \\
-day18-bus14373-subtrip0 started at 2016-01-18 16:46:02, arrived at 2016-01-18 16:53:42, prediction error is -1 \\
-day18-bus14372-subtrip1 started at 2016-01-18 14:14:19, arrived at 2016-01-18 14:20:19, prediction error is -31 \\
-day18-bus14367-subtrip2 started at 2016-01-19 00:35:49, arrived at 2016-01-19 00:40:49, prediction error is -160 \\
-day18-bus14378-subtrip0 started at 2016-01-18 11:00:21, arrived at 2016-01-18 11:07:41, prediction error is -200 \\
-day18-bus402-subtrip1 started at 2016-01-18 19:30:08,    arrived at 2016-01-18 19:38:37, prediction error is 89 \\
-day18-bus400-subtrip0 started at 2016-01-18 10:59:38,    arrived at 2016-01-18 11:07:37, prediction error is -241 \\
-day18-bus14087-subtrip0 started at 2016-01-18 09:30:34, arrived at 2016-01-18 09:36:34, prediction error is -120 \\
-day18-bus409-subtrip0 started at 2016-01-18 08:25:38,    arrived at 2016-01-18 08:32:09, prediction error is -29 \\
-day18-bus14371-subtrip1 started at 2016-01-18 08:54:47, arrived at 2016-01-18 09:01:07, prediction error is -42 \\
-day18-bus14072-subtrip3 started at 2016-01-18 20:51:07, arrived at 2016-01-18 20:57:47, prediction error is -79 \\
-day18-bus14072-subtrip1 started at 2016-01-18 12:45:18, arrived at 2016-01-18 12:53:18, prediction error is 20 \\
-day18-bus14362-subtrip1 started at 2016-01-18 14:45:16, arrived at 2016-01-18 14:50:36, prediction error is -81 \\
+day18-bus14365-subtrip0 started at 2016-01-18 13:45:46, arrived at 2016-01-18 13:52:06, prediction error is -80
+
+day18-bus14368-subtrip2 started at 2016-01-18 21:14:38, arrived at 2016-01-18 21:21:18, prediction error is 0
+
+day18-bus14366-subtrip0 started at 2016-01-18 11:46:35, arrived at 2016-01-18 11:55:36, prediction error is 81
+
+day18-bus14369-subtrip1 started at 2016-01-18 17:46:33, arrived at 2016-01-18 17:55:13, prediction error is 59
+
+day18-bus403-subtrip0 started at 2016-01-18 11:23:07,    arrived at 2016-01-18 11:28:07, prediction error is -60
+
+day18-bus14374-subtrip0 started at 2016-01-18 16:15:35,arrived at 2016-01-18 16:22:35, prediction error is 19
+
+day18-bus14361-subtrip0 started at 2016-01-18 10:16:14, arrived at 2016-01-18 10:28:34, prediction error is 340
+
+day18-bus14370-subtrip0 started at 2016-01-18 10:30:47, arrived at 2016-01-18 10:44:47, prediction error is \textcolor{green}{\textbf{40}}
+
+day18-bus14365-subtrip1 started at 2016-01-18 21:44:37, arrived at 2016-01-18 21:50:17, prediction error is -60
+
+day18-bus407-subtrip1 started at 2016-01-18 10:15:37,    arrived at 2016-01-18 10:28:40, prediction error is 334
+
+day18-bus14368-subtrip1 started at 2016-01-18 13:14:46, arrived at 2016-01-18 13:20:06, prediction error is -100
+
+day18-bus14363-subtrip1 started at 2016-01-18 15:46:05, arrived at 2016-01-18 15:53:45, prediction error is -20
+
+day18-bus14375-subtrip0 started at 2016-01-18 15:14:50, arrived at 2016-01-18 15:21:10, prediction error is -69
+
+day18-bus401-subtrip2 started at 2016-01-18 11:46:37,    arrived at 2016-01-18 11:55:38, prediction error is 81
+
+day18-bus14370-subtrip3 started at 2016-01-18 19:30:41, arrived at 2016-01-18 19:38:42, prediction error is 121
+
+day18-bus410-subtrip0 started at 2016-01-18 16:15:38,    arrived at 2016-01-18 16:22:38, prediction error is 20
+
+day18-bus402-subtrip0 started at 2016-01-18 10:30:38,    arrived at 2016-01-18 10:44:37, prediction error is \textcolor{green}{\textbf{39}}
+
+day18-bus14373-subtrip0 started at 2016-01-18 16:46:02, arrived at 2016-01-18 16:53:42, prediction error is -1
+
+day18-bus14372-subtrip1 started at 2016-01-18 14:14:19, arrived at 2016-01-18 14:20:19, prediction error is -31
+
+day18-bus14367-subtrip2 started at 2016-01-19 00:35:49, arrived at 2016-01-19 00:40:49, prediction error is -160
+
+day18-bus14378-subtrip0 started at 2016-01-18 11:00:21, arrived at 2016-01-18 11:07:41, prediction error is -200
+
+day18-bus402-subtrip1 started at 2016-01-18 19:30:08,    arrived at 2016-01-18 19:38:37, prediction error is 89
+
+day18-bus400-subtrip0 started at 2016-01-18 10:59:38,    arrived at 2016-01-18 11:07:37, prediction error is -241
+
+day18-bus14087-subtrip0 started at 2016-01-18 09:30:34, arrived at 2016-01-18 09:36:34, prediction error is -120
+
+day18-bus409-subtrip0 started at 2016-01-18 08:25:38,    arrived at 2016-01-18 08:32:09, prediction error is -29
+
+day18-bus14371-subtrip1 started at 2016-01-18 08:54:47, arrived at 2016-01-18 09:01:07, prediction error is -42
+
+day18-bus14072-subtrip3 started at 2016-01-18 20:51:07, arrived at 2016-01-18 20:57:47, prediction error is -79
+
+day18-bus14072-subtrip1 started at 2016-01-18 12:45:18, arrived at 2016-01-18 12:53:18, prediction error is 20
+
+day18-bus14362-subtrip1 started at 2016-01-18 14:45:16, arrived at 2016-01-18 14:50:36, prediction error is -81
+
 day18-bus405-subtrip2 started at 2016-01-18 13:46:07,    arrived at 2016-01-18 13:52:08, prediction error is 41 \\
 }
 
-Results with the optimisations nr. $1$ and nr. $2$: \\
+\textbf{Results with the optimisations nr. $1$ and nr. $2$:} \\
 {\footnotesize
-day18-bus14365-subtrip0 started at 2016-01-18 13:45:46, arrived at 2016-01-18 13:52:06, prediction error is -100 \\
-day18-bus14368-subtrip2 started at 2016-01-18 21:14:38, arrived at 2016-01-18 21:21:18, prediction error is -20 \\
-day18-bus14366-subtrip0 started at 2016-01-18 11:46:35, arrived at 2016-01-18 11:55:36, prediction error is 41 \\
-day18-bus14369-subtrip1 started at 2016-01-18 17:46:33, arrived at 2016-01-18 17:55:13, prediction error is 40 \\
-day18-bus403-subtrip0 started at 2016-01-18 11:23:07,    arrived at 2016-01-18 11:28:07, prediction error is -59 \\
-day18-bus14374-subtrip0 started at 2016-01-18 16:15:35, arrived at 2016-01-18 16:22:35, prediction error is 0 \\
-day18-bus14361-subtrip0 started at 2016-01-18 10:16:14,arrived at 2016-01-18 10:28:34, prediction error is 280 \\
-day18-bus14370-subtrip0 started at 2016-01-18 10:30:47, arrived at 2016-01-18 10:44:47, prediction error is 40 \\
-day18-bus14365-subtrip1 started at 2016-01-18 21:44:37, arrived at 2016-01-18 21:50:17, prediction error is -51 \\
-day18-bus407-subtrip1 started at 2016-01-18 10:15:37,    arrived at 2016-01-18 10:28:40, prediction error is 302 \\
-day18-bus14368-subtrip1 started at 2016-01-18 13:14:46, arrived at 2016-01-18 13:20:06, prediction error is -100 \\
-day18-bus14363-subtrip1 started at 2016-01-18 15:46:05, arrived at 2016-01-18 15:53:45, prediction error is -20 \\
-day18-bus14375-subtrip0 started at 2016-01-18 15:14:50, arrived at 2016-01-18 15:21:10, prediction error is -42 \\
-day18-bus401-subtrip2 started at 2016-01-18 11:46:37,    arrived at 2016-01-18 11:55:38, prediction error is 60 \\
-day18-bus14370-subtrip3 started at 2016-01-18 19:30:41, arrived at 2016-01-18 19:38:42, prediction error is 122 \\
-day18-bus410-subtrip0 started at 2016-01-18 16:15:38,    arrived at 2016-01-18 16:22:38, prediction error is 20 \\
-day18-bus402-subtrip0 started at 2016-01-18 10:30:38,    arrived at 2016-01-18 10:44:37, prediction error is 39 \\
-day18-bus14373-subtrip0 started at 2016-01-18 16:46:02, arrived at 2016-01-18 16:53:42, prediction error is -20 \\
-day18-bus14372-subtrip1 started at 2016-01-18 14:14:19, arrived at 2016-01-18 14:20:19, prediction error is -31 \\
-day18-bus14367-subtrip2 started at 2016-01-19 00:35:49, arrived at 2016-01-19 00:40:49, prediction error is -180 \\
-day18-bus14378-subtrip0 started at 2016-01-18 11:00:21, arrived at 2016-01-18 11:07:41, prediction error is 20 \\
-day18-bus402-subtrip1 started at 2016-01-18 19:30:08,    arrived at 2016-01-18 19:38:37, prediction error is 108 \\
-day18-bus400-subtrip0 started at 2016-01-18 10:59:38,    arrived at 2016-01-18 11:07:37, prediction error is 29 \\
-day18-bus14087-subtrip0 started at 2016-01-18 09:30:34, arrived at 2016-01-18 09:36:34, prediction error is -60 \\
-day18-bus409-subtrip0 started at 2016-01-18 08:25:38,    arrived at 2016-01-18 08:32:09, prediction error is -9 \\
-day18-bus14371-subtrip1 started at 2016-01-18 08:54:47, arrived at 2016-01-18 09:01:07, prediction error is -42 \\
-day18-bus14072-subtrip3 started at 2016-01-18 20:51:07, arrived at 2016-01-18 20:57:47, prediction error is -81 \\
-day18-bus14072-subtrip1 started at 2016-01-18 12:45:18, arrived at 2016-01-18 12:53:18, prediction error is -1 \\
-day18-bus14362-subtrip1 started at 2016-01-18 14:45:16, arrived at 2016-01-18 14:50:36, prediction error is -80 \\
-day18-bus405-subtrip2 started at 2016-01-18 13:46:07,    arrived at 2016-01-18 13:52:08, prediction error is -99 \\
+day18-bus14365-subtrip0 started at 2016-01-18 13:45:46, arrived at 2016-01-18 13:52:06, prediction error is -100
+
+day18-bus14368-subtrip2 started at 2016-01-18 21:14:38, arrived at 2016-01-18 21:21:18, prediction error is -20
+
+day18-bus14366-subtrip0 started at 2016-01-18 11:46:35, arrived at 2016-01-18 11:55:36, prediction error is 41
+
+day18-bus14369-subtrip1 started at 2016-01-18 17:46:33, arrived at 2016-01-18 17:55:13, prediction error is 40
+
+day18-bus403-subtrip0 started at 2016-01-18 11:23:07,    arrived at 2016-01-18 11:28:07, prediction error is -59
+
+day18-bus14374-subtrip0 started at 2016-01-18 16:15:35, arrived at 2016-01-18 16:22:35, prediction error is 0
+
+day18-bus14361-subtrip0 started at 2016-01-18 10:16:14,arrived at 2016-01-18 10:28:34, prediction error is 280
+
+day18-bus14370-subtrip0 started at 2016-01-18 10:30:47, arrived at 2016-01-18 10:44:47, prediction error is 40
+
+day18-bus14365-subtrip1 started at 2016-01-18 21:44:37, arrived at 2016-01-18 21:50:17, prediction error is -51
+
+day18-bus407-subtrip1 started at 2016-01-18 10:15:37,    arrived at 2016-01-18 10:28:40, prediction error is 302
+
+day18-bus14368-subtrip1 started at 2016-01-18 13:14:46, arrived at 2016-01-18 13:20:06, prediction error is -100
+
+day18-bus14363-subtrip1 started at 2016-01-18 15:46:05, arrived at 2016-01-18 15:53:45, prediction error is -20
+
+day18-bus14375-subtrip0 started at 2016-01-18 15:14:50, arrived at 2016-01-18 15:21:10, prediction error is -42
+
+day18-bus401-subtrip2 started at 2016-01-18 11:46:37,    arrived at 2016-01-18 11:55:38, prediction error is 60
+
+day18-bus14370-subtrip3 started at 2016-01-18 19:30:41, arrived at 2016-01-18 19:38:42, prediction error is 122
+
+day18-bus410-subtrip0 started at 2016-01-18 16:15:38,    arrived at 2016-01-18 16:22:38, prediction error is 20
+
+day18-bus402-subtrip0 started at 2016-01-18 10:30:38,    arrived at 2016-01-18 10:44:37, prediction error is 39
+
+day18-bus14373-subtrip0 started at 2016-01-18 16:46:02, arrived at 2016-01-18 16:53:42, prediction error is -20
+
+day18-bus14372-subtrip1 started at 2016-01-18 14:14:19, arrived at 2016-01-18 14:20:19, prediction error is -31
+
+day18-bus14367-subtrip2 started at 2016-01-19 00:35:49, arrived at 2016-01-19 00:40:49, prediction error is -180
+
+day18-bus14378-subtrip0 started at 2016-01-18 11:00:21, arrived at 2016-01-18 11:07:41, prediction error is 20
+
+day18-bus402-subtrip1 started at 2016-01-18 19:30:08,    arrived at 2016-01-18 19:38:37, prediction error is 108
+
+day18-bus400-subtrip0 started at 2016-01-18 10:59:38,    arrived at 2016-01-18 11:07:37, prediction error is 29
+
+day18-bus14087-subtrip0 started at 2016-01-18 09:30:34, arrived at 2016-01-18 09:36:34, prediction error is -60
+
+day18-bus409-subtrip0 started at 2016-01-18 08:25:38,    arrived at 2016-01-18 08:32:09, prediction error is -9
+
+day18-bus14371-subtrip1 started at 2016-01-18 08:54:47, arrived at 2016-01-18 09:01:07, prediction error is -42
+
+day18-bus14072-subtrip3 started at 2016-01-18 20:51:07, arrived at 2016-01-18 20:57:47, prediction error is -81
+
+day18-bus14072-subtrip1 started at 2016-01-18 12:45:18, arrived at 2016-01-18 12:53:18, prediction error is -1
+
+day18-bus14362-subtrip1 started at 2016-01-18 14:45:16, arrived at 2016-01-18 14:50:36, prediction error is -80
+
+day18-bus405-subtrip2 started at 2016-01-18 13:46:07,    arrived at 2016-01-18 13:52:08, prediction error is -99
 }
 
 
