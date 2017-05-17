@@ -55,7 +55,7 @@ Christ's College \\[5mm]
 \textcolor{blue}{College}:            & \bf Christ's College                     \\
 \textcolor{blue}{Project Title}:      & \bf Bus Arrival Time Prediction \\
 \textcolor{blue}{Examination}:        & \bf Computer Science Tripos -- Part II, July 2017  \\
-\textcolor{blue}{Word Count}:         & \bf 9548 \\
+\textcolor{blue}{Word Count}:         & \bf 9683 \\
 \textcolor{blue}{Project Originator}: & \bf Dr Richard Mortier \\
 \textcolor{blue}{Supervisor}:         & \bf Dr Richard Mortier \\ 
 \end{tabular}
@@ -111,6 +111,22 @@ and that the dissertation does not contain material that has already been used t
 
 \chapter{Introduction}
 
+\section{Problem Overview}
+
+\includegraphics[width=\textwidth]{figs/problem_overview.png} \\
+
+The most recent GPS points (indicated in green in the diagram above) show
+where the bus has travelled up to now. The future data (indicated in red)
+is not known during the prediction phase. My goal is to predict the future
+data given the present data. \\
+
+Here, I want to predict when the bus will reach the Madingley Park starting from the
+Chesterton Road. One can see it that takes about 8 min. (10:59--11:07) to travel this distance.
+In this project, I implemented an algorithm which predicts the arrival time. \\
+
+The remaining introduction chapter explains \textbf{why} one wants to predict the arrival time.
+
+
 \section{Motivation}
 
 In the European countries public buses are a popular form of transportation. People
@@ -145,20 +161,8 @@ The current technology allows using the GPS data. Modern buses are equipped
 with the devices sensing their GPS position. The device sends the position at regular
 intervals to a determined server that can store and instantly analyse the data. In
 particular, the prediction analysis can be done to guess when the bus will arrive at
-the next stop. The goal of my project is to do the prediction analysis. I aim to build an
-algorithm which predicts the bus arrival times based on the most recent GPS data.
+the next stop. Doing the prediction analysis is the goal of my project.
 
-\section{Problem Overview}
-
-\includegraphics[width=\textwidth]{figs/problem_overview.png} \\
-
-The most recent GPS points (indicated in green in the diagram above) show
-where the bus has travelled up to now. The future data (indicated in red)
-is not known during the prediction phase. My goal is to predict the future
-data given the present data. \\
-
-Here, I want to predict when the bus will reach the Madingley Park starting from the
-Chesterton Road. One can see it that takes about 8 min. (10:59--11:07) to travel this distance.
 
 \chapter{Preparation}
 
@@ -169,6 +173,8 @@ I see 3 main things that require thought before the implementation can commence:
 \item What existing data and tools I will use.
 \item How will I evaluate the algorithm.
 \end{enumerate}
+
+Sections 2.1, 2.2, 2.3 explain each thing one by one.
 
 \section{Algorithm Choice}
 
@@ -183,9 +189,10 @@ remaining travel distance by its current speed. This approach works well for tra
 I handle buses travelling either in one city or between multiple cities. The above
 approach is hopeless for the buses traffic because the current bus speed will quickly
 change due to the upcoming turns, traffic lights or other cars in front. Hence, just the
-momentary speed alone is of little use. Thus, it is important not to code any algorithm.
-I need to choose the one which suits the GPS data I have and the type of traffic I am
-dealing with. I now explain what I did to choose a good approach. \\
+momentary speed alone is of little use. \\
+
+Thus, it is important not to code any algorithm. I need to choose the one which suits the GPS data
+I have and the type of traffic I am dealing with. I now explain what I did to choose a good approach. \\
 
 Firstly, I read a paper describing how other scientists are solving this problem:
 
@@ -366,8 +373,8 @@ My evaluation chapter takes this aspect into account.
 
 \chapter{Implementation}
 
-This chapter describes \textbf{how} the arrival time prediction algorithm works. A few terms in this chapter have a specific
-meaning. I present my terms here:
+This chapter explains \textbf{how} the arrival time prediction algorithm works. A few terms in
+this chapter have a specific meaning. I present my terms here:
 
 \begin{itemize}
 
@@ -383,7 +390,10 @@ generate a path for each route. A good trip (i.e. the one which passed all route
 
 \label{3.1}
 
-Below is the starting point input data example: \\
+This section converts the original data into a convenient format. Here is the input data example:
+
+\:
+
 \includegraphics[scale=0.6]{figs/starting_data.png}
 
 One file contains a single snapshot of all buses. Each entry describes one bus. An entry such as:
@@ -432,8 +442,8 @@ The trips I obtain are used in further implementation sections.
 The GPS points indicated in green show how the bus has moved so far.
 The red points show where the bus will travel in the future,
 a path I do not know yet. Predicting when the bus will arrive at the stop
-requires knowing \textbf{where} the bus will travel next. It turns out that
-in my case getting this information is not straightforward: \\
+requires knowing \textbf{where} the bus will travel next. Getting this information is not straightforward.
+I now explain why it is not straightforward and how I solved the issue. \\
 
 \textbf{Approach Using Static Data} \\
 
@@ -772,7 +782,7 @@ buses that are moving to the last stop. I detect that a bus is moving by
 checking that each newly received GPS point is some distance away from the previous points. When
 I have enough GPS points indicating the bus movement, I can predict its arrival time. At the moment,
 I require a list $N = (p_1, p_2, ..., p_n)$ to contain at least 8 GPS points. Thus,
-it takes about 5 minutes for the system to make the first prediction.
+it takes about 4 minutes for the system to make the first prediction.
 
 \item \textit{\textcolor{blue}{Have I detected what route the vehicle follows?}} I set a boolean
 flag to true whenever the next component detects a route the vehicle follows. Here, I check
@@ -807,7 +817,7 @@ and generates the new historical data to improve the future predictions.
 The current state of a system is such that for each new day I save the JSON files
 to a separate directory. When a day $d+1$ comes, I read all JSON files corresponding
 to day $d$ and perform the data preprocessing part (\textcolor{blue}{\ref{3.1}}) on those files. This generates
-about $20000$ new trips every day. For each of the trip generated I then detect
+about $9000$ new trips every day. For each of the trip generated I then detect
 which route it followed and save this trip into the historical trips directory
 corresponding to that route. Hence, after each day I generate new historical trips
 following a route. New historical trips improve the arrival time prediction
@@ -824,6 +834,9 @@ improvement ideas.
 \section{Evaluation Data Preparation}
 
 \label{4.1}
+
+In this section I partition the evaluation data into multiple sets. Each set corresponds to one route. I can then evaluate
+my algorithm for each route. \\
 
 I take the historical November data and generate the set $S$ consisting of 532428\footnote{
 The size of this set is large but sensible. If 1000 buses are present in each JSON file,
@@ -842,8 +855,6 @@ are found. \\
 I am very selective during this computation. I consider that the bus visited
 the stop $s$ iff the trip contains a GPS point very close to $s$. \\
 
-
-
 The computation returns 25 routes each having more than 100 trips passing through it completely. The next
 sections evaluate my algorithm on these 25 routes. \\
 
@@ -855,13 +866,7 @@ non-existent."} \\
 
 The process above voluntarily discards a lot of data. I want to explain this decision.
 Improving any system is a natural ambition. I see two ways how the prediction algorithm can
-perform better:
-
-\begin{itemize} 
-\item The algorithm itself is improved.
-\item The data becomes better.
-\end{itemize}
-
+perform better. Firstly, the algorithm itself is improved. Secondly, the data becomes better.
 If \textbf{both} options are possible, I think one should \textbf{first} try the latter.
 This case applies to my project. I want to evaluate the algorithm on a data that meets
 the quality standards. Thus, I discard the poor data and use only the qualified data for the
@@ -1067,7 +1072,9 @@ during the rush hours.
 I used one route to present the metrics. The fact that an algorithm works on one route
 does not neccessary imply that it works on others. Hence, I evaluate the algorithm on
 all other routes for which I have enough data ($25$ in total). The
-detailed results are given in the appendix \textcolor{blue}{\ref{B1}}. \\
+detailed all routes results are given in the appendix \textcolor{blue}{\ref{B1}}. Below I present
+the route for which the algorithm performs well and the route for which the algorithm performs badly.
+In addition to that, I explain why the performance varies. \\
 
 \subsection*{Good Route Example}
 
@@ -1291,12 +1298,21 @@ up to a certain extent the prediction system is working.
 
 \chapter{Conclusion}
 
+\section{Project Summary}
+
+The goal of this project was to build an algorithm predicting when the bus arrives at the future stops.
+I have succeeded implementing and evaluating the algorithm.
+
+\section{Personal Thoughts}
+
 Traffic analysis is a hot topic nowadays. In this project I had a chance to explore what it
 means to deal with a large amount of GPS data. I realised that the real world data is messy and
 difficult to handle. I also understood that sometimes a simple solution (justified with a little bit
 of thought) can be more successful than an advanced algorithm and a big amount of theory.
 I hope that someone will carry on analysing the traffic in Cambridge and that the work done by me
 will be easy to understand. \\
+
+If I started the project again, I would have worked in the same way. \\
 
 Thank you for the patience reading this dissertation.
 
